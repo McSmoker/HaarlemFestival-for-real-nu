@@ -1,0 +1,39 @@
+﻿@using Haarlem_Festival.ViewModels
+@model EventViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <a href ="/Management/CreateEvent">Add New</a>
+        <div>
+            <table>
+                <tr>
+                    <th>Location 1 @Model.EventStart</th>
+                    <th>Event Id ofzo @ViewBag.EventId </th>
+                    <th>Salary </th>
+                </tr>
+
+            </table>
+        </div>
+    <div id="categorieFilter">
+        <label> Event</label>
+        <form action="/action_page.php"name=" EventId">
+
+            <select id="EventSelection">
+                @Html.DropDownList("EventId", "Jazz")
+            </select>
+
+        </form>
+    </div>
+
+</body>
+</html>
