@@ -259,6 +259,7 @@
     <Content Include="Views\Management\Index.cshtml" />
     <Content Include="Views\Management\CreateEvent.cshtml" />
     <Content Include="Views\Management\EditEvent.cshtml" />
+    <Content Include="Views\Management\TestView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
