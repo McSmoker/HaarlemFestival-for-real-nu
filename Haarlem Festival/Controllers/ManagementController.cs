@@ -26,7 +26,10 @@ namespace Haarlem_Festival.Controllers
             eventListViewModel.EventStart = Events[0].EventStart;
 
             PopulateEventsDropDownList();
-
+            //we gebruiken nu lekker een mooie viewdata
+            var dropdownVD = CreatePerformerDropList();
+            ViewData["StudDataVD"] = dropdownVD;
+            //zo mooi
             return View("Index",eventListViewModel);
         }
 
@@ -75,6 +78,54 @@ namespace Haarlem_Festival.Controllers
         {
             List<Event> Events = EventDB.Events.ToList();
             ViewBag.EventId = new SelectList(EventDB.Events.ToList(), "EventId", "Location", selectedEvent);
+        }
+
+        HaarlemFestivalDB DB = new HaarlemFestivalDB();// DB Entity Object  
+
+        public ActionResult TestView()
+        {
+            //using viewdata  
+            //dit helpt niet met de idiote database die we hebben waar je shit uit 3 tabellen moet halen fucking
+            //var dropdownVD = new SelectList(DB.Events.ToList(), "EventId", "stud_name");
+            var dropdownVD = CreatePerformerDropList();
+            ViewData["StudDataVD"] = dropdownVD;
+            //dus gaan we dit proberen --CreateDropList()
+            
+            //using viewbag  
+
+            ViewBag.dropdownVD = dropdownVD;
+            return View();
+        }
+
+        public SelectList CreatePerformerDropList()
+        {
+            List<Event> events =  DB.Events.ToList();
+            List<Jazz> Jazz =  DB.Jazz.ToList();
+            List<Performer> Performers = DB.Performer.ToList();
+            //Create a list of select list items - this will be returned as your select list
+            List<SelectListItem> newList = new List<SelectListItem>();
+            //deze zooi in een loopje doen op basis van events.Length
+            //Create the select list item you want to add
+            //geen oplossing nog voor het feit dat Er maar 3 talking en 24 Jazzs zijn maar daar kom ik nog wel uit
+            for (int i = 0; i < Performers.Count; i++)
+            {
+                SelectListItem selListItem = new SelectListItem() { Value = Convert.ToString(events[i].EventId), Text = Performers[i].PerformerName };
+
+
+                //Add select list item to list of selectlistitems
+                newList.Add(selListItem);
+            }
+
+            //Return the list of selectlistitems as a selectlist
+            return new SelectList(newList, "Value", "Text", null);
+
+        }
+
+        public JsonResult GetStudents()//ajax calls this function which will return json object  
+
+        {
+            var resultData = DB.Events.Select(c => new { Value = c.EventId, Text = c.Location }).ToList();
+            return Json(new { result = resultData }, JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -1,39 +1,177 @@
-﻿@using Haarlem_Festival.ViewModels
-@model EventViewModel
-
+﻿
 @{
+    ViewBag.Title = "Index";
     Layout = null;
 }
-
-<!DOCTYPE html>
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Event Management</title>
+    <link href="@Url.Content("~/Content/Management.css")" rel="stylesheet" type="text/css" >
 </head>
 <body>
-    <a href ="/Management/CreateEvent">Add New</a>
-        <div>
-            <table>
-                <tr>
-                    <th>Location 1 @Model.EventStart</th>
-                    <th>Event Id ofzo @ViewBag.EventId </th>
-                    <th>Salary </th>
-                </tr>
-
-            </table>
+    <!-- Top Bar -->
+    <div id="header">
+        <!-- first box -->
+        <div id="logo">
+            <img src="Logo2.png" alt="Festival Logo">
         </div>
-    <div id="categorieFilter">
-        <label> Event</label>
-        <form action="/action_page.php"name=" EventId">
+        <!-- second Box -->
+        <div id="eventFilter">
+            <h1> Manage Events</h1>
+            <p> Filters</p>
+            <div id="startDate">
+                Date From
+                <form action="/action_page.php">
 
-            <select id="EventSelection">
-                @Html.DropDownList("EventId", "Jazz")
-            </select>
+                    <select id="startDate">
+                        <option value="26-7 Thursday">26-7 Thursday</option>
+                        <option value="27-7 Friday">"27-7 Friday"</option>
+                        <option value="28-7 Saturday">"28-7 Saturday"</option>
+                        <option value="29-7 Sunday">"29-7 Sunday"</option>
+                    </select>
+                </form>
+            </div>
+            <div id="endDate">
+                <label> To</label>
+                <form action="/action_page.php">
+                    <select id="startDate">
+                        <option value="26-7 Thursday">26-7 Thursday</option>
+                        <option value="27-7 Friday">"27-7 Friday"</option>
+                        <option value="28-7 Saturday">"28-7 Saturday"</option>
+                        <option value="29-7 Sunday">"29-7 Sunday"</option>
+                    </select>
 
-        </form>
+                </form>
+            </div>
+            <div id="categorieFilter">
+                <label> Event</label>
+                <form action="/action_page.php">
+
+                    <select id="EventSelection">
+                        <option value="Jazz">Jazz</option>
+                        <option value="Talking">Talking</option>
+                    </select>
+
+                </form>
+            </div>
+            <div id="button"
+                 onclick="alert('Hello World!')">
+                Filter
+            </div>
+        </div>
+        <!-- legend box -->
+        <div id="legend">
+            <h2> Legend</h2>
+            <img src="Legend.png" alt="Legend">
+        </div>
+        <!-- Detail level -->
+        <div id="detail">
+            <h3> Detail</h3>
+            <form action="/action_page.php">
+                <label> Detail level</label>
+                <select id="detail">
+                    <option value="Small Event Cards">Small Event Cards</option>
+                    <option value="Medium Event Cards">Medium Event Cards</option>
+                    <option value="Table View">Table View</option>
+                </select>
+                </p>
+            </form>
+            </datalist>
+            </form>
+        </div>
+        <div id="newEvent">
+            <h4> New Event </h4>
+
+            <label> Event Category</label>
+            <form action="/action_page.php">
+                <select id="detail">
+                    <option value="Jazz">Jazz</option>
+                    <option value="Talking">Talking</option>
+                    <option value="Table View">Table View</option>
+                </select>
+                </p>
+            </form>
+            <div id="addbutton"
+                 onclick="alert('Hello World!')">
+                Edit Event
+            </div>
+        </div>
+        <div id="dataExport">
+            <h5> Data Export </h5>
+            <div id="button"
+                 onclick="alert('Hello World!')">
+                View Sales Data
+            </div>
+            <div id="button"
+                 onclick="alert('Hello World!')">
+                Export Sales Data
+            </div>
+        </div>
     </div>
-
+    <div id="Events">
+        <p> Donderdag de dag</p>
+        <div id="smallCard">
+            <div id="smallTop">
+                <div id="topleft">
+                   Dag datum
+                </div>
+                <div id="cardbutton"> Edit </div>
+                <div class="clearboth"></div>
+            </div>
+            <div id=smallBottom>
+                <p> Jazz</p>
+                <p> Artist</p>
+                <p>Location</p>
+                <p>Seats</p>
+                <p>Tickets Sold</p>
+            </div>
+        </div>
+        <div id="smallCard">
+            <p>>Hier komt DATE
+                <button type="button"> Edit </button>
+            </p>
+            <hr>
+            <p> Jazz</p>
+            <p> Artist</p>
+            <p>Location</p>
+            <p>Seats</p>
+            <p>Tickets Sold</p>
+        </div>
+    </div>
+    <div id="button" onclick="alert('Hello World!')">button test</div>
+    <div id="editscreenjazz">
+        <table>
+            <tr>
+                <td>Artist</td>
+                <td><input type="text" name="company" form="my_form" /></td>
+            </tr>
+            <tr>
+                <td>Date</td>
+                <td><input type="text" name="company" form="my_form" /></td>
+            </tr>
+            <tr>
+                <td>Time</td>
+                <td><input type="text" name="company" form="my_form" /></td>
+            </tr>
+            <tr>
+                <td>Location</td>
+                <td><input type="text" name="company" form="my_form" /></td>
+            </tr>
+            <tr>
+                <td>Venue</td>
+                <td><input type="text" name="company" form="my_form" /></td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td><input type="text" name="company" form="my_form" /></td>
+            </tr>
+            <tr>
+                <td>Comments</td>
+                <td><input type="text" name="company" form="my_form" /></td>
+            </tr>
+        </table>
+        @Html.DropDownList("StudDataVD")
+    </div>
 </body>
 </html>
