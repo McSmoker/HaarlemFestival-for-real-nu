@@ -76,5 +76,24 @@ namespace Haarlem_Festival.Controllers
             List<Event> Events = EventDB.Events.ToList();
             ViewBag.EventId = new SelectList(EventDB.Events.ToList(), "EventId", "Location", selectedEvent);
         }
+
+        HaarlemFestivalDB DB = new HaarlemFestivalDB();// DB Entity Object  
+
+        public ActionResult TestPage()
+        {
+            //using viewdata  
+            var dropdownVD = new SelectList(DB.Performer.ToList(), "PerformerId", "Location");
+            ViewData["StudDataVD"] = dropdownVD;
+            //using viewbag  
+            ViewBag.dropdownVD = new SelectList(DB.Events.ToList(), "EventId", "Location");
+            return View();
+        }
+
+        public JsonResult GetStudents()//ajax calls this function which will return json object  
+
+        {
+            var resultData = DB.Performer.Select(c => new { Value = c.PerformerId, Text = c.PerformerName }).ToList();
+            return Json(new { result = resultData }, JsonRequestBehavior.AllowGet);
+        }
     }
 }
