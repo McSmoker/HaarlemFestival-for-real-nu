@@ -25,12 +25,30 @@ namespace Haarlem_Festival.Controllers
             eventListViewModel.Location = Events[0].Location;
             eventListViewModel.EventStart = Events[0].EventStart;
 
+            ///Hier is de oplossing voor alle problemen van humanity
+            GetEvents();
+
             PopulateEventsDropDownList();
             //we gebruiken nu lekker een mooie viewdata
             var dropdownVD = CreatePerformerDropList();
             ViewData["StudDataVD"] = dropdownVD;
             //zo mooi
             return View("Index",eventListViewModel);
+
+        }
+
+        public ActionResult ShowEventEdit(int id)
+        {
+            ViewBag.SelectedEvent = DB.Jazz.Find(id);
+            return View("_EditEvent");
+        }
+
+        public void GetEvents()
+        {
+            List<Jazz> Jazz = DB.Jazz.ToList();
+            List<Performer> Performers = DB.Performer.ToList();
+            ViewBag.Jazz = Jazz;
+            ViewBag.Performer = Performers;
         }
 
         public ActionResult CreateEvent(Jazz e, string BtnSubmit)

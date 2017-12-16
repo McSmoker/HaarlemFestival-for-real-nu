@@ -110,34 +110,111 @@
         </div>
     </div>
     <div id="Events">
-        <p> Donderdag de dag</p>
+        <h2> Thursday 26-7</h2>
+        @foreach (var fun in ViewBag.Jazz)
+        {
+            if ((fun.EventStart.Day) == 26)
+            {
         <div id="smallCard">
             <div id="smallTop">
                 <div id="topleft">
-                   Dag datum
+                    Jazz
                 </div>
-                <div id="cardbutton"> Edit </div>
+                <a href="ShowEventEdit" class="anchorDetail"data-id=" @fun.EventId"> <div id="cardbutton"> Edit </div></a>
                 <div class="clearboth"></div>
             </div>
             <div id=smallBottom>
-                <p> Jazz</p>
-                <p> Artist</p>
-                <p>Location</p>
-                <p>Seats</p>
-                <p>Tickets Sold</p>
+                @foreach (var perf in ViewBag.Performer)
+                {
+                    if (fun.PerformerId == perf.PerformerId)
+                    {
+                <p> @perf.PerformerName</p>}
+                }
+                <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
+                <p>@fun.Location</p>
+                <p>@fun.Seats</p>
+                <p>@fun.TicketsSold</p>
             </div>
-        </div>
-        <div id="smallCard">
-            <p>>Hier komt DATE
-                <button type="button"> Edit </button>
-            </p>
-            <hr>
-            <p> Jazz</p>
-            <p> Artist</p>
-            <p>Location</p>
-            <p>Seats</p>
-            <p>Tickets Sold</p>
-        </div>
+        </div>}
+        }<h2> Friday 27-7</h2>
+        @foreach (var fun in ViewBag.Jazz)
+        {
+            if ((fun.EventStart.Day) == 27)
+            {
+                <div id="smallCard">
+                    <div id="smallTop">
+                        <div id="topleft">
+                            Jazz
+                        </div>
+                        <div id="cardbutton"> Edit </div>
+                        <div class="clearboth"></div>
+                    </div>
+                    <div id=smallBottom>
+                        @foreach (var perf in ViewBag.Performer)
+                        {
+                            if (fun.PerformerId == perf.PerformerId)
+                            {
+                                <p> @perf.PerformerName</p>}
+                        }
+                        <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
+                        <p>@fun.Location</p>
+                        <p>@fun.Seats</p>
+                        <p>@fun.TicketsSold</p>
+                    </div>
+                </div>}
+        }<h2> Saturday 28-7</h2>
+        @foreach (var fun in ViewBag.Jazz)
+        {
+            if ((fun.EventStart.Day) == 28)
+            {
+                <div id="smallCard">
+                    <div id="smallTop">
+                        <div id="topleft">
+                            Jazz
+                        </div>
+                        <div id="cardbutton"> Edit </div>
+                        <div class="clearboth"></div>
+                    </div>
+                    <div id=smallBottom>
+                        @foreach (var perf in ViewBag.Performer)
+                        {
+                            if (fun.PerformerId == perf.PerformerId)
+                            {
+                                <p> @perf.PerformerName</p>}
+                        }
+                        <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
+                        <p>@fun.Location</p>
+                        <p>@fun.Seats</p>
+                        <p>@fun.TicketsSold</p>
+                    </div>
+                </div>}
+        }<h1> Sunday 29-7</h1>
+        @foreach (var fun in ViewBag.Jazz)
+        {
+            if ((fun.EventStart.Day) == 29)
+            {
+                <div id="smallCard">
+                    <div id="smallTop">
+                        <div id="topleft">
+                            Jazz
+                        </div>
+                        <div id="cardbutton"> Edit </div>
+                        <div class="clearboth"></div>
+                    </div>
+                    <div id=smallBottom>
+                        @foreach (var perf in ViewBag.Performer)
+                        {
+                            if (fun.PerformerId == perf.PerformerId)
+                            {
+                                <p> @perf.PerformerName</p>}
+                        }
+                        <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
+                        <p>@fun.Location</p>
+                        <p>@fun.Seats</p>
+                        <p>@fun.TicketsSold</p>
+                    </div>
+                </div>}
+        }
     </div>
     <div id="button" onclick="alert('Hello World!')">button test</div>
     <div id="editscreenjazz">
