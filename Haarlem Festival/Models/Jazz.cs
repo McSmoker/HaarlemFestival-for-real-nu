@@ -24,7 +24,7 @@ namespace Haarlem_Festival.Models
             : base(eventId, eventStart, eventEnd, location, seats, ticketsSold)
         {
             this.Artist = artist;
-            this.Hall = Hall;
+            this.Hall = hall;
         }
     }
 }
