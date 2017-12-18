@@ -24,7 +24,5 @@ namespace Haarlem_Festival.Models
             this.SpeakerOne = speakerOne;
             this.SpeakerTwo = speakerTwo;
         }
-
-
     }
 }

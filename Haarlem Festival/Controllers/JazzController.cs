@@ -17,8 +17,8 @@ namespace Haarlem_Festival.Controllers
         // GET: /Jazz/
         public ActionResult Index()
         {
-            var jazzEvents = db.Jazz.Include(j => j.Artist);
-            return View(jazzEvents.ToList());
+            var events = db.Jazz.Include(j => j.Artist);
+            return View(events.ToList());
         }
 
         // GET: /Jazz/Details/5
