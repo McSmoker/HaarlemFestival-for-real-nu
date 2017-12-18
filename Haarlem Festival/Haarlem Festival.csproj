@@ -229,10 +229,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Jazz\Create.cshtml" />
-    <Content Include="Views\Jazz\Delete.cshtml" />
     <Content Include="Views\Jazz\Details.cshtml" />
-    <Content Include="Views\Jazz\Edit.cshtml" />
     <Content Include="Views\Jazz\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
