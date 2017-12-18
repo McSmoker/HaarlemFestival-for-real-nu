@@ -164,6 +164,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JazzController.cs" />
     <Compile Include="Controllers\ManagementController.cs" />
+    <Compile Include="Controllers\TalkingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -256,6 +257,11 @@
     <Content Include="Views\Jazz\Details.cshtml" />
     <Content Include="Views\Jazz\Edit.cshtml" />
     <Content Include="Views\Jazz\Index.cshtml" />
+    <Content Include="Views\Talking\Create.cshtml" />
+    <Content Include="Views\Talking\Delete.cshtml" />
+    <Content Include="Views\Talking\Details.cshtml" />
+    <Content Include="Views\Talking\Edit.cshtml" />
+    <Content Include="Views\Talking\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
