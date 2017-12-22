@@ -6,12 +6,12 @@ using System.Web.Mvc;
 using Haarlem_Festival.Models;
 using Haarlem_Festival.ViewModels;
 using System.Data.SqlClient;
+using System.Web.Mvc.Html;
 
 namespace Haarlem_Festival.Controllers
 {
     public class ManagementController : Controller
     {
-
         HaarlemFestivalDB EventDB = new HaarlemFestivalDB();
         // GET: Management
         public ActionResult Index()
@@ -22,25 +22,42 @@ namespace Haarlem_Festival.Controllers
 
             List<Event> Events = EventDB.Events.ToList();
 
-            eventListViewModel.Location = Events[0].Location;
-            eventListViewModel.EventStart = Events[0].EventStart;
-
-            ///Hier is de oplossing voor alle problemen van humanity
+            ///Hier is de oplossing voor alle problemen van humanity maar het mag niet van gerwin
             GetEvents();
 
             PopulateEventsDropDownList();
             //we gebruiken nu lekker een mooie viewdata
-            var dropdownVD = CreatePerformerDropList();
-            ViewData["StudDataVD"] = dropdownVD;
+            //var dropdownVD = CreatePerformerDropList();
+            //ViewData["StudDataVD"] = dropdownVD;
             //zo mooi
-            return View("Index",eventListViewModel);
+            ManagementViewModel viewModel = PopulateViewModel();
+
+            return View("Index", viewModel);
+
+        }
+
+        public ManagementViewModel PopulateViewModel()
+        {
+            List<Event> events = EventDB.Events.ToList();
+            List<Jazz> jazzs = EventDB.Jazz.ToList();
+            List<Talking> talkings = EventDB.Talking.ToList();
+            List<Performer> performers = EventDB.Performer.ToList();
+            ManagementViewModel managementViewModel = new ManagementViewModel();
+            managementViewModel.events = events;
+            managementViewModel.jazz = jazzs;
+            managementViewModel.performer = performers;
+            managementViewModel.talking = talkings;
+
+            return managementViewModel;
 
         }
 
         public ActionResult ShowEventEdit(int id)
         {
+
+            ManagementViewModel viewModel = PopulateViewModel();
             ViewBag.SelectedEvent = DB.Jazz.Find(id);
-            return View("_EditEvent");
+            return View("_EditEvent", viewModel);
         }
 
         public void GetEvents()
@@ -56,9 +73,9 @@ namespace Haarlem_Festival.Controllers
             switch (BtnSubmit)
             {
                 case "Save Event":
-                EventDB.Jazz.Add(e);
-                EventDB.SaveChanges();
-                return View("Index");
+                    EventDB.Jazz.Add(e);
+                    EventDB.SaveChanges();
+                    return View("Index");
             }
             return View("CreateEvent");
             ///SaveEvent(e);
@@ -80,13 +97,14 @@ namespace Haarlem_Festival.Controllers
         /// </summary>
         /// <returns></returns>
         /// 
-        public Jazz SaveJazz([Bind(Include = "EventStart,EventEnd,Location,Seats,Artist,Hall,TicketsSold")]Jazz e)
+        public Jazz SaveJazz([Bind(Include = "EventStart,EventEnd,Location,Seats,Artist,Hall")]Jazz e,[Bind(Include ="Artist")]Performer p)
         {
             EventDB.Jazz.Add(e);
+            EventDB.Performer.Add(p);
             EventDB.SaveChanges();
             return e;
         }
-        public Jazz NewJazz(Jazz e,int id)
+        public Jazz NewJazz(Jazz e, int id)
         {
             var eventToUpdate = EventDB.Events.Find(id);
             TryUpdateModel(eventToUpdate, "", new string[] { "EventStart,EventEnd,Location,Seats,Artist,Hall,TicketsSold" });
@@ -108,7 +126,7 @@ namespace Haarlem_Festival.Controllers
             var dropdownVD = CreatePerformerDropList();
             ViewData["StudDataVD"] = dropdownVD;
             //dus gaan we dit proberen --CreateDropList()
-            
+
             //using viewbag  
 
             ViewBag.dropdownVD = dropdownVD;
@@ -117,8 +135,8 @@ namespace Haarlem_Festival.Controllers
 
         public SelectList CreatePerformerDropList()
         {
-            List<Event> events =  DB.Events.ToList();
-            List<Jazz> Jazz =  DB.Jazz.ToList();
+            List<Event> events = DB.Events.ToList();
+            List<Jazz> Jazz = DB.Jazz.ToList();
             List<Performer> Performers = DB.Performer.ToList();
             //Create a list of select list items - this will be returned as your select list
             List<SelectListItem> newList = new List<SelectListItem>();
