@@ -20,8 +20,6 @@ namespace Haarlem_Festival.Controllers
 
             //moet een list maken dus
 
-            List<Event> Events = EventDB.Events.ToList();
-
             ///Hier is de oplossing voor alle problemen van humanity maar het mag niet van gerwin
             GetEvents();
 
@@ -35,7 +33,23 @@ namespace Haarlem_Festival.Controllers
             return View("Index", viewModel);
 
         }
-
+        public ActionResult SaveJazz([Bind(Include = "Location,Seats,Hall")]Jazz e, [Bind(Include = "PerformerName")]Performer p, DateTime Date, DateTime EventStart, DateTime EventEnd)
+        {
+            //ok aangezien de datetime niet aangepast kan worden met e.Eventstart.Date moet er eerst een hele datetime gemaakt worden
+            DateTime jazzTimeStart = new DateTime(Date.Year, Date.Month, Date.Day, EventStart.Hour, EventStart.Minute, EventStart.Second);
+            DateTime jazzTimeEnd = new DateTime(Date.Year, Date.Month, Date.Day, EventEnd.Hour, EventEnd.Minute, EventEnd.Second);
+            e.EventStart = jazzTimeStart;
+            e.EventEnd = jazzTimeEnd;
+            EventDB.Jazz.Add(e);
+            EventDB.Performer.Add(p);
+            EventDB.SaveChanges();
+            ManagementViewModel viewModel = PopulateViewModel();
+            return View("index", viewModel);
+        }
+        public ActionResult UpdateJazz()
+        {
+            return View("index");
+        }
         public ManagementViewModel PopulateViewModel()
         {
             List<Event> events = EventDB.Events.ToList();
@@ -97,13 +111,6 @@ namespace Haarlem_Festival.Controllers
         /// </summary>
         /// <returns></returns>
         /// 
-        public Jazz SaveJazz([Bind(Include = "EventStart,EventEnd,Location,Seats,Artist,Hall")]Jazz e,[Bind(Include ="Artist")]Performer p)
-        {
-            EventDB.Jazz.Add(e);
-            EventDB.Performer.Add(p);
-            EventDB.SaveChanges();
-            return e;
-        }
         public Jazz NewJazz(Jazz e, int id)
         {
             var eventToUpdate = EventDB.Events.Find(id);

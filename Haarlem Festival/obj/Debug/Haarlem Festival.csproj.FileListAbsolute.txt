@@ -528,3 +528,4 @@ C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj
 C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\Debug\Haarlem Festival.csproj.GenerateResource.Cache
 C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\Debug\Haarlem Festival.dll
 C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\Debug\Haarlem Festival.pdb
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\Debug\Haarlem Festival.csprojResolveAssemblyReference.cache

@@ -8,99 +8,14 @@
 <head>
 	<title>Event Management</title>
 	<link href="@Url.Content("~/Content/Management.css")" rel="stylesheet" type="text/css">
-	<title>jQuery UI Dialog - Modal form</title>
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<link rel="stylesheet" href="/resources/demos/style.css">
-	<style>
-		label, input {
-			display: block;
-		}
-
-			input.text {
-				margin-bottom: 12px;
-				width: 95%;
-				padding: .4em;
-			}
-
-		fieldset {
-			padding: 0;
-			border: 0;
-			margin-top: 25px;
-		}
-
-		h1 {
-			font-size: 1.2em;
-			margin: .6em 0;
-		}
-
-		div#users-contain {
-			width: 350px;
-			margin: 20px 0;
-		}
-
-			div#users-contain table {
-				margin: 1em 0;
-				border-collapse: collapse;
-				width: 100%;
-			}
-
-				div#users-contain table td, div#users-contain table th {
-					border: 1px solid #eee;
-					padding: .6em 10px;
-					text-align: left;
-				}
-
-		.ui-dialog .ui-state-error {
-			padding: .3em;
-		}
-
-		.validateTips {
-			border: 1px solid transparent;
-			padding: 0.3em;
-		}
-	</style>
+	
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
   $( function() {
-    var dialog, form,
-
-      // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
-      name = $( "#name" ),
-      email = $( "#email" ),
-      password = $( "#password" ),
-      allFields = $( [] ).add( name ).add( email ).add( password ),
-      tips = $( ".validateTips" );
-
-    function updateTips( t ) {
-      tips
-        .text( t )
-        .addClass( "ui-state-highlight" );
-      setTimeout(function() {
-        tips.removeClass( "ui-state-highlight", 1500 );
-      }, 500 );
-    }
-
-    function checkLength( o, n, min, max ) {
-      if ( o.val().length > max || o.val().length < min ) {
-        o.addClass( "ui-state-error" );
-        updateTips( "Length of " + n + " must be between " +
-          min + " and " + max + "." );
-        return false;
-      } else {
-        return true;
-      }
-    }
-
-    function checkRegexp( o, regexp, n ) {
-      if ( !( regexp.test( o.val() ) ) ) {
-        o.addClass( "ui-state-error" );
-        updateTips( n );
-        return false;
-      } else {
-        return true;
-      }
-    }
+      var dialog, form;
 
     function addUser() {
       var valid = true;
@@ -124,6 +39,18 @@
       }
       return valid;
     }
+    dialogUpdate = $( "#dialog-form-update" ).dialog({
+        autoOpen: false,
+        height: 400,
+        width: 350,
+        modal: true,
+        buttons: {
+            Cancel: function() {
+                dialog.dialog( "close" );
+            }
+        }
+    }
+        )
 
     dialog = $( "#dialog-form" ).dialog({
       autoOpen: false,
@@ -131,7 +58,6 @@
       width: 350,
       modal: true,
       buttons: {
-        "Create an account": addUser,
         Cancel: function() {
           dialog.dialog( "close" );
         }
@@ -142,15 +68,14 @@
       }
     });
 
-    form = dialog.find( "form" ).on( "submit", function( event ) {
-      event.preventDefault();
-      addUser();
-    });
-
     $( "#create-user" ).button().on( "click", function() {
       dialog.dialog( "open" );
     });
-  } );
+
+    $("#cardbutton").button().on("click", function () {
+        dialog.dialog("open");
+    });
+  });
 	</script>
 </head>
 <body>
@@ -164,12 +89,16 @@
 					</tr>
 					<tr>
 						<td>Start Time</td>
-						<td><input type="datetime-local" id="TxtDateStart" name="EventStart" /></td>
+						<td><input type="time" id="TxtDateStart" name="EventStart" /></td>
 					</tr>
 					<tr>
 						<td>End Time</td>
-						<td><input type="datetime-local" id="TxtDateEnd" name="EventEnd" value="" /></td>
+						<td><input type="time" id="TxtDateEnd" name="EventEnd" value="" /></td>
 					</tr>
+                    <tr>
+                        <td>Date</td>
+                        <td><input type="date" id="TxtDate" name="Date" value="" /></td>
+                    </tr>
 					<tr>
 						<td>Location</td>
 						<td><input type="text" id="TxtLocation" name="Location" value="" /></td>
@@ -178,6 +107,10 @@
 						<td>Venue</td>
 						<td><input type="text" id="TxtHall" name="Hall" value="" /></td>
 					</tr>
+                    <tr>
+                        <td>Seats</td>
+                        <td><input type="text" id="TxtSeats" name="Seats" value="" /></td>
+                    </tr>
 					<tr>
 						<td>Price</td>
 						<td><input type="text" name="company" form="my_form" /></td>
@@ -187,6 +120,7 @@
 						<td><input type="text" name="company" form="my_form" /></td>
 					</tr>
 				</table>
+                <input type="submit" name="BtnSave" value="Create Event" />
 			</Form>
 		</div>
 
