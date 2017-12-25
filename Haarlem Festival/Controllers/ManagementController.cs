@@ -21,7 +21,7 @@ namespace Haarlem_Festival.Controllers
             //moet een list maken dus
 
             ///Hier is de oplossing voor alle problemen van humanity maar het mag niet van gerwin
-            GetEvents();
+            VerbodenViewBagCode();
 
             PopulateEventsDropDownList();
             //we gebruiken nu lekker een mooie viewdata
@@ -74,12 +74,32 @@ namespace Haarlem_Festival.Controllers
             return View("_EditEvent", viewModel);
         }
 
-        public void GetEvents()
+        public void VerbodenViewBagCode()
         {
             List<Jazz> Jazz = DB.Jazz.ToList();
             List<Performer> Performers = DB.Performer.ToList();
             ViewBag.Jazz = Jazz;
             ViewBag.Performer = Performers;
+
+            //Code om Datefilter te maken
+            DateTime lastDate = Jazz[0].EventStart.Date;
+            List<string> Dates = new List<string>();
+            Dates.Add(Convert.ToString(Jazz[0].EventStart.Date));
+            foreach (var fun in Jazz)
+            {
+                if (fun.EventStart.Date == lastDate)
+                {
+
+                }
+                else
+                {
+                    lastDate = fun.EventStart.Date;
+                    Dates.Add(Convert.ToString(fun.EventStart.Date));
+                }
+                
+            }
+            SelectList startDateSelect = new SelectList(Dates);
+            ViewBag.StartDate = startDateSelect;
         }
 
         public ActionResult CreateEvent(Jazz e, string BtnSubmit)

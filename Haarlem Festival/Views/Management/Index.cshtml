@@ -135,7 +135,12 @@
 		<div id="eventFilter">
 			<h1> Manage Events</h1>
 			<p> Filters</p>
-			<div id="startDate">
+
+            <p>@using (Html.BeginForm()) {
+                <text>StartDate</text>@Html.DropDownList("startDate", new SelectList(ViewBag.StartDate))
+                <input type="submit" value="Sort" />
+            }</p>
+			@*<div id="startDate">
 				Date From
 				<form action="/action_page.php">
 
@@ -146,7 +151,7 @@
 						<option value="29-7 Sunday">"29-7 Sunday"</option>
 					</select>
 				</form>
-			</div>
+			</div>*@
 			<div id="endDate">
 				<label> To</label>
 				<form action="/action_page.php">
