@@ -75,6 +75,9 @@
     $("#cardbutton").button().on("click", function () {
         dialog.dialog("open");
     });
+    $('.expand').click(function () {
+        $('ul', $(this).parent()).eq(0).toggle();
+    });
   });
 	</script>
 </head>
@@ -137,49 +140,52 @@
 			<p> Filters</p>
 
             <p>@using (Html.BeginForm()) {
-                <text>StartDate</text>@Html.DropDownList("startDate", new SelectList(ViewBag.StartDate))
+                <text>StartDate</text>@Html.DropDownList("startDate", new SelectList(ViewBag.StartDate.Items))
+                
+                <text>EndDate</text>@Html.DropDownList("endDate", new SelectList(ViewBag.StartDate.Items))
                 <input type="submit" value="Sort" />
-            }</p>
-			@*<div id="startDate">
-				Date From
-				<form action="/action_page.php">
+            }
+            </p>
+                @*<div id="startDate">
+                        Date From
+                        <form action="/action_page.php">
 
-					<select id="startDate">
-						<option value="26-7 Thursday">26-7 Thursday</option>
-						<option value="27-7 Friday">"27-7 Friday"</option>
-						<option value="28-7 Saturday">"28-7 Saturday"</option>
-						<option value="29-7 Sunday">"29-7 Sunday"</option>
-					</select>
-				</form>
-			</div>*@
-			<div id="endDate">
-				<label> To</label>
-				<form action="/action_page.php">
-					<select id="startDate">
-						<option value="26-7 Thursday">26-7 Thursday</option>
-						<option value="27-7 Friday">"27-7 Friday"</option>
-						<option value="28-7 Saturday">"28-7 Saturday"</option>
-						<option value="29-7 Sunday">"29-7 Sunday"</option>
-					</select>
+                            <select id="startDate">
+                                <option value="26-7 Thursday">26-7 Thursday</option>
+                                <option value="27-7 Friday">"27-7 Friday"</option>
+                                <option value="28-7 Saturday">"28-7 Saturday"</option>
+                                <option value="29-7 Sunday">"29-7 Sunday"</option>
+                            </select>
+                        </form>
+                    </div>*@
+                @*<div id="endDate">
+                    <label> To</label>
+                    <form action="/action_page.php">
+                        <select id="startDate">
+                            <option value="26-7 Thursday">26-7 Thursday</option>
+                            <option value="27-7 Friday">"27-7 Friday"</option>
+                            <option value="28-7 Saturday">"28-7 Saturday"</option>
+                            <option value="29-7 Sunday">"29-7 Sunday"</option>
+                        </select>
 
-				</form>
-			</div>
-			<div id="categorieFilter">
-				<label> Event</label>
-				<form action="/action_page.php">
+                    </form>
+                </div>*@
+                <div id="categorieFilter">
+                    <label> Event</label>
+                    <form action="/action_page.php">
 
-					<select id="EventSelection">
-						<option value="Jazz">Jazz</option>
-						<option value="Talking">Talking</option>
-					</select>
+                        <select id="EventSelection">
+                            <option value="Jazz">Jazz</option>
+                            <option value="Talking">Talking</option>
+                        </select>
 
-				</form>
-			</div>
-			<div id="button"
-				 onclick="alert('Hello World!')">
-				Filter
-			</div>
-		</div>
+                    </form>
+                </div>
+                <div id="button"
+                     onclick="alert('Hello World!')">
+                    Filter
+                </div>
+</div>
 		<!-- legend box -->
 		<div id="legend">
 			<h2> Legend</h2>
@@ -228,116 +234,296 @@
 			</div>
 		</div>
 	</div>
-	<div id="Events">
-		<h2> Thursday 26-7</h2>
-		@foreach (var fun in Model.jazz)
+    <div id="TreeNode">
+        <ul>
+            <li>
+                <a class="expand">26-7</a>
+                <ul>
+                        <a class="expand">@foreach (var jazz in Model.jazz)
+                        {if ((jazz.EventStart.Day) == 26)
+                            {<a class="expand">
+                            @foreach (var perf in Model.performer)
+                            {
+                        if (jazz.PerformerId == perf.PerformerId)
+                                {
+                                    <li><p> @perf.PerformerName</p></li>}
+                             }
+                            </a>
+                            }
+                        } test
+                        </a>
+                </ul>
+            </li>
+            <li>
+                <a class="expand">27-7</a>
+                <ul>
+                    <li>
+                        <a class="expand">test
+                            @foreach (var jazz in Model.jazz)
+                        { }
+                    </a>
+                </li>
+            </ul>
+        </li><li>
+    <a class="expand">28-7</a>
+    <ul>
+        <li>
+            <a class="expand">test
+                @foreach (var jazz in Model.jazz)
+            { }
+        </a>
+    </li>
+</ul>
+</li>
+            <li>
+                <a class="expand">29-7</a>
+                <ul>
+                    <li>
+                        <a class="expand">test
+                            @foreach (var jazz in Model.jazz)
+                        { }
+                    </a>
+                </li>
+            </ul>
+        </li>
+        </ul>
 
-		{
-			if ((fun.EventStart.Day) == 26)
-			{
-				<div id="smallCard">
-					<div id="smallTop">
-						<div id="topleft">
-							Jazz
-						</div>
-						<div id="cardbutton"><a href="javascript:void(0);" class="anchorDetail" data-id="@fun.EventId">  Edit </a></div>
-						 
-						<div class="clearboth"></div>
-					</div>
-					<div id=smallBottom>
-						@foreach (var perf in Model.performer)
-						{
-							if (fun.PerformerId == perf.PerformerId)
-							{
-								<p> @perf.PerformerName</p>}
-						}
-						<p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
-						<p>@fun.Location</p>
-						<p>@fun.Seats</p>
-						<p>@fun.TicketsSold</p>
-					</div>
-				</div>}
-		}<h2> Friday 27-7</h2>
-		@foreach (var fun in Model.jazz)
-		{
-			if ((fun.EventStart.Day) == 27)
-			{
-				<div id="smallCard">
-					<div id="smallTop">
-						<div id="topleft">
-							Jazz
-						</div>
-						<div id="cardbutton"> Edit </div>
-						<div class="clearboth"></div>
-					</div>
-					<div id=smallBottom>
-						@foreach (var perf in Model.performer)
-						{
-							if (fun.PerformerId == perf.PerformerId)
-							{
-								<p> @perf.PerformerName</p>}
-						}
-						<p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
-						<p>@fun.Location</p>
-						<p>@fun.Seats</p>
-						<p>@fun.TicketsSold</p>
-					</div>
-				</div>}
-		}<h2> Saturday 28-7</h2>
-		@foreach (var fun in Model.jazz)
-		{
-			if ((fun.EventStart.Day) == 28)
-			{
-				<div id="smallCard">
-					<div id="smallTop">
-						<div id="topleft">
-							Jazz
-						</div>
-						<div id="cardbutton"> Edit </div>
-						<div class="clearboth"></div>
-					</div>
-					<div id=smallBottom>
-						@foreach (var perf in Model.performer)
-						{
-							if (fun.PerformerId == perf.PerformerId)
-							{
-								<p> @perf.PerformerName</p>}
-						}
-						<p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
-						<p>@fun.Location</p>
-						<p>@fun.Seats</p>
-						<p>@fun.TicketsSold</p>
-					</div>
-				</div>}
-		}<h1> Sunday 29-7</h1>
-		@foreach (var fun in Model.jazz)
-		{
-			if ((fun.EventStart.Day) == 29)
-			{
-				<div id="smallCard">
-					<div id="smallTop">
-						<div id="topleft">
-							Jazz
-						</div>
-						<div id="cardbutton"> Edit </div>
-						<div class="clearboth"></div>
-					</div>
-					<div id=smallBottom>
-						@foreach (var perf in Model.performer)
-						{
-							if (fun.PerformerId == perf.PerformerId)
-							{
-								<p> @perf.PerformerName</p>}
-						}
-						<p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
-						<p>@fun.Location</p>
-						<p>@fun.Seats</p>
-						<p>@fun.TicketsSold</p>
-					</div>
-				</div>}
-		}
-	</div>
-	<div id="button" onclick="alert('Hello World!')">button test</div>
+    </div>
+	<div id="Events">
+        <div id="EventDaySection">
+    <h2> Thursday 26-7</h2>
+    @foreach (var fun in Model.jazz)
+
+    {
+        if ((fun.EventStart.Day) == 26)
+        {
+            <div id="smallCard">
+                <div id="smallTop">
+                    <div id="topleft">
+                        Jazz
+                    </div>
+                    <div id="cardbutton" class="ui-button ui-corner-all ui-widget"role="button"><a href="javascript:void(0);" class="anchorDetail" data-id="@fun.EventId">  Edit </a></div>
+
+                    <div class="clearboth"></div>
+                </div>
+                <div id=smallBottom>
+                    @foreach (var perf in Model.performer)
+                    {
+                        if (fun.PerformerId == perf.PerformerId)
+                        {
+                            <p> @perf.PerformerName</p>}
+                    }
+                    <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
+                    <p>@fun.Location</p>
+                    <p>@fun.Seats</p>
+                    <p>@fun.TicketsSold</p>
+                </div>
+            </div>
+        }
+    }
+            @foreach (var fun in Model.talking)
+
+            {
+                if ((fun.EventStart.Day) == 26)
+                {
+                    <div id="smallCard">
+                        <div id="smallTop">
+                            <div id="topleft">
+                                Jazz
+                            </div>
+                            <div id="cardbutton"><a href="javascript:void(0);" class="anchorDetail" data-id="@fun.EventId">  Edit </a></div>
+
+                            <div class="clearboth"></div>
+                        </div>
+                        <div id=smallBottom>
+                            @foreach (var perf in Model.performer)
+                    {
+                        if (fun.SpeakerOne.PerformerId == perf.PerformerId)
+                        {
+                                    <p> @perf.PerformerName</p>}
+                    }
+                            <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
+                            <p>@fun.Location</p>
+                            <p>@fun.Seats</p>
+                            <p>@fun.TicketsSold</p>
+                        </div>
+                    </div>
+                }
+            }
+        
+        </div>
+        <div id="EventDaySection">
+    <h2> Friday 27-7</h2>
+    @foreach (var fun in Model.jazz)
+    {
+        if ((fun.EventStart.Day) == 27)
+        {
+            <div id="smallCard">
+                <div id="smallTop">
+                    <div id="topleft">
+                        Jazz
+                    </div>
+                    <div id="cardbutton"> Edit </div>
+                    <div class="clearboth"></div>
+                </div>
+                <div id=smallBottom>
+                    @foreach (var perf in Model.performer)
+                    {
+                        if (fun.PerformerId == perf.PerformerId)
+                        {
+                            <p> @perf.PerformerName</p>}
+                    }
+                    <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
+                    <p>@fun.Location</p>
+                    <p>@fun.Seats</p>
+                    <p>@fun.TicketsSold</p>
+                </div>
+            </div>}
+    }
+            @foreach (var fun in Model.talking)
+
+            {
+                if ((fun.EventStart.Day) == 27)
+                {
+            <div id="smallCard">
+                <div id="smallTop">
+                    <div id="topleft">
+                        Jazz
+                    </div>
+                    <div id="cardbutton"><a href="javascript:void(0);" class="anchorDetail" data-id="@fun.EventId">  Edit </a></div>
+
+                    <div class="clearboth"></div>
+                </div>
+                <div id=smallBottom>
+                    @foreach (var perf in Model.performer)
+                    {
+                        if (fun.SpeakerOne.PerformerId == perf.PerformerId)
+                        {
+                            <p> @perf.PerformerName</p>}
+                    }
+                    <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
+                    <p>@fun.Location</p>
+                    <p>@fun.Seats</p>
+                    <p>@fun.TicketsSold</p>
+                </div>
+            </div>
+        }
+    }
+        </div>
+        <div id="EventDaySection">
+            <h2> Saturday 28-7</h2>
+            @foreach (var fun in Model.jazz)
+            {
+                if ((fun.EventStart.Day) == 28)
+                {
+                    <div id="smallCard">
+                        <div id="smallTop">
+                            <div id="topleft">
+                                Jazz
+                            </div>
+                            <div id="cardbutton"> Edit </div>
+                            <div class="clearboth"></div>
+                        </div>
+                        <div id=smallBottom>
+                            @foreach (var perf in Model.performer)
+                    {
+                        if (fun.PerformerId == perf.PerformerId)
+                        {
+                                    <p> @perf.PerformerName</p>}
+                    }
+                            <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
+                            <p>@fun.Location</p>
+                            <p>@fun.Seats</p>
+                            <p>@fun.TicketsSold</p>
+                        </div>
+                    </div>}
+            }@foreach (var fun in Model.talking)
+
+            {
+                if ((fun.EventStart.Day) == 28)
+                {
+                    <div id="smallCard">
+                        <div id="smallTop">
+                            <div id="topleft">
+                                Jazz
+                            </div>
+                            <div id="cardbutton"><a href="javascript:void(0);" class="anchorDetail" data-id="@fun.EventId">  Edit </a></div>
+
+                            <div class="clearboth"></div>
+                        </div>
+                        <div id=smallBottom>
+                            @foreach (var perf in Model.performer)
+                    {
+                        if (fun.SpeakerOne.PerformerId == perf.PerformerId)
+                        {
+                                    <p> @perf.PerformerName</p>}
+                    }
+                            <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
+                            <p>@fun.Location</p>
+                            <p>@fun.Seats</p>
+                            <p>@fun.TicketsSold</p>
+                        </div>
+                    </div>
+                }
+            }
+            </div>
+        <div id="EventDaySection">
+            <h1> Sunday 29-7</h1>
+            @foreach (var fun in Model.jazz)
+            {
+                if ((fun.EventStart.Day) == 29)
+                {
+                    <div id="smallCard">
+                        <div id="smallTop">
+                            <div id="topleft">
+                                Jazz
+                            </div>
+                            <div id="cardbutton"> Edit </div>
+                            <div class="clearboth"></div>
+                        </div>
+                        <div id=smallBottom>
+                            @foreach (var perf in Model.performer)
+                    {
+                        if (fun.PerformerId == perf.PerformerId)
+                        {
+                                    <p> @perf.PerformerName</p>}
+                    }
+                            <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
+                            <p>@fun.Location</p>
+                            <p>@fun.Seats</p>
+                            <p>@fun.TicketsSold</p>
+                        </div>
+                    </div>}
+            }@foreach (var fun in Model.talking)
+
+            {
+                if ((fun.EventStart.Day) == 29)
+                {
+                    <div id="smallCard">
+                        <div id="smallTop">
+                            <div id="topleft">
+                                Jazz
+                            </div>
+                            <div id="cardbutton"><a href="javascript:void(0);" class="anchorDetail" data-id="@fun.EventId">  Edit </a></div>
+
+                            <div class="clearboth"></div>
+                        </div>
+                        <div id=smallBottom>
+                            @foreach (var perf in Model.performer)
+                    {
+                        if (fun.SpeakerOne.PerformerId == perf.PerformerId)
+                        {
+                                    <p> @perf.PerformerName</p>}
+                    }
+                            <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
+                            <p>@fun.Location</p>
+                            <p>@fun.Seats</p>
+                            <p>@fun.TicketsSold</p>
+                        </div>
+                    </div>
+                }
+            }</div>
+        </div>
 	<div id="editscreenjazz">
 		<table>
 			<tr>

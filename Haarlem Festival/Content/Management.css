@@ -2,6 +2,10 @@
     background-color: #f3fbfe;
 }
 
+ul li ul {
+  display: none;
+}
+
 #logo {
     float: left;
     width: = 10%;
@@ -186,4 +190,16 @@ table, th, td {
     float: left;
     text-align: center;
     line-height: 53px;
+}
+#Events{
+    float:left;
+    width: 80%
+}
+#TreeNode{
+    float:left;
+    width: 10%;
+}
+#EventDaySection{
+    float:left;
+    width:100%;
 }

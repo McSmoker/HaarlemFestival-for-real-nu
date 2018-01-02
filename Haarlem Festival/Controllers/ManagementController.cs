@@ -33,6 +33,63 @@ namespace Haarlem_Festival.Controllers
             return View("Index", viewModel);
 
         }
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult Index(FormCollection formCollection)
+        {
+            VerbodenViewBagCode();
+            DateTime startDate = Convert.ToDateTime(formCollection["startDate"]);
+            DateTime endDate = Convert.ToDateTime(formCollection["endDate"]);
+            ManagementViewModel viewModel = FilteredViewModel(startDate,endDate);
+            return View("Index", viewModel);
+        }
+        public ManagementViewModel FilteredViewModel(DateTime startDate, DateTime endDate)
+        {
+
+            List<Event> events = new List<Event>();
+            List<Jazz> jazzs = new List<Jazz>();
+            List<Talking> talkings = new List<Talking>();
+            List<Performer> performers = EventDB.Performer.ToList();
+            ManagementViewModel managementViewModel = new ManagementViewModel();
+            FillList(ref events, ref jazzs, ref talkings,ref startDate,endDate);
+            while (startDate != endDate)
+            {
+                FillList(ref events, ref jazzs, ref talkings, ref startDate, endDate);
+            }
+            managementViewModel.events = events;
+            managementViewModel.jazz = jazzs;
+            managementViewModel.performer = performers;
+            managementViewModel.talking = talkings;
+
+            return managementViewModel;
+        }
+
+        public void FillList(ref List<Event> events,ref  List<Jazz> jazz,ref List<Talking> talking,ref DateTime startDate, DateTime endDate)
+        {
+            foreach (var eve in EventDB.Events.ToList())
+            {
+                if (eve.EventStart.Day == startDate.Day)
+                {
+                    events.Add(eve);
+                }
+            }
+            foreach (var jazzs in EventDB.Jazz.ToList())
+            {
+                if (jazzs.EventStart.Day == startDate.Day)
+                {
+                    jazz.Add(jazzs);
+                }
+            }
+            foreach (var talk in EventDB.Talking.ToList())
+            {
+                if (talk.EventStart.Day == startDate.Day)
+                {
+                    talking.Add(talk);
+                }
+            }
+            if (startDate != endDate) {
+                startDate = startDate.AddDays(1);
+            }
+        }
         public ActionResult SaveJazz([Bind(Include = "Location,Seats,Hall")]Jazz e, [Bind(Include = "PerformerName")]Performer p, DateTime Date, DateTime EventStart, DateTime EventEnd)
         {
             //ok aangezien de datetime niet aangepast kan worden met e.Eventstart.Date moet er eerst een hele datetime gemaakt worden
