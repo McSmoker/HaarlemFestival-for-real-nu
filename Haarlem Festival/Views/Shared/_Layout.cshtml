@@ -1,41 +1,45 @@
-﻿<!DOCTYPE html>
+﻿@using Haarlem_Festival.Helpers
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
+    <link href="~/Content/main.css" rel="stylesheet" />
+    @*@Styles.Render("~/Content/css")*@
     @Scripts.Render("~/bundles/modernizr")
-
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    <ul class="navigation-bar">
+        <li class="navigation-logo"></li>
+        <li class="navigation-button @Html.IsActive(actions: "Index", controllers: "Home")">
+            @*Er wordt voor de Home en Agenda links geen @Html.ActionLink gebruikt omdat het een klikbaar icoontje moet hebben.
+            Hiervoor moet de tekst van de link slechts een &nbsp; bevatten en dit kan niet zonder een nieuwe 'helper' te schrijven.
+            bron: https://forums.asp.net/t/1828682.aspx?Actionlink+and+white+space*@
+            @Html.ActionLink("Home", "Index", new { controller = "Home" }, new { @class = "navigation-bar-link" })
+        </li>
+        <li class="navigation-button @Html.IsActive(actions: "Index", controllers: "Historic")">
+            @Html.ActionLink("Historic", "Index", new { controller = "Historic" }, new { @class = "navigation-bar-link" })
+        </li>
+        <li class="navigation-button @Html.IsActive(actions: "Index", controllers: "Dinner")">
+            @Html.ActionLink("Dinner", "Index", new { controller = "Dinner" }, new { @class = "navigation-bar-link" })
+        </li>
+        <li class="navigation-button @Html.IsActive(actions: "Index", controllers: "Jazz")">
+            @Html.ActionLink("Jazz", "Index", new { controller = "Jazz" }, new { @class = "navigation-bar-link" })
+        </li>
+        <li class="navigation-button @Html.IsActive(actions: "Index", controllers: "Talking")">
+            @Html.ActionLink("Talking", "Index", new { controller = "Talking" }, new { @class = "navigation-bar-link" })
+        </li>
+        <li class="navigation-button @Html.IsActive(actions: "Index", controllers: "Agenda")">
+            @Html.ActionLink("Agenda", "Index", new { controller = "Agenda" }, new { @class = "navigation-bar-link" })
+        </li>
+    </ul>
+
+    @RenderBody()
+
+    <footer>
+        <p>&copy; @DateTime.Now.Year | Obi-Wan Pagers inc.</p>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

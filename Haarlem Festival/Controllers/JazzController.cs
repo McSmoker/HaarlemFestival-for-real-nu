@@ -14,13 +14,14 @@ namespace Haarlem_Festival.Controllers
     {
         private HaarlemFestivalDB db = new HaarlemFestivalDB();
 
-        // GET: /Jazz/
+        // GET: Jazz
         public ActionResult Index()
         {
-            return View(db.Jazz.ToList());
+            var events = db.Jazz.Include(j => j.Artist);
+            return View(events.ToList());
         }
 
-        // GET: /Jazz/Details/5
+        // GET: Jazz/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,18 +36,19 @@ namespace Haarlem_Festival.Controllers
             return View(jazz);
         }
 
-        // GET: /Jazz/Create
+        // GET: Jazz/Create
         public ActionResult Create()
         {
+            ViewBag.PerformerId = new SelectList(db.Performer, "PerformerId", "PerformerName");
             return View();
         }
 
-        // POST: /Jazz/Create
+        // POST: Jazz/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="EventId,EventDateTime,Location,Price,Seats,TicketsSold,Artist,Hall")] Jazz jazz)
+        public ActionResult Create([Bind(Include = "EventId,EventStart,EventEnd,Location,Seats,TicketsSold,Hall,PerformerId")] Jazz jazz)
         {
             if (ModelState.IsValid)
             {
@@ -55,10 +57,11 @@ namespace Haarlem_Festival.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.PerformerId = new SelectList(db.Performer, "PerformerId", "PerformerName", jazz.PerformerId);
             return View(jazz);
         }
 
-        // GET: /Jazz/Edit/5
+        // GET: Jazz/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -70,15 +73,16 @@ namespace Haarlem_Festival.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.PerformerId = new SelectList(db.Performer, "PerformerId", "PerformerName", jazz.PerformerId);
             return View(jazz);
         }
 
-        // POST: /Jazz/Edit/5
+        // POST: Jazz/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="EventId,EventDateTime,Location,Price,Seats,TicketsSold,Artist,Hall")] Jazz jazz)
+        public ActionResult Edit([Bind(Include = "EventId,EventStart,EventEnd,Location,Seats,TicketsSold,Hall,PerformerId")] Jazz jazz)
         {
             if (ModelState.IsValid)
             {
@@ -86,10 +90,11 @@ namespace Haarlem_Festival.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.PerformerId = new SelectList(db.Performer, "PerformerId", "PerformerName", jazz.PerformerId);
             return View(jazz);
         }
 
-        // GET: /Jazz/Delete/5
+        // GET: Jazz/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -104,7 +109,7 @@ namespace Haarlem_Festival.Controllers
             return View(jazz);
         }
 
-        // POST: /Jazz/Delete/5
+        // POST: Jazz/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
