@@ -4,16 +4,6 @@
     
 }
 
-<script>
-    function buttonClicked(e) {
-        var buttons = document.getElementsByClassName('btn-day-selection');
-        for (i = 0; i < buttons.length; i++) {
-            buttons[i].classList.remove('btn-day-selection-clicked');
-        }
-        e.classList.add('btn-day-selection-clicked');
-    }
-</script>
-
 <div class="block">
     <div class="block-header">
         <p class="block-header-title">Haarlem Jazz Info</p>
@@ -38,10 +28,10 @@
     </div>
     <div class="content-area-wrap">
         <div class="btn-day-selection-wrap">
-            <input type="button" class="btn-day-selection btn-day-selection-clicked" onclick="buttonClicked(this)" value="Thursday (26/07/2018)" />
-            <input type="button" class="btn-day-selection" onclick="buttonClicked(this)" value="Friday (27/07/2018)" />
-            <input type="button" class="btn-day-selection" onclick="buttonClicked(this)" value="Saturday (28/07/2018)" />
-            <input type="button" class="btn-day-selection" onclick="buttonClicked(this)" value="Sunday (29/07/2018)" />
+            <input type="button" class="btn-day-selection btn-day-selection-clicked" @*onclick="daySelectionButtonClicked(this)"*@ value="Thursday (26/07/2018)" />
+            <input type="button" class="btn-day-selection" @*onclick="daySelectionButtonClicked(this)"*@ value="Friday (27/07/2018)" />
+            <input type="button" class="btn-day-selection" @*onclick="daySelectionButtonClicked(this)"*@ value="Saturday (28/07/2018)" />
+            <input type="button" class="btn-day-selection" @*onclick="daySelectionButtonClicked(this)"*@ value="Sunday (29/07/2018)" />
         </div>
         <div class="passe-partout-wrap">
             <div class="passe-partout-header">
@@ -94,11 +84,11 @@
                 <table class="practical-info-table">
                     <tr>
                         <td class="practical-info-table-td">Date</td>
-                        <td class="practical-info-table-td">@item.EventStart</td>
+                        <td class="practical-info-table-td">@item.EventStart.ToString("dd/MM/yyyy")</td>
                     </tr>
                     <tr>
                         <td class="practical-info-table-td">Time</td>
-                        <td class="practical-info-table-td">@item.EventEnd</td>
+                        <td class="practical-info-table-td">@item.EventStart.ToShortTimeString() - @item.EventEnd.ToShortTimeString()</td>
                     </tr>
                     <tr>
                         <td class="practical-info-table-td">Location | Hall</td>
@@ -113,7 +103,7 @@
                         <td class="practical-info-table-td">@item.Seats</td>
                     </tr>
                 </table>
-                <input type="button" class="action-btn" value="Add ticket to cart" />
+                <input type="button" onclick="addTicketToCart(this)" id="@item.EventId" class="action-btn" value="Add ticket to cart" />
             </div>
         </div>
     </div>
@@ -132,3 +122,10 @@
         </p>
     </div>
 </div>
+
+<script>
+    $(".btn-day-selection").click(function () {
+        $(".btn-day-selection").removeClass("btn-day-selection-clicked");
+        $(this).addClass("btn-day-selection-clicked");
+    });
+</script>
