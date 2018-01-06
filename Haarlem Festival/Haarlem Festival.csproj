@@ -249,7 +249,6 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Jazz\Details.cshtml" />
     <Content Include="Views\Jazz\Index.cshtml" />
     <Content Include="Views\Talking\Create.cshtml" />
     <Content Include="Views\Talking\Delete.cshtml" />
@@ -277,10 +276,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Management\TestPage.cshtml" />
-    <Content Include="Views\Jazz\Create.cshtml" />
-    <Content Include="Views\Jazz\Delete.cshtml" />
-    <Content Include="Views\Jazz\Details.cshtml" />
-    <Content Include="Views\Jazz\Edit.cshtml" />
     <Content Include="Views\Jazz\Index.cshtml" />
     <Content Include="Views\Dinner\Index.cshtml" />
     <Content Include="Views\Historic\Index.cshtml" />

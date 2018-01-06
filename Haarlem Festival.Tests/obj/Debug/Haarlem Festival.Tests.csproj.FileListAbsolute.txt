@@ -97,3 +97,37 @@ D:\HF For Real\Haarlem Festival.Tests\bin\Debug\Microsoft.Owin.Security.OAuth.xm
 D:\HF For Real\Haarlem Festival.Tests\obj\Debug\Haarlem Festival.Tests.csprojResolveAssemblyReference.cache
 D:\HF For Real\Haarlem Festival.Tests\obj\Debug\Haarlem Festival.Tests.dll
 D:\HF For Real\Haarlem Festival.Tests\obj\Debug\Haarlem Festival.Tests.pdb
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\Haarlem Festival.Tests.dll.config
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\Haarlem Festival.Tests.dll
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\Haarlem Festival.Tests.pdb
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\Haarlem Festival.dll
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\Newtonsoft.Json.dll
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\Microsoft.Owin.dll
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\System.Web.Optimization.dll
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\Owin.dll
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\EntityFramework.dll
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\Microsoft.Owin.Security.dll
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\Haarlem Festival.pdb
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\Haarlem Festival.dll.config
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\Microsoft.Web.Infrastructure.xml
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\Microsoft.Owin.xml
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\System.Web.Optimization.xml
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\EntityFramework.xml
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\Microsoft.Owin.Security.xml
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+L:\HF 20180105\Haarlem Festival.Tests\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+L:\HF 20180105\Haarlem Festival.Tests\obj\Debug\Haarlem Festival.Tests.csprojResolveAssemblyReference.cache
+L:\HF 20180105\Haarlem Festival.Tests\obj\Debug\Haarlem Festival.Tests.csproj.CoreCompileInputs.cache
+L:\HF 20180105\Haarlem Festival.Tests\obj\Debug\Haarlem Festival.Tests.dll
+L:\HF 20180105\Haarlem Festival.Tests\obj\Debug\Haarlem Festival.Tests.pdb
