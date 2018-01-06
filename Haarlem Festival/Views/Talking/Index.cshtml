@@ -1,69 +1,71 @@
 ﻿@model IEnumerable<Haarlem_Festival.Models.Talking>
 
 @{
-    ViewBag.Title = "Index";
+    Layout = null;
 }
 
-<h2>Index</h2>
+<!DOCTYPE html>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.EventDateTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Location)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Seats)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TicketsSold)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Speaker1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Speaker2)
-        </th>
-        <th></th>
-    </tr>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.EventDateTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Location)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Seats)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TicketsSold)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Speaker1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Speaker2)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EventId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EventId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EventId })
-        </td>
-    </tr>
-}
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EventStart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventEnd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seats)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TicketsSold)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpeakerOne)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpeakerTwo)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventStart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventEnd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seats)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TicketsSold)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.SpeakerOne.PerformerName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.SpeakerTwo.PerformerName)
+            </td>
 
-</table>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
