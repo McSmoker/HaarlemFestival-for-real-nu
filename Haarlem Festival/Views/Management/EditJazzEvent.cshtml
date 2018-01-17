@@ -1,0 +1,74 @@
+﻿@Model Management
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EditJazzEvent</title>
+</head>
+<body>
+    <div id="dialog-form2" title="Update Event">
+        <p class="validateTips">All form fields are required.</p>
+        <form action="/Management/UpdateJazz" method="post">
+            <table>
+                @foreach (var eve in Model.jazz)
+                {
+                <tr>
+                    <td>eventID</td>
+                    <td><input type="text" id="TxtEventId" name="EventId" value="@eve.EventId" /></td>
+                </tr>
+                <tr>
+                    <td>PerformerName</td>
+                    @foreach (var perf in Model.performer)
+                    {
+                        if (eve.PerformerId == perf.PerformerId)
+                        {
+                    <td><input type="text" id="TxtArtist" name="PerformerImagePath" value="@perf.PerformerImagePath" /></td>        
+                    <td><input type="text" id="TxtArtist" name="PerformerInfo" value="@perf.PerformerInfo" /></td>
+                    <td><input type="text" id="TxtArtist" name="PerformerName" value="@perf.PerformerName" /></td>
+                    <td><input type="text" id="TxtArtist" name="PerformerId" value="@eve.PerformerId" /></td>
+                        }
+                    }
+                </tr>
+                <tr>
+                    <td>Start Time</td>
+                    <td><input type="time" id="TxtDateStart" name="EventStart"value="@eve.EventStart " /></td>
+                </tr>
+                <tr>
+                    <td>End Time</td>
+                    <td><input type="time" id="TxtDateEnd" name="EventEnd" value="@eve.EventEnd" /></td>
+                </tr>
+                <tr>
+                    <td>Date</td>
+                    <td><input type="date" id="TxtDate" name="Date" value="@eve.EventStart" /></td>
+                </tr>
+                <tr>
+                    <td>Location</td>
+                    <td><input type="text" id="TxtLocation" name="Location" value="@eve.Location" /></td>
+                </tr>
+                <tr>
+                    <td>Venue</td>
+                    <td><input type="text" id="TxtHall" name="Hall" value="@eve.Hall" /></td>
+                </tr>
+                <tr>
+                    <td>Seats</td>
+                    <td><input type="text" id="TxtSeats" name="Seats" value="@eve.Seats" /></td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td><input type="text" name="company" form="my_form" /></td>
+                </tr>
+                <tr>
+                    <td>Comments</td>
+                    <td><input type="text" name="company" form="my_form" /></td>
+                </tr>}
+            </table>
+            <input type="submit" name="BtnSave" value="Create Event" />
+        </form>
+        </div>
+</body>
+</html>

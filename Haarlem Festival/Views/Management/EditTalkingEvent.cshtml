@@ -1,0 +1,73 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EditTalkingEvent</title>
+</head>
+<body>
+    <div id="dialog-form2" title="Update Event">
+        <p class="validateTips">All form fields are required.</p>
+        <form action="/Management/UpdateTalking" method="post">
+            <table>
+                @foreach (var eve in Model.talking)
+                {
+                    <tr>
+                        <td>eventID</td>
+                        <td><input type="text" id="TxtEventId" name="EventId" value="@eve.EventId" /></td>
+                    </tr>
+                    <tr>
+                        
+                        @foreach (var perf in Model.performer)
+                        {
+                            if (eve.SpeakerOne.PerformerId == perf.PerformerId)
+                            {
+                                <td>PerformerName</td>
+                                <td><input type="text" id="TxtArtist1" name="Artist" value="@perf.PerformerName" /></td>
+                            }
+                            if (eve.SpeakerTwo.PerformerId == perf.PerformerId)
+                            {
+                                <td>PerformerName</td>
+                                <td><input type="text" id="TxtArtist2" name="Artist" value="@perf.PerformerName" /></td>
+                            }
+                        }
+                    </tr>
+                    <tr>
+                        <td>Start Time</td>
+                        <td><input type="time" id="TxtDateStart" name="EventStart" value="@eve.EventStart " /></td>
+                    </tr>
+                    <tr>
+                        <td>End Time</td>
+                        <td><input type="time" id="TxtDateEnd" name="EventEnd" value="@eve.EventEnd" /></td>
+                    </tr>
+                    <tr>
+                        <td>Date</td>
+                        <td><input type="date" id="TxtDate" name="Date" value="@eve.EventStart" /></td>
+                    </tr>
+                    <tr>
+                        <td>Location</td>
+                        <td><input type="text" id="TxtLocation" name="Location" value="@eve.Location" /></td>
+                    </tr>
+                    <tr>
+                        <td>Seats</td>
+                        <td><input type="text" id="TxtSeats" name="Seats" value="@eve.Seats" /></td>
+                    </tr>
+                    <tr>
+                        <td>Price</td>
+                        <td><input type="text" name="company" form="my_form" /></td>
+                    </tr>
+                    <tr>
+                        <td>Comments</td>
+                        <td><input type="text" name="company" form="my_form" /></td>
+                    </tr>}
+            </table>
+            <input type="submit" name="BtnSave" value="Create Event" />
+        </form>
+    </div>
+</body>
+</html>
