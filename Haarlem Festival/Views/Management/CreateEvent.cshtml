@@ -11,20 +11,48 @@
     <title>CreateEvent</title>
 </head>
 <body>
-    <div>
+    <div id="dialog-form" title="Create new Event">
+        <p class="validateTips">All form fields are required.</p>
         <form action="/Management/SaveJazz" method="post">
-            EventStart: <input type="datetime-local" id="TxtDateStart" name="EventStart"/><br />
-            EventEnd: <input type="datetime-local" id="TxtDateEnd" name="EventEnd" value="" /><br />
-            Location: <input type="text" id="TxtLocation" name="Location" value="" /><br />
-            Seats: <input type="text" id="TxtSeats" name="Seats" value="" /><br />
-            Artist <input type="text" id="TxtArtist" name="Artist" value="" /><br />
-            Hall <input type="text" id="TxtHall" name="Hall" value="" /><br />
-            TicketsSold<<input type="text" id="TxtTicketsSold" name="TicketsSold" value="" /><br />
+            <table>
+                <tr>
+                    <td>PerformerName</td>
+                    <td><input type="text" id="TxtArtist" name="PerformerName" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Start Time</td>
+                    <td><input type="time" id="TxtDateStart" name="EventStart" value="" /></td>
+                </tr>
+                <tr>
+                    <td>End Time</td>
+                    <td><input type="time" id="TxtDateEnd" name="EventEnd" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Date</td>
+                    <td><input type="date" id="TxtDate" name="Date" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Location</td>
+                    <td><input type="text" id="TxtLocation" name="Location" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Venue</td>
+                    <td><input type="text" id="TxtHall" name="Hall" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Seats</td>
+                    <td><input type="text" id="TxtSeats" name="Seats" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td><input type="text" name="company" form="my_form" /></td>
+                </tr>
+                <tr>
+                    <td>Comments</td>
+                    <td><input type="text" name="company" form="my_form" /></td>
+                </tr>
+            </table>
             <input type="submit" name="BtnSave" value="Create Event" />
-            <input type="button" name="BtnReset" value="Reset" />
-        </form>
-        <form action="/Management/SaveJazz">
-            <input type="submit" value="Go to Google" />
         </form>
     </div>
 </body>

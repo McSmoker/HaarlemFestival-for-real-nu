@@ -97,3 +97,41 @@ D:\HF For Real\Haarlem Festival.Tests\bin\Debug\Microsoft.Owin.Security.OAuth.xm
 D:\HF For Real\Haarlem Festival.Tests\obj\Debug\Haarlem Festival.Tests.csprojResolveAssemblyReference.cache
 D:\HF For Real\Haarlem Festival.Tests\obj\Debug\Haarlem Festival.Tests.dll
 D:\HF For Real\Haarlem Festival.Tests\obj\Debug\Haarlem Festival.Tests.pdb
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Haarlem Festival.Tests.dll.config
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Haarlem Festival.Tests.dll
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Haarlem Festival.Tests.pdb
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Haarlem Festival.dll
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Spire.Common.dll
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Spire.License.dll
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Spire.Pdf.dll
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Spire.XLS.dll
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\System.Web.Mvc.dll
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Microsoft.Owin.dll
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\System.Web.Optimization.dll
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Owin.dll
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\EntityFramework.dll
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Microsoft.mshtml.dll
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Haarlem Festival.pdb
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Microsoft.Web.Infrastructure.xml
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Microsoft.Owin.xml
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\System.Web.Optimization.xml
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\EntityFramework.xml
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Microsoft.Owin.Security.xml
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\obj\Debug\Haarlem Festival.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\obj\Debug\Haarlem Festival.Tests.dll
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival.Tests\obj\Debug\Haarlem Festival.Tests.pdb

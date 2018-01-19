@@ -1,0 +1,61 @@
+﻿@Model Management
+<ExportExcelDemo.Models.EmployeeViewModel>
+    @{
+        ViewBag.Title = "SalesData";
+        Layout = null;
+    }
+
+    @using (Html.BeginForm("ExportToExcel", "Management", FormMethod.Post))
+    {
+
+        <br />
+        <br />
+        <h2>
+            Export Data To Excel
+        </h2>
+        <table style="background-color: white; width: 100%;">
+            <tr>
+                <th style="border: 1px solid black; text-align: left; width: 20%; padding-left: 20px;">
+                    Name
+                </th>
+                <th style="border: 2px solid black; text-align: center; width: 20%">
+                    Email
+                </th>
+                <th style="border: 2px solid black; text-align: center; width: 20%">
+                    Age
+                </th>
+                <th style="border: 2px solid black; text-align: center; width: 20%">
+                    Address
+                </th>
+                <th style="border: 2px solid black; text-align: center; width: 20%">
+                    Department
+                </th>
+            </tr>
+            @foreach (var itm in Model.jazz)
+            {
+
+                <tr>
+                    <td style="padding-left: 20px;">
+                        @itm.Location)
+                    </td>
+                    <td style="padding-left: 20px;">
+                        @itm.Seats)
+                    </td>
+                    <td style="padding-left: 20px;">
+                        @itm.TicketsSold)
+                    </td>
+                    <td style="padding-left: 50px;">
+                        @itm.EventId)
+                    </td>
+                </tr>
+            }
+
+            <tr>
+                <td colspan="4">
+                    <br />
+                    <br />
+                    <input type="submit" value="Export to Excel" class="button" />
+                </td>
+            </tr>
+        </table>
+    }

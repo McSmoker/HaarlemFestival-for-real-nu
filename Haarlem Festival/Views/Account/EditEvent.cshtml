@@ -1,0 +1,56 @@
+﻿@using Haarlem_Festival.ViewModels
+@model EventViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EditEvent</title>
+</head>
+<body>
+    <div>
+            <h1>Form Demo</h1>
+            <form>
+                <fieldset>
+                    <p>
+                        <label>Select list</label>
+                        <select id="myList">
+                            <option value="1">@Model.Location one</option>
+                            <option value="2">two</option>
+                            <option value="3">three</option>
+                            <option value="4">four</option>
+                        </select>
+                    </p>
+                </fieldset>
+            </form>
+        <form action="/Management/NewJazz" method="post">
+            EventStart: <input type="datetime-local" id="TxtDateStart" name="EventStart" /><br />
+            EventEnd: <input type="datetime-local" id="TxtDateEnd" name="EventEnd" value="" /><br />
+            Location: <input type="text" id="TxtLocation" name="Location" value="" /><br />
+            Seats: <input type="text" id="TxtSeats" name="Seats" value="" /><br />
+            Artist <input type="text" id="TxtArtist" name="Artist" value="" /><br />
+            Hall <input type="text" id="TxtHall" name="Hall" value="" /><br />
+            TicketsSold<<input type="text" id="TxtTicketsSold" name="TicketsSold" value="" /><br />
+            <input type="submit" name="BtnSave" value="Create Event" />
+            <input type="button" name="BtnReset" value="Reset" />
+        </form>
+        <form action="/Management/SaveJazz">
+            <input type="submit" value="Go to Google" />
+        </form>
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="DepartmentID">Department</label>
+            <div class="col-md-10">
+                @Html.DropDownList("EventId", String.Empty)
+                @Html.ValidationMessageFor(model => model.EventId)
+            </div>
+        </div>
+    </div>
+</body>
+</html>

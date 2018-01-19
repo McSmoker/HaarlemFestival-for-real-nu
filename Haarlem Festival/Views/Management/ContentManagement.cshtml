@@ -1,0 +1,250 @@
+﻿@Model Mangement
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Site Management</title>
+    <link href="@Url.Content("~/Content/Management.css")" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            var dialog, form;
+            $('.expand').click(function () {
+                $('ul', $(this).parent()).eq(0).toggle();
+            });
+            $("#HomeButton").click(function () {
+                $("#HomeButtons").show()
+                 $("#JazzButtons").hide()
+            });
+            $("#JazzButton").click(function () {
+                $("#HomeButtons").hide()
+                $("#JazzButtons").show()
+            });
+            $("#TalkingButton").click(function () {
+                $("#HomeButtons").hide()
+                $("#TalkingButtons").show()
+            });
+            $(window).load(function () {
+                $("#HomeButtons").hide()
+                $("#JazzButtons").hide()
+                $('#TalkingButtons').hide();
+            });
+            $(".button").click(function () {
+                $("textEdit").hide()
+            });
+            $(".filter").change(function () {
+                var filterValue = $(this).val();
+                var buttons = $('.button');
+
+                buttons.hide()
+                buttons.each(function (i, el) {
+                    if ($(el).attr('value') == filterValue) {
+                        $(el).show();
+                    }
+                })
+
+            });
+
+        })
+    </script>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div id="header">
+        <!-- first box -->
+        <div id="logo">
+            <img src="Logo2.png" alt="Festival Logo">
+        </div>
+        <div id="HomeButton">
+            Home
+        </div>
+        <div id="JazzButton">
+            Jazz
+        </div>
+        <div id="TalkingButton">
+            Talking
+        </div>
+    </div>
+    <div id="TreeNode">
+        <ul>
+            <li>
+                <a class="expand">Home</a>
+                <ul>
+                    <a class="expand">
+                        <li><p> Box1</p></li>
+                        <li><p> Box2</p></li>
+                        <li><p> Box3</p></li>
+                        <li><p> Box4</p></li>
+                        </a>
+                </ul>
+            </li>
+            <li>
+                <a class="expand">Jazz</a>
+                <ul>
+                        <a class="expand">
+                    <li><p> Box1</p></li>
+                    <li><p> Box2</p></li>
+                    <li><p> Box3</p></li>
+                    <li><p> Box4</p></li>
+                    <li><p> Box5</p></li>
+                    <li><p> Box6</p></li>
+                    <li><p> Box7</p></li>
+                    <li><p> Box8</p></li>
+                    </a>
+                    </a>
+                </ul>
+            </li>
+            <li>
+                <a class="expand">Talking</a>
+                <ul>
+                    <li>
+                        <a class="expand">
+                    <li><p> Box1</p></li>
+                    <li><p> Box2</p></li>
+                    <li><p> Box3</p></li>
+                    <li><p> Box4</p></li>
+                    <li><p> Box5</p></li>
+                    <li><p> Box6</p></li>
+                    <li><p> Box7</p></li>
+                    <li><p> Box8</p></li>
+                    </a>
+                    </a>
+                </li>
+            </ul>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+    <div id="contentSelect">
+        <h1>Select Content To Edit</h1>
+        <img src="page preview.png" alt="page preview">
+        <select class="filter" data-tableId="table1">
+            <option value="26-7">26-7</option>
+            <option value="27-7">27-7</option>
+            <option value="28-7">28-7</option>
+            <option value="29-7">29-7</option>
+        </select>
+        <div id="HomeButtons">
+            
+            <button type="button"style="width: 49%;">Click Me!</button> 
+            <button type="button"style="width: 49%;">Click Me!</button> 
+            <button type="button"style="width: 49%;">Click Me!</button> 
+            <button type="button"style="width: 49%;">Click Me!</button> 
+        </div>
+        <div id="JazzButtons">
+            @foreach (var jazz in Model.jazz)
+            {
+                if ((jazz.EventStart.Day) == 26)
+                {
+                    foreach (var perf in Model.performer)
+                    {
+                        if (jazz.PerformerId == perf.PerformerId)
+                        {
+                            {Html.BeginForm("GetContent", "Management");}
+                                <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@jazz.EventId" />@perf.PerformerName</div>
+                                <input type="submit" value="Edit" />
+                            {Html.EndForm();}
+                        }
+                    }
+                }
+            <button class="button" type="button" value="27-7" style="width: 49%;">Click Me!</button>
+            <button class="button" type="button" value="27-7" style="width: 49%;">Click Me!</button>
+            <button class="button" type="button" value="27-7" style="width: 49%;">Click Me!</button>
+            <button class="button" type="button" value="27-7" style="width: 49%;">Click Me!</button>
+            <button class="button" type="button" value="27-7" style="width: 49%;">Click Me!</button>
+            <button class="button" type="button" value="27-7" style="width: 49%;">Click Me!</button>
+            <button class="button" type="button" value="27-7" style="width: 49%;">Click Me!</button>
+            <button class="button" type="button" value="27-7" style="width: 49%;">Click Me!</button>
+
+            <button class="button" type="button" value="28-7" style="width: 49%;">Click Me!</button>
+            <button class="button" type="button" value="28-7" style="width: 49%;">Click Me!</button>
+            <button class="button" type="button" value="28-7" style="width: 49%;">Click Me!</button>
+            <button class="button" type="button" value="28-7" style="width: 49%;">Click Me!</button>
+            <button class="button" type="button" value="28-7" style="width: 49%;">Click Me!</button>
+            <button class="button" type="button" value="28-7" style="width: 49%;">Click Me!</button>
+            <button class="button" type="button" value="28-7" style="width: 49%;">Click Me!</button>
+            <button class="button" type="button" value="28-7" style="width: 49%;">Click Me!</button>
+
+            <button class="button" type="button" value="29-7" style="width: 49%;">Click Me!</button>
+            <button class="button" type="button" value="29-7" style="width: 49%;">Click Me!</button>
+            <button class="button" type="button" value="29-7" style="width: 49%;">Click Me!</button>
+            <button class="button" type="button" value="29-7" style="width: 49%;">Click Me!</button>
+            <button class="button" type="button" value="29-7" style="width: 49%;">Click Me!</button>
+            <button class="button" type="button" value="29-7" style="width: 49%;">Click Me!</button>
+            <button class="button" type="button" value="29-7" style="width: 49%;">Click Me!</button>
+            <button class="button" type="button" value="29-7" style="width: 49%;">Click Me!</button>
+            }
+        </div>
+        <div id="TalkingButtons">
+            <button class="button" type="button" value="26-7" style="width: 49%;">Click Me!</button>
+            <button class="button" type="button" value="27-7" style="width: 49%;">Click Me!</button>
+            <button class="button" type="button" value="28-7" style="width: 49%;">Click Me!</button>
+            <button class="button" type="button" value="29-7" style="width: 49%;">Click Me!</button>
+        </div>
+    </div>
+    
+        <div id="textEdit">
+            @{Html.BeginForm("TextEdit", "Management");}
+                <textarea rows="20" cols="50" id="txtEdit" name="txtEdit">
+                    @if (ViewBag.selected != null)
+                    {
+                        foreach(var eve in Model.jazz)
+                        {
+                            if (eve.EventId == ViewBag.selected)
+                            {
+                                foreach (var perf in Model.performer)
+                                {
+                                    if (perf.PerformerId == eve.PerformerId)
+                                    {
+                                        @perf.PerformerInfo;
+                                        
+                                    }
+                                }
+                            }
+                        }
+                    }
+                </textarea>
+            </div>
+                @if (ViewBag.selected != null)
+                {
+                    foreach (var eve in Model.jazz)
+                    {
+                        if (eve.EventId == ViewBag.selected)
+                        {
+                            foreach (var perf in Model.performer)
+                            {
+                                if (perf.PerformerId == eve.PerformerId)
+                                {
+                                    <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@eve.EventId" />@perf.PerformerName</div>
+
+                                }
+                            }
+                        }
+                    }
+                }
+
+            <input type="submit" class="btn" value="Save Changes" />
+            @{Html.EndForm();}
+                <div id="imageEdit">
+            <h1>Image</h1>
+             @using (Html.BeginForm("FileUpload", "Management", FormMethod.Post,
+                    new { enctype = "multipart/form-data" }))
+                    {
+                        <label for="file">Upload Image:</label>
+                        <input type="file" name="file" id="file" style="width: 100%;" />
+                        <input type="submit" value="Upload" class="submit" />
+                    }
+        </div>
+        
+    <div id="pagePreview">
+        <h1>Page Preview</h1>
+    </div>
+
+</body>
+</html>

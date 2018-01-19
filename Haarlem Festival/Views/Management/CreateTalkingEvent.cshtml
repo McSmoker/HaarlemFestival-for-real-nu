@@ -1,0 +1,59 @@
+﻿@using Haarlem_Festival.ViewModels
+@model EventViewModel
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateEvent</title>
+</head>
+<body>
+    <div id="dialog-form" title="Create new Event">
+        <p class="validateTips">All form fields are required.</p>
+        <form action="/Management/SaveTalking" method="post">
+            <table>
+                <tr>
+                    <td>PerformerName</td>
+                    <td><input type="text" id="TxtArtist" name="PerformerName" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Start Time</td>
+                    <td><input type="time" id="TxtDateStart" name="EventStart" value="" /></td>
+                </tr>
+                <tr>
+                    <td>End Time</td>
+                    <td><input type="time" id="TxtDateEnd" name="EventEnd" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Date</td>
+                    <td><input type="date" id="TxtDate" name="Date" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Location</td>
+                    <td><input type="text" id="TxtLocation" name="Location" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Venue</td>
+                    <td><input type="text" id="TxtHall" name="Hall" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Seats</td>
+                    <td><input type="text" id="TxtSeats" name="Seats" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td><input type="text" name="company" form="my_form" /></td>
+                </tr>
+                <tr>
+                    <td>Comments</td>
+                    <td><input type="text" name="company" form="my_form" /></td>
+                </tr>
+            </table>
+            <input type="submit" name="BtnSave" value="Create Event" />
+        </form>
+    </div>
+</body>
+</html>

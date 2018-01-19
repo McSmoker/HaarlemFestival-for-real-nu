@@ -48,6 +48,22 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Spire.Common, Version=1.2.129.55040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML_Excel.1.0.0\lib\Spire.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Spire.License, Version=1.3.2.40, Culture=neutral, PublicKeyToken=b1144360237c8b3f, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML_Excel.1.0.0\lib\Spire.License.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Spire.Pdf, Version=3.0.40.55040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML_Excel.1.0.0\lib\Spire.Pdf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Spire.XLS, Version=7.4.12.55040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML_Excel.1.0.0\lib\Spire.XLS.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -243,7 +259,7 @@
     <Content Include="Views\Talking\Edit.cshtml" />
     <Content Include="Views\Talking\Index.cshtml" />
     <Content Include="Views\Management\CreateEvent.cshtml" />
-    <Content Include="Views\Management\EditEvent.cshtml" />
+    <Content Include="Views\Account\EditEvent.cshtml" />
     <Content Include="Views\Management\Index.cshtml" />
     <Content Include="Views\Management\TestView.cshtml" />
     <Content Include="Views\Management\_EditEvent.cshtml" />
@@ -262,6 +278,11 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Management\EditJazzEvent.cshtml" />
+    <Content Include="Views\Management\SalesData.cshtml" />
+    <Content Include="Views\Management\ContentManagement.cshtml" />
+    <Content Include="Views\Management\EditTalkingEvent.cshtml" />
+    <Content Include="Views\Management\CreateTalkingEvent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
