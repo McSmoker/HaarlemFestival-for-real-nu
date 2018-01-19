@@ -534,3 +534,68 @@ C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin
 C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Spire.XLS.dll
 C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.mshtml.dll
 C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\Debug\Haarlem Festival.csprojResolveAssemblyReference.cache
+L:\HF 20180119\Haarlem Festival\bin\Haarlem Festival.dll.config
+L:\HF 20180119\Haarlem Festival\bin\Haarlem Festival.dll
+L:\HF 20180119\Haarlem Festival\bin\Haarlem Festival.pdb
+L:\HF 20180119\Haarlem Festival\bin\Antlr3.Runtime.dll
+L:\HF 20180119\Haarlem Festival\bin\EntityFramework.dll
+L:\HF 20180119\Haarlem Festival\bin\EntityFramework.SqlServer.dll
+L:\HF 20180119\Haarlem Festival\bin\Microsoft.AspNet.Identity.Core.dll
+L:\HF 20180119\Haarlem Festival\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+L:\HF 20180119\Haarlem Festival\bin\Microsoft.AspNet.Identity.Owin.dll
+L:\HF 20180119\Haarlem Festival\bin\Microsoft.Owin.dll
+L:\HF 20180119\Haarlem Festival\bin\Microsoft.Owin.Host.SystemWeb.dll
+L:\HF 20180119\Haarlem Festival\bin\Microsoft.Owin.Security.Cookies.dll
+L:\HF 20180119\Haarlem Festival\bin\Microsoft.Owin.Security.dll
+L:\HF 20180119\Haarlem Festival\bin\Microsoft.Owin.Security.Facebook.dll
+L:\HF 20180119\Haarlem Festival\bin\Microsoft.Owin.Security.Google.dll
+L:\HF 20180119\Haarlem Festival\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+L:\HF 20180119\Haarlem Festival\bin\Microsoft.Owin.Security.OAuth.dll
+L:\HF 20180119\Haarlem Festival\bin\Microsoft.Owin.Security.Twitter.dll
+L:\HF 20180119\Haarlem Festival\bin\Microsoft.Web.Infrastructure.dll
+L:\HF 20180119\Haarlem Festival\bin\Newtonsoft.Json.dll
+L:\HF 20180119\Haarlem Festival\bin\Owin.dll
+L:\HF 20180119\Haarlem Festival\bin\Spire.Common.dll
+L:\HF 20180119\Haarlem Festival\bin\Spire.License.dll
+L:\HF 20180119\Haarlem Festival\bin\Spire.Pdf.dll
+L:\HF 20180119\Haarlem Festival\bin\Spire.XLS.dll
+L:\HF 20180119\Haarlem Festival\bin\System.Web.Helpers.dll
+L:\HF 20180119\Haarlem Festival\bin\System.Web.Mvc.dll
+L:\HF 20180119\Haarlem Festival\bin\System.Web.Optimization.dll
+L:\HF 20180119\Haarlem Festival\bin\System.Web.Razor.dll
+L:\HF 20180119\Haarlem Festival\bin\System.Web.WebPages.Deployment.dll
+L:\HF 20180119\Haarlem Festival\bin\System.Web.WebPages.dll
+L:\HF 20180119\Haarlem Festival\bin\System.Web.WebPages.Razor.dll
+L:\HF 20180119\Haarlem Festival\bin\WebGrease.dll
+L:\HF 20180119\Haarlem Festival\bin\Microsoft.mshtml.dll
+L:\HF 20180119\Haarlem Festival\bin\EntityFramework.xml
+L:\HF 20180119\Haarlem Festival\bin\EntityFramework.SqlServer.xml
+L:\HF 20180119\Haarlem Festival\bin\System.Web.Helpers.xml
+L:\HF 20180119\Haarlem Festival\bin\System.Web.Mvc.xml
+L:\HF 20180119\Haarlem Festival\bin\System.Web.Optimization.xml
+L:\HF 20180119\Haarlem Festival\bin\System.Web.Razor.xml
+L:\HF 20180119\Haarlem Festival\bin\System.Web.WebPages.xml
+L:\HF 20180119\Haarlem Festival\bin\System.Web.WebPages.Deployment.xml
+L:\HF 20180119\Haarlem Festival\bin\System.Web.WebPages.Razor.xml
+L:\HF 20180119\Haarlem Festival\bin\Newtonsoft.Json.xml
+L:\HF 20180119\Haarlem Festival\bin\Antlr3.Runtime.pdb
+L:\HF 20180119\Haarlem Festival\bin\Microsoft.AspNet.Identity.Core.xml
+L:\HF 20180119\Haarlem Festival\bin\Microsoft.AspNet.Identity.Owin.xml
+L:\HF 20180119\Haarlem Festival\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+L:\HF 20180119\Haarlem Festival\bin\Microsoft.Owin.xml
+L:\HF 20180119\Haarlem Festival\bin\Microsoft.Owin.Host.SystemWeb.xml
+L:\HF 20180119\Haarlem Festival\bin\Microsoft.Owin.Security.xml
+L:\HF 20180119\Haarlem Festival\bin\Microsoft.Owin.Security.Facebook.xml
+L:\HF 20180119\Haarlem Festival\bin\Microsoft.Owin.Security.Cookies.xml
+L:\HF 20180119\Haarlem Festival\bin\Microsoft.Owin.Security.OAuth.xml
+L:\HF 20180119\Haarlem Festival\bin\Microsoft.Owin.Security.Google.xml
+L:\HF 20180119\Haarlem Festival\bin\Microsoft.Owin.Security.Twitter.xml
+L:\HF 20180119\Haarlem Festival\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+L:\HF 20180119\Haarlem Festival\obj\Debug\Haarlem Festival.csprojResolveAssemblyReference.cache
+L:\HF 20180119\Haarlem Festival\obj\Debug\Haarlem_Festival.Migrations.InitialCreate.resources
+L:\HF 20180119\Haarlem Festival\obj\Debug\Haarlem_Festival.Migrations.Migration20171123t1307.resources
+L:\HF 20180119\Haarlem Festival\obj\Debug\Haarlem_Festival.Migrations.Migration20171123t1315.resources
+L:\HF 20180119\Haarlem Festival\obj\Debug\Haarlem Festival.csproj.GenerateResource.Cache
+L:\HF 20180119\Haarlem Festival\obj\Debug\Haarlem Festival.csproj.CoreCompileInputs.cache
+L:\HF 20180119\Haarlem Festival\obj\Debug\Haarlem Festival.dll
+L:\HF 20180119\Haarlem Festival\obj\Debug\Haarlem Festival.pdb

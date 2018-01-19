@@ -1,74 +1,134 @@
 ﻿@model IEnumerable<Haarlem_Festival.Models.Jazz>
 
-@{
-    Layout = null;
+<div class="block">
+    <div class="block-header">
+        <p class="block-header-title">Haarlem Jazz Info</p>
+    </div>
+    <div class="saxophone"></div>
+    <div class="content-area-wrap">
+        <p class="information-block-text">
+            On this page you can find all the information you need for the jazz event of the Haarlem Festival, called Haarlem Jazz. The event will host a whopping total of 18 jazz bands/artists who will each perform for a full hour at one of the three available stages in the Patronaat in Haarlem. The jazz event will be closed off by 6 bands who will perform at the Grote Markt in the city centre of Haarlem, on Sunday. The Sunday event is free of charge so be sure to tag along!
+            <br /><br />
+            To view which artists perform when and where, please click the buttons to the right to view the information of the corresponding day. After clicking a button, scroll down to view all the information you need.
+            <br /><br />
+            If you wish to attend all of the amazing performances, which you really should, you can order a 1-day passe-partout ticket for &euro;35,- or a 3-day passe-partout ticket for &euro;80,-.
+            <br /><br />
+            For practical information about the Patronaat such as the address, please hover over the image of the Patronaat located at the bottom of this page.
+        </p>
+    </div>
+</div>
+
+<div class="block">
+    <div class="block-header">
+        <p class="block-header-title">Day Selection & Passe-Partouts</p>
+    </div>
+    <div class="content-area-wrap">
+        <div class="btn-day-selection-wrap">
+            <input type="button" class="btn-day-selection btn-day-selection-clicked" value="Thursday (26/07/2018)" />
+            <input type="button" class="btn-day-selection" value="Friday (27/07/2018)" />
+            <input type="button" class="btn-day-selection" value="Saturday (28/07/2018)" />
+            <input type="button" class="btn-day-selection" value="Sunday (29/07/2018)" />
+        </div>
+        <div class="passe-partout-wrap">
+            <div class="passe-partout-header">
+                <p class="passe-partout-title">Passe-Partout Tickets</p>
+            </div>
+            <div class="passe-partout-options">
+                <span class="checkbox-label-wrap">
+                    <input type="checkbox" id="pp3day" />
+                    <label for="pp3day">Passe-partout for Thursday, Friday & Saturday @@ &euro;80,-</label>
+                </span>
+
+                <span class="checkbox-label-wrap">
+                    <input type="checkbox" id="pp3thu" />
+                    <label for="pp3thu">Passe-partout for Thursday @@ &euro;35,-</label>
+                </span>
+
+                <span class="checkbox-label-wrap">
+                    <input type="checkbox" id="pp3fri" />
+                    <label for="pp3fri">Passe-partout for Friday @@ &euro;35,-</label>
+                </span>
+
+                <span class="checkbox-label-wrap">
+                    <input type="checkbox" id="pp3sat" />
+                    <label for="pp3sat">Passe-partout for Saturday @@ &euro;35,-</label>
+                </span>
+
+                <input type="button" onclick="location.href='#checkout'" class="action-btn btn-jtc" value="Jump to Checkout" />
+            </div>
+        </div>
+    </div>
+</div>
+
+@foreach (var item in Model)
+{
+    <div class="artist-block">
+        <div class="block-header">
+            <p class="block-header-title">@item.Artist.PerformerName</p>
+        </div>
+        <p class="artist-block-text">
+            @item.Artist.PerformerInfo
+        </p>
+
+        <div class="artist-bottom-wrap">
+            <img src="~/Content/img/jazz/@item.Artist.PerformerImagePath" class="artist-image" />
+
+            <div class="artist-practical-block">
+                <div class="practical-info-header">
+                    <p class="practical-info-title">Practical information</p>
+                </div>
+                <table class="practical-info-table">
+                    <tr>
+                        <td class="practical-info-table-td">Date</td>
+                        <td class="practical-info-table-td">@item.EventStart.ToString("dd/MM/yyyy")</td>
+                    </tr>
+                    <tr>
+                        <td class="practical-info-table-td">Time</td>
+                        <td class="practical-info-table-td">@item.EventStart.ToShortTimeString() - @item.EventEnd.ToShortTimeString()</td>
+                    </tr>
+                    <tr>
+                        <td class="practical-info-table-td">Location | Hall</td>
+                        <td class="practical-info-table-td">@item.Location | @item.Hall</td>
+                    </tr>
+                    <tr>
+                        <td class="practical-info-table-td">Price</td>
+                        <td class="practical-info-table-td">&euro; @item.Price.ToString("0.00")</td>
+                    </tr>
+                    <tr>
+                        <td class="practical-info-table-td">Seats left</td>
+                        <td class="practical-info-table-td">@(item.Seats - item.TicketsSold)</td>
+                    </tr>
+                </table>
+                <input type="button" id="@item.EventId" class="action-btn" value="Add ticket to cart" />
+            </div>
+        </div>
+    </div>
 }
 
-<!DOCTYPE html>
+<div class="block patronaat"></div>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.EventStart)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EventEnd)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Location)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Seats)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TicketsSold)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Hall)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Artist.PerformerName)
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.EventStart)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EventEnd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Location)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Seats)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TicketsSold)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Hall)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Artist.PerformerName)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.EventId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.EventId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.EventId })
-            </td>
-        </tr>
-    }
-    
-    </table>
-</body>
-</html>
+<div class="block" id="checkout">
+    <div class="block-header">
+        <p class="block-header-title">Jazz Shopping Cart</p>
+        <span class="jazz-shopping-cart-glyph"></span>
+    </div>
+    <div class="information-block">
+        <p class="information-block-text">
+
+        </p>
+    </div>
+</div>
+
+<div class="added-to-cart-modal">
+    <div class="added-to-cart-title">
+        Success!
+    </div>
+
+    <img class="added-to-cart-close" src="~/Content/img/misc/close white.png" />
+
+    <p class="added-to-cart-text">
+        The ticket was successfully added to the cart!
+        <br /><br />
+        You can change the amount at the Shopping Cart section of this page.
+    </p>
+</div>
