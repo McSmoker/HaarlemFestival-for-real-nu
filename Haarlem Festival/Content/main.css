@@ -296,6 +296,26 @@ Artist blocks
     float: left;
 }
 
+.speaker-block-text {
+    padding: 0;
+    width: 320px;
+    height: 350px;
+    font-size: 16px;
+    color: #333333;
+    line-height: 18px;
+    display: inline-block;
+}
+
+.speaker-image {
+    width: 330px;
+    height: 350px;
+    margin: 12px 15px;
+    padding: 0;
+    display: inline-block;
+    float: left;
+}
+
+
 .practical-info-header {
     width: 330px;
     height: 40px;
@@ -352,6 +372,10 @@ Miscellaneous
 
 .patronaat {
     background-image: url('img/jazz/patronaat.png');
+}
+
+.toneelschuur {
+    background-image: url('img/talking/toneelschuur.png');
 }
 
 .jazz-shopping-cart-glyph {

@@ -1,71 +1,79 @@
 ﻿@model IEnumerable<Haarlem_Festival.Models.Talking>
 
 @{
-    
+
 }
 
-<!DOCTYPE html>
+<div class="block">
+    <div class="block-header">
+        <p class="block-header-title">Haarlem Talking</p>
+    </div>
+    <div class="content-area-wrap">
+        <p class="information-block-text">
+            Talking Haarlem is all about famous Haarlemmers. During this unique three night event three pairs will visit the "Toneelschuur", the host of this event, in Haarlem to have a conversation with one another.
+            <br /><br/ >
+            These talks will take us on a journey of many different stories from our speakers. These stories can vary from warm childhood memories to heartbreaking losses. The one thing their stories about Haarlem have in common is they shaped them into the individuals they are today. Not only will our speakers be talking about their stories but they will also be answering some of the viewers questions.
+            <br /><br/ >
+            All of the talks will be conducted in Dutch, so we recommend you are able to understand Dutch if you are considering on visiting one of our talks. Admittance for "Talking Haarlem" is free althoug it is mandatory to make a reservation (maximal 2 per person). When you make a reservation there will be a option to ask the speaker(s) of that night one question each. All the talks will be hosted in the "Toneelschuur" and will have 125 seats available per talk!
+            <br /><br/ >
+            We're looking forward to meeting you at our talks!
+        </p>
+    </div>
+</div>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
+<div class="block">
+    <div class="block-header">
+        <p class="block-header-title">Event Selection</p>
+    </div>
+    <div class="content-area-wrap">
+        <div class="btn-day-selection-wrap">
+            <input type="button" class="btn-day-selection btn-day-selection-clicked" @*onclick="daySelectionButtonClicked(this)"*@ value="Thursday (26/07/2018)" />
+            <input type="button" class="btn-day-selection" @*onclick="daySelectionButtonClicked(this)"*@ value="Friday (27/07/2018)" />
+            <input type="button" class="btn-day-selection" @*onclick="daySelectionButtonClicked(this)"*@ value="Saturday (28/07/2018)" />
+        </div>
+    </div>
+</div>
 
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.EventStart)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EventEnd)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Location)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Seats)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TicketsSold)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SpeakerOne)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SpeakerTwo)
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.EventStart)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EventEnd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Location)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Seats)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TicketsSold)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.SpeakerOne.PerformerName)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.SpeakerTwo.PerformerName)
-            </td>
+@foreach (var item in Model)
+{
+<div class="block">
+    <div class="block-header">
+        <p class="block-header-title">@item.SpeakerOne.PerformerName @item.EventStart.ToString("dd/MM/yyyy")</p>
+    </div>
+    <img src="~/Content/img/talking/@item.SpeakerOne.PerformerImagePath" class="speaker-image" />
+    <p class="speaker-block-text">
+        @item.SpeakerOne.PerformerInfo
+    </p>
+</div>
 
-        </tr>
-    }
-    
-    </table>
-</body>
-</html>
+<div class="block">
+    <div class="block-header">
+        <p class="block-header-title">@item.SpeakerTwo.PerformerName @item.EventStart.ToString("dd/MM/yyyy")</p>
+    </div>
+    <img src="~/Content/img/talking/@item.SpeakerTwo.PerformerImagePath" class="speaker-image" />
+    <p class="speaker-block-text">
+        @item.SpeakerTwo.PerformerInfo
+    </p>
+</div>
+}
+
+<div class="block toneelschuur"></div>
+
+<div class="block" id="checkout">
+    <div class="block-header">
+        <p class="block-header-title">Talking Shopping Cart</p>
+        <span class="jazz-shopping-cart-glyph"></span>
+    </div>
+    <div class="information-block">
+        <p class="information-block-text">
+
+        </p>
+    </div>
+</div>
+
+<script>
+    $(".btn-day-selection").click(function () {
+        $(".btn-day-selection").removeClass("btn-day-selection-clicked");
+        $(this).addClass("btn-day-selection-clicked");
+    });
+</script>

@@ -250,10 +250,6 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Jazz\Index.cshtml" />
-    <Content Include="Views\Talking\Create.cshtml" />
-    <Content Include="Views\Talking\Delete.cshtml" />
-    <Content Include="Views\Talking\Details.cshtml" />
-    <Content Include="Views\Talking\Edit.cshtml" />
     <Content Include="Views\Talking\Index.cshtml" />
     <Content Include="Views\Management\CreateEvent.cshtml" />
     <Content Include="Views\Management\EditEvent.cshtml" />

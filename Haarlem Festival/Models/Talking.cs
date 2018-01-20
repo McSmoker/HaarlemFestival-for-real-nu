@@ -18,8 +18,8 @@ namespace Haarlem_Festival.Models
 
         }
 
-        public Talking(int eventId, DateTime eventStart, DateTime eventEnd, string location, int seats, int ticketsSold, Performer speakerOne, Performer speakerTwo)
-            : base(eventId, eventStart, eventEnd, location, seats, ticketsSold)
+        public Talking(int eventId, DateTime eventStart, DateTime eventEnd, string location, int seats, int ticketsSold, Performer speakerOne, Performer speakerTwo, float price, string comment)
+            : base(eventId, eventStart, eventEnd, location, seats, ticketsSold, price, comment)
         {
             this.SpeakerOne = speakerOne;
             this.SpeakerTwo = speakerTwo;
