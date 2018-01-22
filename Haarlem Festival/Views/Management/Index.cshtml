@@ -3,243 +3,152 @@
     ViewBag.Title = "Index";
     Layout = null;
 }
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
 <head>
     <title>Event Management</title>
     <link href="@Url.Content("~/Content/Management.css")" rel="stylesheet" type="text/css">
-    @*<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">*@
-    @*<link rel="stylesheet" href="/resources/demos/style.css">*@
+    @*
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    *@
+    @*
+        <link rel="stylesheet" href="/resources/demos/style.css">
+    *@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
-        $( function() {
-            var dialog, form;
+         $( function() {
+             var dialog, form;
 
 
-            dialogUpdate = $( "#dialog-form-update" ).dialog({
-                autoOpen: false,
-                height: 400,
-                width: 350,
-                modal: true,
-                buttons: {
-                    Cancel: function() {
-                        dialog.dialog( "close" );
-                    }
-                }
-            }
-                )
-            dialog2 = $("#dialog-form2").dialog({
-                autoOpen: false,
-                height: 400,
-                width: 350,
-                modal: true,
-                buttons: {
-                    Cancel: function () {
-                        dialog2.dialog("close");
-                    }
-                },
-                close: function () {
-                    form[0].reset();
-                    allFields.removeClass("ui-state-error");
-                }
-            });
-            dialog = $( "#dialog-form" ).dialog({
-                autoOpen: false,
-                height: 400,
-                width: 350,
-                modal: true,
-                buttons: {
-                    Cancel: function() {
-                        dialog.dialog( "close" );
-                    }
-                },
-                close: function() {
-                    form[ 0 ].reset();
-                    allFields.removeClass( "ui-state-error" );
-                }
-            });
+             dialogUpdate = $( "#dialog-form-update" ).dialog({
+                 autoOpen: false,
+                 height: 400,
+                 width: 350,
+                 modal: true,
+                 buttons: {
+                     Cancel: function() {
+                         dialog.dialog( "close" );
+                     }
+                 }
+             }
+                 )
+             dialog2 = $("#dialog-form2").dialog({
+                 autoOpen: false,
+                 height: 400,
+                 width: 350,
+                 modal: true,
+                 buttons: {
+                     Cancel: function () {
+                         dialog2.dialog("close");
+                     }
+                 },
+                 close: function () {
+                     form[0].reset();
+                     allFields.removeClass("ui-state-error");
+                 }
+             });
+             dialog = $( "#dialog-form" ).dialog({
+                 autoOpen: false,
+                 height: 400,
+                 width: 350,
+                 modal: true,
+                 buttons: {
+                     Cancel: function() {
+                         dialog.dialog( "close" );
+                     }
+                 },
+                 close: function() {
+                     form[ 0 ].reset();
+                     allFields.removeClass( "ui-state-error" );
+                 }
+             });
 
-            $( "#create-user" ).button().on( "click", function() {
-                dialog.dialog( "open" );
-            });
+             $( "#create-user" ).button().on( "click", function() {
+                 dialog.dialog( "open" );
+             });
 
-            $("#cardbutton").button().on("click", function () {
-                dialog2.dialog("open");
-                var eventid = $("#cardbutton").data("data-id")
-                $("#TxtEventId").attr("value", eventid)
-            });
-            $('.expand').click(function () {
-                $('ul', $(this).parent()).eq(0).toggle();
-            });
-            $(".filter").change(function () {
-                var filterValue = $(this).val();
-                var buttons = $('.EventDaySection');
+             $("#cardbutton").button().on("click", function () {
+                 dialog2.dialog("open");
+                 var eventid = $("#cardbutton").data("data-id")
+                 $("#TxtEventId").attr("value", eventid)
+             });
+             $('.expand').click(function () {
+                 $('ul', $(this).parent()).eq(0).toggle();
+             });
+             $(".filter").change(function () {
+                 var filterValue = $(this).val();
+                 var buttons = $('.EventDaySection');
 
-                buttons.hide()
-                buttons.each(function (i, el) {
-                    if ($(el).attr('data-id') == filterValue) {
-                        $(el).show();
-                    }
-                })
-            });
-            $(".filter2").change(function () {
-                var filterValue = $(this).val();
-                var smallCard = $('.smallCard');
-                var bigCard = $('.bigCard');
-                var TalkingTable = $('.TalkingTable');
-                var JazzTable = $('.JazzTable');
-                smallCard.hide()
-                bigCard.hide()
-                TalkingTable.hide()
-                JazzTable.hide()
-                $('.TalkingTable').hide()
-                $('.JazzTable').hide()
-                if (filterValue == 'smallcard') {
-                    smallCard.show();
-                }
-                if (filterValue == 'bigcard') {
-                    bigCard.show();
-                }
-                if (filterValue = 'tableview') {
-                    TalkingTable.show();
-                    JazzTable.show();
-                }
-            })
-            $(".EventFilter").change(function () {
-                var filterValue = $(this).val();
-                var jazzCard = $('.JazzCard')
-                var talkingCard = $('.TalkingCard')
-                var TalkingTable = $('.TalkingTable');
-                var JazzTable = $('.JazzTable');
-                jazzCard.hide()
-                talkingCard.hide()
-                TalkingTable.hide()
-                JazzTable.hide()
-                if (filterValue == 'Jazz') {
-                    jazzCard.show();
-                }
-                if (filterValue == 'Talking') {
-                    talkingCard.show();
-                }
-                if (filterValue == 'All') {
-                    talkingCard.show();
-                    jazzCard.show();
-                }
+                 buttons.hide()
+                 buttons.each(function (i, el) {
+                     if ($(el).attr('data-id') == filterValue) {
+                         $(el).show();
+                     }
+                 })
+             });
+             $(".filter2").change(function () {
+                 var filterValue = $(this).val();
+                 var smallCard = $('.smallCard');
+                 var bigCard = $('.bigCard');
+                 var TalkingTable = $('.TalkingTable');
+                 var JazzTable = $('.JazzTable');
+                 smallCard.hide()
+                 bigCard.hide()
+                 TalkingTable.hide()
+                 JazzTable.hide()
+                 $('.TalkingTable').hide()
+                 $('.JazzTable').hide()
+                 $('#TalkingTable').hide()
+                 $('#JazzTable').hide()
+                 //weet niet meer welke hide hide precies maar het werkt na vele uren eindelijk correct dus mij hoor je niet klagen (het was else if ipv if)
+                 if (filterValue == 'smallcard') {
+                     smallCard.show();
+                 }
+                 else if (filterValue == 'bigcard') {
+                     bigCard.show();
+                 }
+                 else if (filterValue = 'tableview') {
+                     TalkingTable.show();
+                     JazzTable.show();
+                 }
+             })
+             $(".EventFilter").change(function () {
+                 var filterValue = $(this).val();
+                 var jazzCard = $('.JazzCard')
+                 var talkingCard = $('.TalkingCard')
+                 var TalkingTable = $('.TalkingTable');
+                 var JazzTable = $('.JazzTable');
+                 jazzCard.hide()
+                 talkingCard.hide()
+                 TalkingTable.hide()
+                 JazzTable.hide()
+                 if (filterValue == 'Jazz') {
+                     jazzCard.show();
+                 }
+                 if (filterValue == 'Talking') {
+                     talkingCard.show();
+                 }
+                 if (filterValue == 'All') {
+                     talkingCard.show();
+                     jazzCard.show();
+                 }
 
-            })
-            $(document).ready(function () {
-                var smallCard = $('.smallCard');
-                var bigCard = $('.bigCard');
-                var TalkingTable = $('.TalkingTable');
-                var JazzTable = $('.JazzTable');
-                bigCard.hide()
-                TalkingTable.hide()
-                JazzTable.hide()
-            });
+             })
+             $(document).ready(function () {
+                 var smallCard = $('.smallCard');
+                 var bigCard = $('.bigCard');
+                 var TalkingTable = $('.TalkingTable');
+                 var JazzTable = $('.JazzTable');
+                 bigCard.hide()
+                 TalkingTable.hide()
+                 JazzTable.hide()
+             });
 
-            });
+             });
     </script>
 </head>
 <body>
-    @* code voor event Toevoegen pop-up*@
-    <div id="dialog-form" title="Create new Event">
-        <p class="validateTips">All form fields are required.</p>
-        <form action="/Management/SaveJazz" method="post">
-            <div id="eventidfield" value=""></div>
-            <table>
-                <tr>
-                    <td>PerformerName</td>
-                    <td><input type="text" id="TxtArtist" name="Artist" value="" /></td>
-                </tr>
-                <tr>
-                    <td>Start Time</td>
-                    <td><input type="time" id="TxtDateStart" name="EventStart" value="" /></td>
-                </tr>
-                <tr>
-                    <td>End Time</td>
-                    <td><input type="time" id="TxtDateEnd" name="EventEnd" value="" /></td>
-                </tr>
-                <tr>
-                    <td>Date</td>
-                    <td><input type="date" id="TxtDate" name="Date" value="" /></td>
-                </tr>
-                <tr>
-                    <td>Location</td>
-                    <td><input type="text" id="TxtLocation" name="Location" value="" /></td>
-                </tr>
-                <tr>
-                    <td>Venue</td>
-                    <td><input type="text" id="TxtHall" name="Hall" value="" /></td>
-                </tr>
-                <tr>
-                    <td>Seats</td>
-                    <td><input type="text" id="TxtSeats" name="Seats" value="" /></td>
-                </tr>
-                <tr>
-                    <td>Price</td>
-                    <td><input type="text" name="company" form="my_form" /></td>
-                </tr>
-                <tr>
-                    <td>Comments</td>
-                    <td><input type="text" name="company" form="my_form" /></td>
-                </tr>
-            </table>
-            <input type="submit" name="BtnSave" value="Create Event" />
-        </form>
-    </div>
-    @* scherm voor Update JAzz*@
-    <div id="dialog-form2" title="Update Event">
-        <p class="validateTips">All form fields are required.</p>
-        <form action="/Management/UpdateJazz" method="post">
-            <table>
-                <tr>
-                    <td>eventID</td>
-                    <td><input type="text" id="TxtEventId" name="EventId" value="" /></td>
-                </tr>
-                <tr>
-                    <td>PerformerName</td>
-                    <td><input type="text" id="TxtArtist" name="Artist" value="" /></td>
-                </tr>
-                <tr>
-                    <td>Start Time</td>
-                    <td><input type="time" id="TxtDateStart" name="EventStart" /></td>
-                </tr>
-                <tr>
-                    <td>End Time</td>
-                    <td><input type="time" id="TxtDateEnd" name="EventEnd" value="" /></td>
-                </tr>
-                <tr>
-                    <td>Date</td>
-                    <td><input type="date" id="TxtDate" name="Date" value="" /></td>
-                </tr>
-                <tr>
-                    <td>Location</td>
-                    <td><input type="text" id="TxtLocation" name="Location" value="" /></td>
-                </tr>
-                <tr>
-                    <td>Venue</td>
-                    <td><input type="text" id="TxtHall" name="Hall" value="" /></td>
-                </tr>
-                <tr>
-                    <td>Seats</td>
-                    <td><input type="text" id="TxtSeats" name="Seats" value="" /></td>
-                </tr>
-                <tr>
-                    <td>Price</td>
-                    <td><input type="text" name="company" form="my_form" /></td>
-                </tr>
-                <tr>
-                    <td>Comments</td>
-                    <td><input type="text" name="company" form="my_form" /></td>
-                </tr>
-            </table>
-            <input type="submit" name="BtnSave" value="Create Event" />
-        </form>
-
-    </div>
     <!-- Top Bar -->
     <div id="header">
         <!-- first box -->
@@ -250,7 +159,6 @@
         <div id="eventFilter">
             <h1> Manage Events</h1>
             <p> Filters</p>
-
             <p>
                 <select class="filter" data-tableId="table1">
                     <option value="26-7">26-7</option>
@@ -261,16 +169,11 @@
             </p>
             <div id="categorieFilter">
                 <label> Event</label>>
-
                 <select class="EventFilter" id="EventSelection">
                     <option value="Jazz">Jazz</option>
                     <option value="Talking">Talking</option>
                     <option value="All">All</option>
                 </select>
-            </div>
-            <div id="button"
-                 onclick="alert('Hello World!')">
-                Filter
             </div>
         </div>
         <!-- legend box -->
@@ -293,16 +196,12 @@
         </div>
         <div id="newEvent">
             <h4> New Event </h4>
-
             <label> Event Category</label>
             @{Html.BeginForm("CreateEvent", "Management");}
             <input type="radio" name="Event" value="Jazz" />Jazz<br>
             <input type="radio" name="Event" value="Talking" />Talking<br>
             <input type="submit" value="New Event" />
             @{Html.EndForm();}
-            <div id="create-user">
-                Edit Event
-            </div>
         </div>
         <div id="dataExport">
             <h5> Data Export </h5>
@@ -311,8 +210,6 @@
             <input type="submit" value="Export to Excel" class="button" />
             @{Html.EndForm();}
         </div>
-        <input type="submit" value="Export to Excel" class="button" />
-        Export Sales Data
     </div>
     </div>
     </div>
@@ -325,14 +222,19 @@
                         @foreach (var jazz in Model.jazz)
                         {
                             if ((jazz.EventStart.Day) == 26)
-                            {<a class="expand">
-                            @foreach (var perf in Model.performer)
                             {
-                                if (jazz.PerformerId == perf.PerformerId)
-                                {
-                                    <li><p> @perf.PerformerName</p></li>}
-                            }
-                        </a>
+                                <a class="expand">
+                                    @foreach (var perf in Model.performer)
+                                    {
+                                        if (jazz.PerformerId == perf.PerformerId)
+                                        {
+                                            { Html.BeginForm("GetSelectedEvent", "Management"); }
+                                            <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@jazz.EventId" /></div>
+                                            <input type="submit" value="@perf.PerformerName" />
+                                            { Html.EndForm(); }
+                                        }
+                                    }
+                                </a>
                             }
                         }
                     </a>
@@ -341,71 +243,79 @@
             <li>
                 <a class="expand">27-7</a>
                 <ul>
-                    <li>
-                        <a class="expand">
-                            @foreach (var jazz in Model.jazz)
+                    <a class="expand">
+                        @foreach (var jazz in Model.jazz)
+                        {
+                            if ((jazz.EventStart.Day) == 27)
                             {
-                                if ((jazz.EventStart.Day) == 27)
-                                {<a class="expand">
-                            @foreach (var perf in Model.performer)
-                            {
-                                if (jazz.PerformerId == perf.PerformerId)
-                                {
-                        <li><p> @perf.PerformerName</p></li>}
-                            }
-                            </a>
-                                }
-                            }
-                            </a>
-                    </li>
-                </ul>
-                </li>
-                <li>
-                    <a class="expand">28-7</a>
-                    <ul>
-                        <li>
-                            <a class="expand">
-                                @foreach (var jazz in Model.jazz)
-                                {
-                                    if ((jazz.EventStart.Day) == 28)
-                                    {<a class="expand">
-                            @foreach (var perf in Model.performer)
-                            {
-                                if (jazz.PerformerId == perf.PerformerId)
-                                {
-                        <li><p> @perf.PerformerName</p></li>}
-                            }
-                            </a>
-                                    }
-                                }
-                                </a>
-                        </li>
-                        </ul>
-                        </li>
-                        <li>
-                            <a class="expand">29-7</a>
-                            <ul>
-                                <li>
-                                    <a class="expand">
-                                        @foreach (var jazz in Model.jazz)
+                                <a class="expand">
+                                    @foreach (var perf in Model.performer)
+                                    {
+                                        if (jazz.PerformerId == perf.PerformerId)
                                         {
-                                            if ((jazz.EventStart.Day) == 29)
-                                            {<a class="expand">
-                            @foreach (var perf in Model.performer)
-                            {
-                                if (jazz.PerformerId == perf.PerformerId)
-                                {
-                        <li><p> @perf.PerformerName</p></li>}
-                            }
-                            </a>
-                                            }
+                                            { Html.BeginForm("GetSelectedEvent", "Management"); }
+                                            <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@jazz.EventId" /></div>
+                                            <input type="submit" value="@perf.PerformerName" />
+                                            { Html.EndForm(); }
                                         }
-                                        </a>
-                                </li>
+                                    }
+                                </a>
+                            }
+                        }
+                    </a>
+                </ul>
+            </li>
+            <li>
+                <a class="expand">28-7</a>
+                <ul>
+                    <a class="expand">
+                        @foreach (var jazz in Model.jazz)
+                        {
+                            if ((jazz.EventStart.Day) == 28)
+                            {
+                                <a class="expand">
+                                    @foreach (var perf in Model.performer)
+                                    {
+                                        if (jazz.PerformerId == perf.PerformerId)
+                                        {
+                                            { Html.BeginForm("GetSelectedEvent", "Management"); }
+                                            <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@jazz.EventId" /></div>
+                                            <input type="submit" value="@perf.PerformerName" />
+                                            { Html.EndForm(); }
+                                        }
+                                    }
+                                </a>
+                            }
+                        }
+                    </a>
+                </ul>
+            </li>
+            <li>
+                <a class="expand">29-7</a>
+                <ul>
+                    <a class="expand">
+                        @foreach (var jazz in Model.jazz)
+                        {
+                            if ((jazz.EventStart.Day) == 29)
+                            {
+                                <a class="expand">
+                                    @foreach (var perf in Model.performer)
+                                    {
+                                        if (jazz.PerformerId == perf.PerformerId)
+                                        {
+                                            { Html.BeginForm("GetSelectedEvent", "Management"); }
+                                            <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@jazz.EventId" /></div>
+                                            <input type="submit" value="@perf.PerformerName" />
+                                            { Html.EndForm(); }
+                                        }
+                                    }
+                                </a>
+                            }
+                        }
+                    </a>
+                </ul>
+            </li>
                                 </ul>
-                                </li>
-                                </ul>
-
                             </div>
                             @*om het geselecteerde event te pakken ga ik terug naar de controller en het eventid meesturen*@
                             <div id="Events">
@@ -413,10 +323,9 @@
                                     <h2> Thursday 26-7</h2>
                                     <div class="JazzCard">
                                         @foreach (var fun in Model.jazz)
-
-            {
-                if ((fun.EventStart.Day) == 26)
-                {
+                                        {
+                                            if ((fun.EventStart.Day) == 26)
+                                            {
                                                 <div class="smallCard" id="smallCard">
                                                     <div id="smallTop">
                                                         <div id="topleft">
@@ -430,11 +339,12 @@
                                                     </div>
                                                     <div id=smallBottom>
                                                         @foreach (var perf in Model.performer)
-                    {
-                        if (fun.PerformerId == perf.PerformerId)
-                        {
-                                                                <p> @perf.PerformerName</p>}
-                    }
+                                                        {
+                                                            if (fun.PerformerId == perf.PerformerId)
+                                                            {
+                                                                <p> @perf.PerformerName</p>
+                                                            }
+                                                        }
                                                         <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
                                                         <p>@fun.Location</p>
                                                         <p>@fun.Seats</p>
@@ -454,18 +364,19 @@
                                                     </div>
                                                     <div id=bigBottom>
                                                         @foreach (var perf in Model.performer)
-                    {
-                        if (fun.PerformerId == perf.PerformerId)
-                        {
-                                                                <p> @perf.PerformerName</p>}
-                    }
+                                                        {
+                                                            if (fun.PerformerId == perf.PerformerId)
+                                                            {
+                                                                <p> @perf.PerformerName</p>
+                                                            }
+                                                        }
                                                         <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
                                                         <p>@fun.Location</p>
                                                         <p>@fun.Hall</p>
-                                                        <p>price</p>
-                                                        <p>comment</p>
-                                                        <p>@fun.Seats</p>
-                                                        <p>@fun.TicketsSold</p>
+                                                        <p>Price:@fun.Price</p>
+                                                        <p>Comment:@fun.Comment</p>
+                                                        <p>Seats:@fun.Seats</p>
+                                                        <p>TicketsSold:@fun.TicketsSold</p>
                                                     </div>
                                                 </div>
                                                                 }
@@ -473,14 +384,13 @@
                                     </div>
                                     <div class="TalkingCard">
                                         @foreach (var fun in Model.talking)
-
-            {
-                if ((fun.EventStart.Day) == 26)
-                {
+                                        {
+                                            if ((fun.EventStart.Day) == 26)
+                                            {
                                                 <div id="smallCard">
                                                     <div id="smallTop">
                                                         <div id="topleft">
-                                                            Jazz
+                                                            Talking
                                                         </div>
                                                         @{Html.BeginForm("GetSelectedTalkingEvent", "Management");}
                                                         <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@fun.EventId" /></div>
@@ -490,11 +400,12 @@
                                                     </div>
                                                     <div id=smallBottom>
                                                         @foreach (var perf in Model.performer)
-                    {
-                        if (fun.SpeakerOne.PerformerId == perf.PerformerId)
-                        {
-                                                                <p> @perf.PerformerName</p>}
-                    }
+                                                        {
+                                                            if (fun.SpeakerOne.PerformerId == perf.PerformerId)
+                                                            {
+                                                                <p> @perf.PerformerName</p>
+                                                            }
+                                                        }
                                                         <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
                                                         <p>@fun.Location</p>
                                                         <p>@fun.Seats</p>
@@ -514,22 +425,22 @@
                                                     </div>
                                                     <div id=bigBottom>
                                                         @foreach (var perf in Model.performer)
-                    {
-                        if (fun.SpeakerOne.PerformerId == perf.PerformerId)
-                        {
-                                                                <p> @perf.PerformerName</p>}
+                                                        {
+                                                            if (fun.SpeakerOne.PerformerId == perf.PerformerId)
+                                                            {
+                                                                <p> @perf.PerformerName</p>
+                                                            }
                                                             if (fun.SpeakerTwo.PerformerId == perf.PerformerId)
                                                             {
                                                                 <p> @perf.PerformerName</p>
                                                             }
-
                                                         }
                                                         <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
                                                         <p>@fun.Location</p>
-                                                        <p>price</p>
-                                                        <p>comment</p>
-                                                        <p>@fun.Seats</p>
-                                                        <p>@fun.TicketsSold</p>
+                                                        <p>Price:@fun.Price</p>
+                                                        <p>Comment:@fun.Comment</p>
+                                                        <p>Seats:@fun.Seats</p>
+                                                        <p>TicketsSold:@fun.TicketsSold</p>
                                                     </div>
                                                 </div>
                                                                 }
@@ -556,11 +467,12 @@
                                                     </div>
                                                     <div id=smallBottom>
                                                         @foreach (var perf in Model.performer)
-                    {
-                        if (fun.PerformerId == perf.PerformerId)
-                        {
-                                                                <p> @perf.PerformerName</p>}
-                    }
+                                                        {
+                                                            if (fun.PerformerId == perf.PerformerId)
+                                                            {
+                                                                <p> @perf.PerformerName</p>
+                                                            }
+                                                        }
                                                         <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
                                                         <p>@fun.Location</p>
                                                         <p>@fun.Seats</p>
@@ -580,32 +492,33 @@
                                                     </div>
                                                     <div id=bigBottom>
                                                         @foreach (var perf in Model.performer)
-                    {
-                        if (fun.PerformerId == perf.PerformerId)
-                        {
-                                                                <p> @perf.PerformerName</p>}
-                    }
+                                                        {
+                                                            if (fun.PerformerId == perf.PerformerId)
+                                                            {
+                                                                <p> @perf.PerformerName</p>
+                                                            }
+                                                        }
                                                         <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
                                                         <p>@fun.Location</p>
                                                         <p>@fun.Hall</p>
-                                                        <p>price</p>
-                                                        <p>comment</p>
-                                                        <p>@fun.Seats</p>
-                                                        <p>@fun.TicketsSold</p>
+                                                        <p>Price:@fun.Price</p>
+                                                        <p>Comment:@fun.Comment</p>
+                                                        <p>Seats:@fun.Seats</p>
+                                                        <p>TicketsSold:@fun.TicketsSold</p>
                                                     </div>
-                                                </div>}
+                                                </div>
+                                                                }
                                                             }
                                     </div>
                                     <div class="TalkingCard">
                                         @foreach (var fun in Model.talking)
-
-            {
-                if ((fun.EventStart.Day) == 27)
-                {
+                                        {
+                                            if ((fun.EventStart.Day) == 27)
+                                            {
                                                 <div id="smallCard" class="smallCard">
                                                     <div id="smallTop">
                                                         <div id="topleft">
-                                                            Jazz
+                                                            Talking
                                                         </div>
                                                         @{Html.BeginForm("GetSelectedTalkingEvent", "Management");}
                                                         <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@fun.EventId" /></div>
@@ -615,11 +528,11 @@
                                                     </div>
                                                     <div id=smallBottom>
                                                         @foreach (var perf in Model.performer)
-                    {
-                        if (fun.SpeakerOne.PerformerId == perf.PerformerId)
-                        {
-                                                                <p> @perf.PerformerName</p>}
-
+                                                        {
+                                                            if (fun.SpeakerOne.PerformerId == perf.PerformerId)
+                                                            {
+                                                                <p> @perf.PerformerName</p>
+                                                            }
                                                         }
                                                         <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
                                                         <p>@fun.Location</p>
@@ -640,22 +553,22 @@
                                                     </div>
                                                     <div id=bigBottom>
                                                         @foreach (var perf in Model.performer)
-                    {
-                        if (fun.SpeakerOne.PerformerId == perf.PerformerId)
-                        {
-                                                                <p> @perf.PerformerName</p>}
+                                                        {
+                                                            if (fun.SpeakerOne.PerformerId == perf.PerformerId)
+                                                            {
+                                                                <p> @perf.PerformerName</p>
+                                                            }
                                                             if (fun.SpeakerTwo.PerformerId == perf.PerformerId)
                                                             {
                                                                 <p> @perf.PerformerName</p>
                                                             }
-
                                                         }
                                                         <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
                                                         <p>@fun.Location</p>
-                                                        <p>price</p>
-                                                        <p>comment</p>
-                                                        <p>@fun.Seats</p>
-                                                        <p>@fun.TicketsSold</p>
+                                                        <p>Price:@fun.Price</p>
+                                                        <p>Comment:@fun.Comment</p>
+                                                        <p>Seats:@fun.Seats</p>
+                                                        <p>TicketsSold:@fun.TicketsSold</p>
                                                     </div>
                                                 </div>
                                                                 }
@@ -685,7 +598,8 @@
                                                         {
                                                             if (fun.PerformerId == perf.PerformerId)
                                                             {
-                                                                <p> @perf.PerformerName</p>}
+                                                                <p> @perf.PerformerName</p>
+                                                            }
                                                         }
                                                         <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
                                                         <p>@fun.Location</p>
@@ -709,29 +623,30 @@
                                                         {
                                                             if (fun.PerformerId == perf.PerformerId)
                                                             {
-                                                                <p> @perf.PerformerName</p>}
+                                                                <p> @perf.PerformerName</p>
+                                                            }
                                                         }
                                                         <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
                                                         <p>@fun.Location</p>
                                                         <p>@fun.Hall</p>
-                                                        <p>price</p>
-                                                        <p>comment</p>
-                                                        <p>@fun.Seats</p>
-                                                        <p>@fun.TicketsSold</p>
+                                                        <p>Price:@fun.Price</p>
+                                                        <p>Comment:@fun.Comment</p>
+                                                        <p>Seats:@fun.Seats</p>
+                                                        <p>TicketsSold:@fun.TicketsSold</p>
                                                     </div>
-                                                </div>}
+                                                </div>
+                                                                }
                                                             }
                                     </div>
                                     <div class="TalkingCard">
                                         }@foreach (var fun in Model.talking)
-
                                         {
                                             if ((fun.EventStart.Day) == 28)
                                             {
                                                 <div id="smallCard" class="smallCard">
                                                     <div id="smallTop">
                                                         <div id="topleft">
-                                                            Jazz
+                                                            Talking
                                                         </div>
                                                         @{Html.BeginForm("GetSelectedTalkingEvent", "Management");}
                                                         <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@fun.EventId" /></div>
@@ -741,11 +656,12 @@
                                                     </div>
                                                     <div id=smallBottom>
                                                         @foreach (var perf in Model.performer)
-                    {
-                        if (fun.SpeakerOne.PerformerId == perf.PerformerId)
-                        {
-                                                                <p> @perf.PerformerName</p>}
-                    }
+                                                        {
+                                                            if (fun.SpeakerOne.PerformerId == perf.PerformerId)
+                                                            {
+                                                                <p> @perf.PerformerName</p>
+                                                            }
+                                                        }
                                                         <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
                                                         <p>@fun.Location</p>
                                                         <p>@fun.Seats</p>
@@ -765,22 +681,22 @@
                                                     </div>
                                                     <div id=bigBottom>
                                                         @foreach (var perf in Model.performer)
-                    {
-                        if (fun.SpeakerOne.PerformerId == perf.PerformerId)
-                        {
-                                                                <p> @perf.PerformerName</p>}
+                                                        {
+                                                            if (fun.SpeakerOne.PerformerId == perf.PerformerId)
+                                                            {
+                                                                <p> @perf.PerformerName</p>
+                                                            }
                                                             if (fun.SpeakerTwo.PerformerId == perf.PerformerId)
                                                             {
                                                                 <p> @perf.PerformerName</p>
                                                             }
-
                                                         }
                                                         <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
                                                         <p>@fun.Location</p>
-                                                        <p>price</p>
-                                                        <p>comment</p>
-                                                        <p>@fun.Seats</p>
-                                                        <p>@fun.TicketsSold</p>
+                                                        <p>Price:@fun.Price</p>
+                                                        <p>Comment:@fun.Comment</p>
+                                                        <p>Seats:@fun.Seats</p>
+                                                        <p>TicketsSold:@fun.TicketsSold</p>
                                                     </div>
                                                 </div>
                                                                 }
@@ -791,9 +707,9 @@
                                     <h1> Sunday 29-7</h1>
                                     <div class="JazzCard">
                                         @foreach (var fun in Model.jazz)
-            {
-                if ((fun.EventStart.Day) == 29)
-                {
+                                        {
+                                            if ((fun.EventStart.Day) == 29)
+                                            {
                                                 <div id="smallCard" class="smallCard">
                                                     <div id="smallTop">
                                                         <div id="topleft">
@@ -807,11 +723,12 @@
                                                     </div>
                                                     <div id=smallBottom>
                                                         @foreach (var perf in Model.performer)
-                    {
-                        if (fun.PerformerId == perf.PerformerId)
-                        {
-                                                                <p> @perf.PerformerName</p>}
-                    }
+                                                        {
+                                                            if (fun.PerformerId == perf.PerformerId)
+                                                            {
+                                                                <p> @perf.PerformerName</p>
+                                                            }
+                                                        }
                                                         <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
                                                         <p>@fun.Location</p>
                                                         <p>@fun.Seats</p>
@@ -831,32 +748,33 @@
                                                     </div>
                                                     <div id=bigBottom>
                                                         @foreach (var perf in Model.performer)
-                    {
-                        if (fun.PerformerId == perf.PerformerId)
-                        {
-                                                                <p> @perf.PerformerName</p>}
-                    }
+                                                        {
+                                                            if (fun.PerformerId == perf.PerformerId)
+                                                            {
+                                                                <p> @perf.PerformerName</p>
+                                                            }
+                                                        }
                                                         <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
                                                         <p>@fun.Location</p>
                                                         <p>@fun.Hall</p>
-                                                        <p>price</p>
-                                                        <p>comment</p>
-                                                        <p>@fun.Seats</p>
-                                                        <p>@fun.TicketsSold</p>
+                                                        <p>Price:@fun.Price</p>
+                                                        <p>Comment:@fun.Comment</p>
+                                                        <p>Seats:@fun.Seats</p>
+                                                        <p>TicketsSold:@fun.TicketsSold</p>
                                                     </div>
-                                                </div>}
+                                                </div>
+                                                                }
                                                             }
                                     </div>
                                     <div class="TalkingCard">
                                         @foreach (var fun in Model.talking)
-
-            {
-                if ((fun.EventStart.Day) == 29)
-                {
+                                        {
+                                            if ((fun.EventStart.Day) == 29)
+                                            {
                                                 <div id="smallCard" class="smallCard">
                                                     <div id="smallTop">
                                                         <div id="topleft">
-                                                            Jazz
+                                                            Talking
                                                         </div>
                                                         @{Html.BeginForm("GetSelectedTalkingEvent", "Management");}
                                                         <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@fun.EventId" /></div>
@@ -866,11 +784,12 @@
                                                     </div>
                                                     <div id=smallBottom>
                                                         @foreach (var perf in Model.performer)
-                    {
-                        if (fun.SpeakerOne.PerformerId == perf.PerformerId)
-                        {
-                                                                <p> @perf.PerformerName</p>}
-                    }
+                                                        {
+                                                            if (fun.SpeakerOne.PerformerId == perf.PerformerId)
+                                                            {
+                                                                <p> @perf.PerformerName</p>
+                                                            }
+                                                        }
                                                         <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
                                                         <p>@fun.Location</p>
                                                         <p>@fun.Seats</p>
@@ -890,25 +809,24 @@
                                                     </div>
                                                     <div id=bigBottom>
                                                         @foreach (var perf in Model.performer)
-                    {
-                        if (fun.SpeakerOne.PerformerId == perf.PerformerId)
-                        {
-                                                                <p> @perf.PerformerName</p>}
+                                                        {
+                                                            if (fun.SpeakerOne.PerformerId == perf.PerformerId)
+                                                            {
+                                                                <p> @perf.PerformerName</p>
+                                                            }
                                                             if (fun.SpeakerTwo.PerformerId == perf.PerformerId)
                                                             {
                                                                 <p> @perf.PerformerName</p>
                                                             }
-
                                                         }
                                                         <p>@fun.EventStart.Hour : @fun.EventStart.Minute - @fun.EventEnd.Hour : @fun.EventEnd.Minute</p>
                                                         <p>@fun.Location</p>
-                                                        <p>price</p>
-                                                        <p>comment</p>
-                                                        <p>@fun.Seats</p>
-                                                        <p>@fun.TicketsSold</p>
+                                                        <p>Price:@fun.Price</p>
+                                                        <p>Comment:@fun.Comment</p>
+                                                        <p>Seats:@fun.Seats</p>
+                                                        <p>TicketsSold:@fun.TicketsSold</p>
                                                     </div>
                                                 </div>
-
                                                                 }
                                                             }
                                     </div>
@@ -927,7 +845,7 @@
                                             <th class="tg-yw4l"></th>
                                         </tr>
                                         @foreach (var eve in Model.jazz)
-            {
+                                        {
                                             <tr>
                                                 <td class="tg-yw4l">@eve.EventStart</td>
                                                 <td class="tg-yw4l">@eve.EventStart</td>
@@ -935,9 +853,9 @@
                                                 <td class="tg-yw4l">@eve.Location</td>
                                                 <td class="tg-yw4l">@eve.Hall</td>
                                                 @foreach (var perf in Model.performer)
-                {
-                    if (eve.PerformerId == perf.PerformerId)
-                    {
+                                                {
+                                                    if (eve.PerformerId == perf.PerformerId)
+                                                    {
                                                         <td class="tg-yw4l">@perf.PerformerName</td>
                                                     }
                                                 }
@@ -974,9 +892,9 @@
                                                 <td class="tg-031e">@eve.EventStart.Hour : @eve.EventStart.Minute</td>
                                                 <td class="tg-031e">@eve.Location</td>
                                                 @foreach (var perf in Model.performer)
-                {
-                    if (eve.SpeakerOne.PerformerId == perf.PerformerId)
-                    {
+                                                {
+                                                    if (eve.SpeakerOne.PerformerId == perf.PerformerId)
+                                                    {
                                                         <td class="tg-yw4l">@perf.PerformerName</td>
                                                     }
                                                     if (eve.SpeakerOne.PerformerId == perf.PerformerId)
@@ -988,15 +906,14 @@
                                                 <td class="tg-031e">price</td>
                                                 <td class="tg-031e">
                                                     @{Html.BeginForm("GetSelectedTalkingEvent", "Management");}
-                                                <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@eve.EventId" /></div>
-                                                <input type="submit" value="Edit" />
-                                                @{Html.EndForm();}
-                                            </td>
-                                        </tr>
-                                                    }
+                                                    <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@eve.EventId" /></div>
+                                                    <input type="submit" value="Edit" />
+                                                    @{Html.EndForm();}
+                                                </td>
+                                            </tr>
+                                                        }
                                     </table>
                                 </div>
                             </div>
-
                         </body>
                     </html>

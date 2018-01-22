@@ -36,15 +36,16 @@
                     </tr>
                     <tr>
                         <td>Start Time</td>
-                        <td><input type="time" id="TxtDateStart" name="EventStart" value="@eve.EventStart " /></td>
+                        <td><input type="time" id="TxtDateStart" name="EventStart" value="@eve.EventStart.TimeOfDay" /></td>
                     </tr>
                     <tr>
                         <td>End Time</td>
-                        <td><input type="time" id="TxtDateEnd" name="EventEnd" value="@eve.EventEnd" /></td>
+                        <td><input type="time" id="TxtDateEnd" name="EventEnd" value="@eve.EventEnd.TimeOfDay" /></td>
                     </tr>
                     <tr>
                         <td>Date</td>
-                        <td><input type="date" id="TxtDate" name="Date" value="@eve.EventStart" /></td>
+                        <!--moet in 2014-12-29 format-->
+                        <td><input type="date" id="TxtDate" name="Date" value="@eve.EventStart.ToString("yyyy-MM-dd")" /></td>
                     </tr>
                     <tr>
                         <td>Location</td>
@@ -60,11 +61,11 @@
                     </tr>
                     <tr>
                         <td>Price</td>
-                        <td><input type="text" name="company" form="my_form" /></td>
+                        <td><input type="text" id ="TxtPrice"name="Price" value="@eve.Price"/></td>
                     </tr>
                     <tr>
                         <td>Comments</td>
-                        <td><input type="text" name="company" form="my_form" /></td>
+                        <td><input type="text" id ="TxtComment"name="Comment" value="@eve.Comment" /></td>
                     </tr>}
             </table>
             <input type="submit" name="BtnSave" value="Create Event" />

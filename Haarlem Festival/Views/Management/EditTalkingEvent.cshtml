@@ -28,26 +28,32 @@
                             if (eve.SpeakerOne.PerformerId == perf.PerformerId)
                             {
                                 <td>PerformerName</td>
-                                <td><input type="text" id="TxtArtist1" name="Artist" value="@perf.PerformerName" /></td>
+                                <td><input type="text" id="TxtArtist" name="PerformerImagePath" value="@perf.PerformerImagePath" /></td>
+                                <td><input type="text" id="TxtArtist" name="PerformerInfo" value="@perf.PerformerInfo" /></td>
+                                <td><input type="text" id="TxtArtist" name="PerformerName" value="@perf.PerformerName" /></td>
+                                <td><input type="text" id="TxtArtist" name="PerformerId" value="@eve.SpeakerOne.PerformerId" /></td>
                             }
                             if (eve.SpeakerTwo.PerformerId == perf.PerformerId)
                             {
-                                <td>PerformerName</td>
-                                <td><input type="text" id="TxtArtist2" name="Artist" value="@perf.PerformerName" /></td>
+                                <td>PerformerName2</td>
+                                <td><input type="text" id="TxtArtist" name="PerformerImagePath2" value="@perf.PerformerImagePath" /></td>
+                                <td><input type="text" id="TxtArtist" name="PerformerInfo2" value="@perf.PerformerInfo" /></td>
+                                <td><input type="text" id="TxtArtist" name="PerformerName2" value="@perf.PerformerName" /></td>
+                                <td><input type="text" id="TxtArtist" name="PerformerId2" value="@eve.SpeakerTwo.PerformerId" /></td>
                             }
                         }
                     </tr>
                     <tr>
                         <td>Start Time</td>
-                        <td><input type="time" id="TxtDateStart" name="EventStart" value="@eve.EventStart " /></td>
+                        <td><input type="time" id="TxtDateStart" name="EventStart" value="@eve.EventStart.TimeOfDay" /></td>
                     </tr>
                     <tr>
                         <td>End Time</td>
-                        <td><input type="time" id="TxtDateEnd" name="EventEnd" value="@eve.EventEnd" /></td>
+                        <td><input type="time" id="TxtDateEnd" name="EventEnd" value="@eve.EventEnd.TimeOfDay" /></td>
                     </tr>
                     <tr>
                         <td>Date</td>
-                        <td><input type="date" id="TxtDate" name="Date" value="@eve.EventStart" /></td>
+                        <td><input type="date" id="TxtDate" name="Date" value="@eve.EventStart.ToString("yyyy-MM-dd")" /></td>
                     </tr>
                     <tr>
                         <td>Location</td>
@@ -59,11 +65,11 @@
                     </tr>
                     <tr>
                         <td>Price</td>
-                        <td><input type="text" name="company" form="my_form" /></td>
+                        <td><input type="text" id="TxtPrice" name="Price" value="@eve.Price" /></td>
                     </tr>
                     <tr>
                         <td>Comments</td>
-                        <td><input type="text" name="company" form="my_form" /></td>
+                        <td><input type="text" id="TxtComment" name="Comment" value="@eve.Comment" /></td>
                     </tr>}
             </table>
             <input type="submit" name="BtnSave" value="Create Event" />
