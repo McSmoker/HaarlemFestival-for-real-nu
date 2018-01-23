@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Haarlem_Festival.Models.Jazz>
+﻿@model IEnumerable<Haarlem_Festival.ViewModels.JazzViewModel>
 
 <div class="block">
     <div class="block-header">
@@ -88,18 +88,18 @@
                     </tr>
                     <tr>
                         <td class="practical-info-table-td">Location | Hall</td>
-                        <td class="practical-info-table-td">@item.Location | @item.Hall</td>
+                        <td class="practical-info-table-td">@item.LocationHall()</td>
                     </tr>
                     <tr>
                         <td class="practical-info-table-td">Price</td>
-                        <td class="practical-info-table-td">&euro; @item.Price.ToString("0.00")</td>
+                        <td class="practical-info-table-td">@item.FormatPrice()</td>
                     </tr>
                     <tr>
                         <td class="practical-info-table-td">Seats left</td>
-                        <td class="practical-info-table-td">@(item.Seats - item.TicketsSold)</td>
+                        <td class="practical-info-table-td">@item.SeatsAvailable()</td>
                     </tr>
                 </table>
-                <input type="button" id="@item.EventId" class="action-btn" value="Add ticket to cart" />
+                <input type="button" id="@item.EventId" class="action-btn" value="@item.ActionButtonValue()" />
             </div>
         </div>
     </div>

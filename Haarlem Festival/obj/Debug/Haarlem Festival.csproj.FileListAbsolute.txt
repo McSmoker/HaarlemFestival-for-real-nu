@@ -599,3 +599,68 @@ L:\HF 20180119\Haarlem Festival\obj\Debug\Haarlem Festival.csproj.GenerateResour
 L:\HF 20180119\Haarlem Festival\obj\Debug\Haarlem Festival.csproj.CoreCompileInputs.cache
 L:\HF 20180119\Haarlem Festival\obj\Debug\Haarlem Festival.dll
 L:\HF 20180119\Haarlem Festival\obj\Debug\Haarlem Festival.pdb
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Haarlem Festival.dll.config
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Haarlem Festival.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Haarlem Festival.pdb
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Antlr3.Runtime.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\EntityFramework.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\EntityFramework.SqlServer.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.Owin.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.Owin.Security.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Newtonsoft.Json.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Owin.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Spire.Common.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Spire.License.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Spire.Pdf.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Spire.XLS.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\System.Web.Helpers.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\System.Web.Mvc.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\System.Web.Optimization.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\System.Web.Razor.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\System.Web.WebPages.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\System.Web.WebPages.Razor.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\WebGrease.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.mshtml.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\EntityFramework.xml
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\EntityFramework.SqlServer.xml
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\System.Web.Helpers.xml
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\System.Web.Mvc.xml
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\System.Web.Optimization.xml
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\System.Web.Razor.xml
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\System.Web.WebPages.xml
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\System.Web.WebPages.Razor.xml
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Newtonsoft.Json.xml
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Antlr3.Runtime.pdb
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.Owin.xml
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.Owin.Security.xml
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\Debug\Haarlem Festival.csprojResolveAssemblyReference.cache
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\Debug\Haarlem_Festival.Migrations.InitialCreate.resources
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\Debug\Haarlem_Festival.Migrations.Migration20171123t1307.resources
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\Debug\Haarlem_Festival.Migrations.Migration20171123t1315.resources
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\Debug\Haarlem Festival.csproj.GenerateResource.Cache
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\Debug\Haarlem Festival.csproj.CoreCompileInputs.cache
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\Debug\Haarlem Festival.dll
+C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\Debug\Haarlem Festival.pdb

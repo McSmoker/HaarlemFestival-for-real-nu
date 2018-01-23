@@ -61,7 +61,8 @@
     });
 
     $(".action-btn").click(function () {
-        $(".added-to-cart-modal").slideDown();
+        if ($(this).val() != "No ticket required for this venue")
+            $(".added-to-cart-modal").slideDown();
     });
 
     $(".added-to-cart-modal").click(function () {
