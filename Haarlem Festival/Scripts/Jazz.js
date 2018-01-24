@@ -61,7 +61,7 @@
     });
 
     $(".action-btn").click(function () {
-        if ($(this).val() !== "No ticket required for this venue" && $(this).val() !== "Jump to Checkout")
+        if ($(this).val() == "Add ticket to cart")
             $(".added-to-cart-modal").slideDown();
     });
 

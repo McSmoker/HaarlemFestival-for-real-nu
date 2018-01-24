@@ -1,8 +1,8 @@
 ﻿$(document).ready(function () {
 
     $(".action-btn").click(function (e) {
-        if ($(this).val() !== "No ticket required for this venue" && $(this).val() !== "Jump to Checkout") {
-            var ticketEvent = {
+        if ($(this).val() == "Add ticket to cart") {
+            var ticketEventId = {
                 EventId: $(this).attr("id")
             }
             $.ajax({
@@ -12,7 +12,7 @@
                 dataType: "json",  
                 contentType: 'application/json; charset=utf-8',
                 success: function (data) {
-                    alert(data.msg);
+                    alert(data.EventId);
                 },
                 error: function () {
                     alert("Error occured!!")

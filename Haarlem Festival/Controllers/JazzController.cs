@@ -148,13 +148,15 @@ namespace Haarlem_Festival.Controllers
         }
 
         [HttpPost]
-        public ActionResult AJAXTest(Jazz e)
+        public ActionResult AJAXTest(int e)
         {
             try
             {
+                var ticket = db.Jazz.Find(e);
+
                 return Json(new
                 {
-                    msg = "Successfully added " + e.EventId + " lel"
+                    
                 });
             }
             catch (Exception ex)

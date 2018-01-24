@@ -658,8 +658,6 @@ C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\M
 C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\Debug\Haarlem Festival.csprojResolveAssemblyReference.cache
 C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\Debug\Haarlem_Festival.Migrations.InitialCreate.resources
-C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\Debug\Haarlem_Festival.Migrations.Migration20171123t1307.resources
-C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\Debug\Haarlem_Festival.Migrations.Migration20171123t1315.resources
 C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\Debug\Haarlem Festival.csproj.GenerateResource.Cache
 C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\Debug\Haarlem Festival.csproj.CoreCompileInputs.cache
 C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\Debug\Haarlem Festival.dll
