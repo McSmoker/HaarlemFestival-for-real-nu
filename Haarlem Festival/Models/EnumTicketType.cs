@@ -7,6 +7,6 @@ namespace Haarlem_Festival.Models
 {
     public enum TicketType
     {
-        Single, PassePartoutSingle, PassepartoutFull
+        Single, PassePartoutSingle, PassePartoutFull
     }
 }
