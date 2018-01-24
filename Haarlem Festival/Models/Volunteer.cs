@@ -11,6 +11,7 @@ namespace Haarlem_Festival.Models
         [Key]
         public int VolunteerId { get; set; }
         public string Name { get; set; }
+        [DataType(DataType.Password)]
         public string Password { get; set; }
 
         public void AddEvent()

@@ -1,10 +1,8 @@
-﻿@Model Mangement
+﻿
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
-
 <html>
 <head>
     <title>Site Management</title>
@@ -12,22 +10,28 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
-        $( function() {
-            var dialog, form;
+        $(function () {
+            var categoryfilter;
             $('.expand').click(function () {
                 $('ul', $(this).parent()).eq(0).toggle();
             });
             $("#HomeButton").click(function () {
                 $("#HomeButtons").show()
-                 $("#JazzButtons").hide()
+                $("#JazzButtons").hide()
+                $("#TalkingButtons").hide()
+                categoryfilter = "home";
             });
             $("#JazzButton").click(function () {
                 $("#HomeButtons").hide()
                 $("#JazzButtons").show()
+                $("#TalkingButtons").hide()
+                categoryfilter = "jazz";
             });
             $("#TalkingButton").click(function () {
                 $("#HomeButtons").hide()
+                $("#JazzButtons").hide()
                 $("#TalkingButtons").show()
+                categoryfilter = "talking";
             });
             $(window).load(function () {
                 $("#HomeButtons").hide()
@@ -47,8 +51,65 @@
                         $(el).show();
                     }
                 })
-
             });
+            $(".filter").change(function () {
+                var filterValue = $(this).val();
+                var jazz267 = $('.jazzButton26-7');
+                var jazz277 = $('.jazzButton27-7');
+                var jazz287 = $('.jazzButton28-7');
+                var jazz297 = $('.jazzButton29-7');
+                var talk267 = $('.talkingButton26-7');
+                var talk277 = $('.talkingButton27-7');
+                var talk287 = $('.talkingButton28-7');
+                var talk297 = $('.talkingButton29-7');
+                jazz267.hide();
+                jazz277.hide();
+                jazz287.hide();
+                jazz297.hide();
+                talk267.hide();
+                talk277.hide();
+                talk287.hide();
+                talk297.hide();
+                console.log(categoryfilter);
+                if (filterValue == '26-7' & categoryfilter == 'jazz') {
+                    jazz267.show();
+                }
+                else if (filterValue == '26-7' & categoryfilter == 'talking') {
+                    talk267.show();
+                    console.log("t26-7");
+                }
+                else if (filterValue == '27-7' & categoryfilter == 'jazz') {
+                    jazz277.show();
+                }
+                else if (filterValue == '27-7' & categoryfilter == 'talking') {
+                    talk277.show();
+                    console.log("t27-7");
+                }
+                else if (filterValue == '28-7' & categoryfilter == 'jazz') {
+                    jazz287.show();
+                }
+                else if (filterValue == '28-7' & categoryfilter == 'talking') {
+                    talk287.show();
+                    console.log("t28-7");
+                }
+                else if (filterValue == '29-7' & categoryfilter == 'jazz') {
+                    jazz297.show();
+                }
+                else if (filterValue == '29-7' & categoryfilter == 'talking') {
+                    talk297.show();
+                    console.log("t29-7");
+                }
+            });
+            //$(".Jbutton").click(function () {
+            //    var performerInfo = $('.Jbutton').val();
+            //    var editBox = $('.textEdit');
+            //    editBox.text("testtext")
+            //    editBox.val("performerInfo");
+            //    console.log($('.Jbutton').text());
+            //    console.log($('.Jbutton').val());
+            //    console.log(performerInfo);
+            //})
+
 
         })
     </script>
@@ -58,7 +119,7 @@
     <div id="header">
         <!-- first box -->
         <div id="logo">
-            <img src="Logo2.png" alt="Festival Logo">
+            <img src="~/Content/img/Logo2.png" alt="Festival Logo">
         </div>
         <div id="HomeButton">
             Home
@@ -76,25 +137,49 @@
                 <a class="expand">Home</a>
                 <ul>
                     <a class="expand">
-                        <li><p> Box1</p></li>
-                        <li><p> Box2</p></li>
-                        <li><p> Box3</p></li>
-                        <li><p> Box4</p></li>
-                        </a>
+                        <li>
+                            <p> Box1</p>
+                        </li>
+                        <li>
+                            <p> Box2</p>
+                        </li>
+                        <li>
+                            <p> Box3</p>
+                        </li>
+                        <li>
+                            <p> Box4</p>
+                        </li>
+                    </a>
                 </ul>
             </li>
             <li>
                 <a class="expand">Jazz</a>
                 <ul>
-                        <a class="expand">
-                    <li><p> Box1</p></li>
-                    <li><p> Box2</p></li>
-                    <li><p> Box3</p></li>
-                    <li><p> Box4</p></li>
-                    <li><p> Box5</p></li>
-                    <li><p> Box6</p></li>
-                    <li><p> Box7</p></li>
-                    <li><p> Box8</p></li>
+                    <a class="expand">
+                        <li>
+                            <p> Box1</p>
+                        </li>
+                        <li>
+                            <p> Box2</p>
+                        </li>
+                        <li>
+                            <p> Box3</p>
+                        </li>
+                        <li>
+                            <p> Box4</p>
+                        </li>
+                        <li>
+                            <p> Box5</p>
+                        </li>
+                        <li>
+                            <p> Box6</p>
+                        </li>
+                        <li>
+                            <p> Box7</p>
+                        </li>
+                        <li>
+                            <p> Box8</p>
+                        </li>
                     </a>
                     </a>
                 </ul>
@@ -114,12 +199,11 @@
                     <li><p> Box8</p></li>
                     </a>
                     </a>
-                </li>
-            </ul>
-                </ul>
             </li>
         </ul>
-
+        </ul>
+        </li>
+        </ul>
     </div>
     <div id="contentSelect">
         <h1>Select Content To Edit</h1>
@@ -131,11 +215,10 @@
             <option value="29-7">29-7</option>
         </select>
         <div id="HomeButtons">
-            
-            <button type="button"style="width: 49%;">Click Me!</button> 
-            <button type="button"style="width: 49%;">Click Me!</button> 
-            <button type="button"style="width: 49%;">Click Me!</button> 
-            <button type="button"style="width: 49%;">Click Me!</button> 
+            <button type="button" style="width: 49%;">Click Me!</button>
+            <button type="button" style="width: 49%;">Click Me!</button>
+            <button type="button" style="width: 49%;">Click Me!</button>
+            <button type="button" style="width: 49%;">Click Me!</button>
         </div>
         <div id="JazzButtons">
             @foreach (var jazz in Model.jazz)
@@ -146,72 +229,177 @@
                     {
                         if (jazz.PerformerId == perf.PerformerId)
                         {
-                            {Html.BeginForm("GetContent", "Management");}
-                                <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@jazz.EventId" />@perf.PerformerName</div>
+                            <div class="jazzButton26-7">
+                                @{Html.BeginForm("GetContent", "Management");}
+                                <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@jazz.EventId" /></div>
                                 <input type="submit" value="Edit" />
-                            {Html.EndForm();}
-                        }
-                    }
-                }
-            <button class="button" type="button" value="27-7" style="width: 49%;">Click Me!</button>
-            <button class="button" type="button" value="27-7" style="width: 49%;">Click Me!</button>
-            <button class="button" type="button" value="27-7" style="width: 49%;">Click Me!</button>
-            <button class="button" type="button" value="27-7" style="width: 49%;">Click Me!</button>
-            <button class="button" type="button" value="27-7" style="width: 49%;">Click Me!</button>
-            <button class="button" type="button" value="27-7" style="width: 49%;">Click Me!</button>
-            <button class="button" type="button" value="27-7" style="width: 49%;">Click Me!</button>
-            <button class="button" type="button" value="27-7" style="width: 49%;">Click Me!</button>
-
-            <button class="button" type="button" value="28-7" style="width: 49%;">Click Me!</button>
-            <button class="button" type="button" value="28-7" style="width: 49%;">Click Me!</button>
-            <button class="button" type="button" value="28-7" style="width: 49%;">Click Me!</button>
-            <button class="button" type="button" value="28-7" style="width: 49%;">Click Me!</button>
-            <button class="button" type="button" value="28-7" style="width: 49%;">Click Me!</button>
-            <button class="button" type="button" value="28-7" style="width: 49%;">Click Me!</button>
-            <button class="button" type="button" value="28-7" style="width: 49%;">Click Me!</button>
-            <button class="button" type="button" value="28-7" style="width: 49%;">Click Me!</button>
-
-            <button class="button" type="button" value="29-7" style="width: 49%;">Click Me!</button>
-            <button class="button" type="button" value="29-7" style="width: 49%;">Click Me!</button>
-            <button class="button" type="button" value="29-7" style="width: 49%;">Click Me!</button>
-            <button class="button" type="button" value="29-7" style="width: 49%;">Click Me!</button>
-            <button class="button" type="button" value="29-7" style="width: 49%;">Click Me!</button>
-            <button class="button" type="button" value="29-7" style="width: 49%;">Click Me!</button>
-            <button class="button" type="button" value="29-7" style="width: 49%;">Click Me!</button>
-            <button class="button" type="button" value="29-7" style="width: 49%;">Click Me!</button>
-            }
-        </div>
-        <div id="TalkingButtons">
-            <button class="button" type="button" value="26-7" style="width: 49%;">Click Me!</button>
-            <button class="button" type="button" value="27-7" style="width: 49%;">Click Me!</button>
-            <button class="button" type="button" value="28-7" style="width: 49%;">Click Me!</button>
-            <button class="button" type="button" value="29-7" style="width: 49%;">Click Me!</button>
-        </div>
-    </div>
-    
-        <div id="textEdit">
-            @{Html.BeginForm("TextEdit", "Management");}
-                <textarea rows="20" cols="50" id="txtEdit" name="txtEdit">
-                    @if (ViewBag.selected != null)
-                    {
-                        foreach(var eve in Model.jazz)
-                        {
-                            if (eve.EventId == ViewBag.selected)
-                            {
-                                foreach (var perf in Model.performer)
+                                @{ Html.EndForm(); }
+                            </div>
+                                            }
+                                        }
+                                    }
+                                if ((jazz.EventStart.Day) == 27)
                                 {
-                                    if (perf.PerformerId == eve.PerformerId)
+                                    foreach (var perf in Model.performer)
                                     {
-                                        @perf.PerformerInfo;
-                                        
+                                        if (jazz.PerformerId == perf.PerformerId)
+                                        {
+                                            <div class="jazzButton27-7">
+                                                @{Html.BeginForm("GetContent", "Management");}
+                                                <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@jazz.EventId" />@perf.PerformerName</div>
+                                                <input type="submit" value="Edit" />
+                                                @{ Html.EndForm(); }
+                                            </div>
                                     }
                                 }
                             }
+                                            if ((jazz.EventStart.Day) == 28)
+                                            {
+                                                foreach (var perf in Model.performer)
+                                                {
+                                                    if (jazz.PerformerId == perf.PerformerId)
+                                                    {
+                                                        <div class="jazzButton28-7">
+                                                            @{Html.BeginForm("GetContent", "Management");}
+                                                            <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@jazz.EventId" />@perf.PerformerName</div>
+                                                            <input type="submit" value="Edit" />
+                                                            @{ Html.EndForm(); }
+                                                        </div>
+                                                    }
+                                                }
+                                            }
+                                    if ((jazz.EventStart.Day) == 29)
+                                    {
+                                        foreach (var perf in Model.performer)
+                                        {
+                                            if (jazz.PerformerId == perf.PerformerId)
+                                            {
+                                                <div class="jazzButton29-7">
+                                                    @{Html.BeginForm("GetContent", "Management");}
+                                                    <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@jazz.EventId" />@perf.PerformerName</div>
+                                                    <input type="submit" value="Edit" />
+                                                    @{ Html.EndForm(); }
+                                        </div>
+                                        }
+                                    }
+                                }
+                            }
+        </div>
+        <div id="TalkingButtons">
+            @foreach (var talking in Model.talking)
+            {
+                if ((talking.EventStart.Day) == 26)
+                {
+                    foreach (var perf in Model.performer)
+                    {
+                        if (talking.SpeakerOne.PerformerId == perf.PerformerId)
+                        {
+                            <div class="talkingButton26-7">
+                                @{Html.BeginForm("GetContent", "Management");}
+                                <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@talking.EventId" /></div>
+                                <input type="submit" value="Edit" />
+                                @{ Html.EndForm(); }
+                            </div>
+                                            }
+                                        }
+                                    }
+                                    if ((talking.EventStart.Day) == 27)
+                                    {
+                                        foreach (var perf in Model.performer)
+                                        {
+                                            if (talking.SpeakerOne.PerformerId == perf.PerformerId)
+                                            {
+                                                <div class="talkingButton27-7">
+                                                    @{Html.BeginForm("GetContent", "Management");}
+                                                    <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@talking.EventId" /></div>
+                                                    <input type="submit" value="Edit" />
+                                                    @{ Html.EndForm(); }
+                                                </div>
+                                                                }
+                                                            }
+                                                        }
+                                                        if ((talking.EventStart.Day) == 28)
+                                                        {
+                                                            foreach (var perf in Model.performer)
+                                                            {
+                                                                if (talking.SpeakerOne.PerformerId == perf.PerformerId)
+                                                                {
+                                                                    <div class="talkingButton28-7">
+                                                                        @{Html.BeginForm("GetContent", "Management");}
+                                                                        <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@talking.EventId" /></div>
+                                                                        <input type="submit" value="Edit" />
+                                                                        @{ Html.EndForm(); }
+                                                                    </div>
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                            if ((talking.EventStart.Day) == 29)
+                                                                            {
+                                                                                foreach (var perf in Model.performer)
+                                                                                {
+                                                                                    if (talking.SpeakerOne.PerformerId == perf.PerformerId)
+                                                                                    {
+                                                                                        <div class="talkingButton29-7">
+                                                                                            @{Html.BeginForm("GetContent", "Management");}
+                                                                                            <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@talking.EventId" /></div>
+                                                                                            <input type="submit" value="Edit" />
+                                                                                            @{ Html.EndForm(); }
+                                                                                        </div>
+                                                                                                            }
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+
+        </div>
+    </div>
+    <div class="editing">
+        <div id="textEdit">
+            @{Html.BeginForm("TextEdit", "Management");}
+            <textarea rows="20" cols="50" id="txtEdit" name="txtEdit">
+                @if (ViewBag.selected != null)
+            {
+                foreach (var eve in Model.jazz)
+                {
+                    if (eve.EventId == ViewBag.selected)
+                    {
+                        foreach (var perf in Model.performer)
+                        {
+                            if (perf.PerformerId == eve.PerformerId)
+                            {
+                                    @perf.PerformerInfo;
+                            }
                         }
                     }
-                </textarea>
-            </div>
-                @if (ViewBag.selected != null)
+                }
+            }
+            </textarea>
+        
+        @if (ViewBag.selected != null)
+        {
+            foreach (var eve in Model.jazz)
+            {
+                if (eve.EventId == ViewBag.selected)
+                {
+                    foreach (var perf in Model.performer)
+                    {
+                        if (perf.PerformerId == eve.PerformerId)
+                        {
+                            <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@eve.EventId" />@perf.PerformerName</div>
+                        }
+                    }
+                }
+            }
+        }
+        <input type="submit" class="btn" value="Save Text Changes" />
+        </div>
+
+        @{Html.EndForm();}
+        <div id="imageEdit">
+            <h1>Image</h1>
+            @using (Html.BeginForm("FileUpload", "Management", FormMethod.Post,
+                     new { enctype = "multipart/form-data" }))
+            {
+                if (ViewBag.selected != null)
                 {
                     foreach (var eve in Model.jazz)
                     {
@@ -221,30 +409,77 @@
                             {
                                 if (perf.PerformerId == eve.PerformerId)
                                 {
-                                    <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@eve.EventId" />@perf.PerformerName</div>
-
+                                    <img src="~/Content/img/jazz/@perf.PerformerImagePath" alt="Festival Logo">
+                                    <div class="hidethis" style="visibility:hidden"><input type="text" name="oripath" id="oripath" value="@perf.PerformerImagePath" /></div>
                                 }
                             }
                         }
                     }
                 }
-
-            <input type="submit" class="btn" value="Save Changes" />
-            @{Html.EndForm();}
-                <div id="imageEdit">
-            <h1>Image</h1>
-             @using (Html.BeginForm("FileUpload", "Management", FormMethod.Post,
-                    new { enctype = "multipart/form-data" }))
-                    {
-                        <label for="file">Upload Image:</label>
-                        <input type="file" name="file" id="file" style="width: 100%;" />
-                        <input type="submit" value="Upload" class="submit" />
-                    }
+                <label for="file">Upload Image:</label>
+                <input type="file" name="file" id="file" style="width: 100%;" />
+                <input type="submit" value="Upload" class="submit" />
+            }
         </div>
-        
+    </div>
     <div id="pagePreview">
         <h1>Page Preview</h1>
-    </div>
+        @if (ViewBag.selected != null)
+        {
+            foreach (var eve in Model.jazz)
+            {
+                if (eve.EventId == ViewBag.selected)
+                {
+                    foreach (var perf in Model.performer)
+                    {
+                        if (perf.PerformerId == eve.PerformerId)
+                        {
+                            <div class="block">
+                                <div class="block-header">
+                                    <p class="block-header-title">@eve.Artist.PerformerName</p>
+                                </div>
+                                <p class="artist-block-text">
+                                    @eve.Artist.PerformerInfo
+                                </p>
 
+                                <div class="artist-bottom-wrap">
+                                    <img src="~/Content/img/jazz/@eve.Artist.PerformerImagePath" class="artist-image" />
+
+                                    <div class="artist-practical-block">
+                                        <div class="practical-info-header">
+                                            <p class="practical-info-title">Practical information</p>
+                                        </div>
+                                        <table class="practical-info-table">
+                                            <tr>
+                                                <td class="practical-info-table-td">Date</td>
+                                                <td class="practical-info-table-td">@eve.EventStart.ToString("dd/MM/yyyy")</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="practical-info-table-td">Time</td>
+                                                <td class="practical-info-table-td">@eve.EventStart.ToShortTimeString() - @eve.EventEnd.ToShortTimeString()</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="practical-info-table-td">Location | Hall</td>
+                                                <td class="practical-info-table-td">@eve.Location | @eve.Hall</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="practical-info-table-td">Price</td>
+                                                <td class="practical-info-table-td">&euro; 15,00</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="practical-info-table-td">Seats left</td>
+                                                <td class="practical-info-table-td">@eve.Seats</td>
+                                            </tr>
+                                        </table>
+                                        <input type="button" onclick="addTicketToCart(this)" id="@eve.EventId" class="action-btn" value="Add ticket to cart" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                }
+            }
+        }
+    </div>
 </body>
 </html>

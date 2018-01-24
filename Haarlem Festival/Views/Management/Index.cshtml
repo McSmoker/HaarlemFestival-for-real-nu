@@ -1,7 +1,11 @@
-﻿@Model Management
+﻿
 @{
     ViewBag.Title = "Index";
     Layout = null;
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
 }
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>

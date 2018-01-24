@@ -168,6 +168,9 @@ border-width: thin;
 background: #D7FFD1;
 line-height: 0px;
 }
+.editing{
+    float:left;
+}
 
 
 #button {
@@ -286,6 +289,7 @@ border-width: 0px;
 #contentSelect {
     width:20%;  
     float: left;
+    height:900px;
 }
 
 #textEdit {
@@ -293,7 +297,6 @@ border-width: 0px;
 }
 
 #imageEdit {
-    float: left;
 }
 
 #pagePreview {
@@ -346,4 +349,132 @@ table, th, td {
 #EventDaySection{
     float:left;
     width:100%;
+}
+/*
+    preview voor contentmanagement
+*/
+.block {
+    margin: 0 20px 20px 0;
+    width: 700px;
+    height: 430px;
+    background-color: #F2F2F2;
+    display: block;
+    float: left;
+}
+
+    .block:nth-of-type(even) {
+        margin-right: 0;
+    }
+
+.block-header {
+    width: 684px;
+    height: 52px;
+    background-color: #666666;
+    margin: 8px 0 0 8px;
+    display: inline-block;
+}
+
+.block-header-title {
+    margin: 0 0 0 22px;
+    color: #FFFFFF;
+    font-family: 'Century Gothic Bold', 'Century Gothic Regular', 'Century Gothic';
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 52px;
+    height: 52px;
+    float: left;
+}
+.artist-block-text {
+    margin: 5px 30px 0 30px;
+    padding: 0;
+    width: 640px;
+    height: 90px;
+    font-size: 16px;
+    color: #333333;
+    line-height: 18px;
+    display: inline-block;
+}
+
+.artist-bottom-wrap {
+    width: 700px;
+    height: 274px;
+}
+
+.artist-image {
+    width: 330px;
+    height: 250px;
+    margin: 12px 15px;
+    padding: 0;
+    float: left;
+}
+
+.artist-practical-block {
+    width: 330px;
+    height: 250px;
+    margin-top: 12px;
+    padding: 0;
+    float: left;
+}
+
+.speaker-block-text {
+    padding: 0;
+    width: 320px;
+    height: 350px;
+    font-size: 16px;
+    color: #333333;
+    line-height: 18px;
+    display: inline-block;
+}
+
+.speaker-image {
+    width: 330px;
+    height: 350px;
+    margin: 12px 15px;
+    padding: 0;
+    display: inline-block;
+    float: left;
+}
+
+
+.practical-info-header {
+    width: 330px;
+    height: 40px;
+    background-color: #888888;
+    margin-bottom: 10px;
+}
+
+.practical-info-title {
+    padding: 0;
+    margin: 0 10px;
+    height: 40px;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 40px;
+    font-family: 'Century Gothic Bold', 'Century Gothic Regular', 'Century Gothic';
+}
+
+.practical-info-table {
+    border-collapse: collapse;
+    background-color: white;
+    margin-bottom: 13px;
+}
+
+.practical-info-table-td {
+    height: 28px;
+    padding: 0;
+    border: 1px solid black;
+    font-size: 15px;
+}
+
+    .practical-info-table-td:nth-of-type(odd) {
+        width: 120px;
+        padding-right: 7px;
+        text-align: right;
+        font-weight: bold;
+    }
+
+    .practical-info-table-td:nth-of-type(even) {
+        width: 210px;
+        padding-left: 7px;
 }

@@ -23,6 +23,7 @@ namespace Haarlem_Festival.Controllers
     {
         HaarlemFestivalDB EventDB = new HaarlemFestivalDB();
         HaarlemFestivalRepository repo = new HaarlemFestivalRepository();
+        
         // GET: Management
         public ActionResult Index()
         {
@@ -130,14 +131,13 @@ namespace Haarlem_Festival.Controllers
             ManagementViewModel viewModel = PopulateViewModel();
             return View("ContentManagement", viewModel);
         }
-        public ActionResult FileUpload(HttpPostedFileBase file)
+        public ActionResult FileUpload(HttpPostedFileBase file,string oripath)
         {
             if (file != null)
             {
-                string pic = System.IO.Path.GetFileName(file.FileName);
+                string pic = System.IO.Path.GetFileName(oripath);
                 string path = System.IO.Path.Combine(
-                                       Server.MapPath("~/images"), pic);
-                //HELP PLEASE CAN DE PAD NIET VINDEN WTF HIJ BESTAAT GEWOON TERUNG MAN
+                                       Server.MapPath("~/Content/img/jazz"), pic);
                 // file is uploaded
                 file.SaveAs(path);
 

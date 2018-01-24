@@ -533,4 +533,3 @@ C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin
 C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Spire.Pdf.dll
 C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Spire.XLS.dll
 C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.mshtml.dll
-C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\Debug\Haarlem Festival.csprojResolveAssemblyReference.cache
