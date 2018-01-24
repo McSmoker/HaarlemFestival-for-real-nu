@@ -10,7 +10,6 @@ namespace Haarlem_Festival.Models
     {
         [Key]
         public int OrderItemId { get; set; }
-        public double Price { get; set; }
         public TicketType TicketType { get; set; }
         public int Amount { get; set; }
 
