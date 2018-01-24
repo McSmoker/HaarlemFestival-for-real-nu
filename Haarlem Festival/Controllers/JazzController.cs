@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Haarlem_Festival.Models;
+using Haarlem_Festival.ViewModels;
 
 namespace Haarlem_Festival.Controllers
 {
@@ -18,7 +19,24 @@ namespace Haarlem_Festival.Controllers
         public ActionResult Index()
         {
             var events = db.Jazz.Include(j => j.Artist);
-            return View(events.ToList());
+            List<JazzViewModel> jvmList = new List<JazzViewModel>();
+            foreach(var e in events)
+            {
+                JazzViewModel jvm = new JazzViewModel
+                {
+                    EventId = e.EventId,
+                    EventStart = e.EventStart,
+                    EventEnd = e.EventEnd,
+                    Artist = e.Artist,
+                    Hall = e.Hall,
+                    Location = e.Location,
+                    Seats = e.Seats,
+                    TicketsSold = e.TicketsSold,
+                    Price = e.Price
+                };
+                jvmList.Add(jvm);
+            }
+            return View(jvmList);
         }
 
         // GET: /Jazz/Details/5

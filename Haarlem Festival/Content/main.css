@@ -1,0 +1,428 @@
+﻿/*
+General
+*/
+html, body {
+    margin: 0 auto;
+    padding: 0;
+    width: 1420px;
+    font-family: Arial;
+}
+
+/*
+Navigation
+*/
+.navigation-bar {
+    width: 1420px;
+    height: 75px;
+    margin: 0 0 20px 0;
+    padding: 0;
+    background-color: #F2F2F2;
+}
+
+.navigation-logo {
+    margin: 0 32px 0 28px;
+    float: left;
+    width: 150px;
+    height: 75px;
+    background-image: url("img/navigation-logo.png");
+    list-style-type: none;
+}
+
+.navigation-button {
+    width: 190px;
+    height: 75px;
+    float: left;
+    border-radius: 5px 5px 0 0;
+    margin: 0 14px 0 0;
+    padding: 0;
+    background-color: #FFFFFF;
+    color: #000000;
+    font-family: 'Century Gothic Bold', 'Century Gothic Regular', 'Century Gothic';
+    font-size: 24px;
+    line-height: 75px;
+    text-align: center;
+    font-weight: bold;
+    list-style-type: none;
+}
+
+    .navigation-button > a {
+        text-decoration: none;
+        color: #000000;
+        display: block;
+    }
+
+        .navigation-button > a:visited {
+            color: #000000;
+        }
+
+.navigation-button-active > a {
+    color: #FFFFFF !important;
+}
+
+.navigation-button-home {
+    background: #FFFFFF url('img/home glyph.png') no-repeat center center;
+}
+
+.navigation-button-home-white {
+    background: #FFFFFF url('img/home glyph white.png') no-repeat center center;
+}
+
+.navigation-button-cart {
+    background: #FFFFFF url('img/cart glyph.png') no-repeat center center;
+}
+
+.navigation-button:last-of-type {
+    margin: 0;
+    padding: 0;
+}
+
+.navigation-button-active {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+/*
+Main blocks
+*/
+.block {
+    margin: 0 20px 20px 0;
+    width: 700px;
+    height: 430px;
+    background-color: #F2F2F2;
+    display: block;
+    float: left;
+}
+
+    .block:nth-of-type(even) {
+        margin-right: 0;
+    }
+
+.block-header {
+    width: 684px;
+    height: 52px;
+    background-color: #666666;
+    margin: 8px 0 0 8px;
+    display: inline-block;
+}
+
+.block-header-title {
+    margin: 0 0 0 22px;
+    color: #FFFFFF;
+    font-family: 'Century Gothic Bold', 'Century Gothic Regular', 'Century Gothic';
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 52px;
+    height: 52px;
+    float: left;
+}
+
+/*
+Block content
+*/
+.content-area-wrap {
+    width: 700px;
+    height: 366px;
+    display: inline-block;
+}
+
+.information-block-text {
+    margin: 8px 30px 0 30px;
+    padding: 0;
+    font-size: 16px;
+    color: #333333;
+    line-height: 18px;
+    position: relative;
+}
+
+/*
+Footer
+*/
+footer {
+    width: 1420px;
+    height: 50px;
+    background-color: #F2F2F2;
+    color: #000000;
+    font-size: 16px;
+    display: inline-block;
+    text-align: center;
+}
+
+/*//////////////////////////////////////*/
+/*//////////////// HOME ////////////////*/
+/*//////////////////////////////////////*/
+
+.home-block {
+    float: left;
+    position: relative;
+    /*width: 700px;
+    height: 430px;*/
+}
+
+.home-event-image {
+    width: 700px;
+    height: 430px;
+}
+
+.home-title-image {
+    position: absolute;
+    top: 40px;
+    left: 0;
+}
+
+/*//////////////////////////////////////*/
+/*//////////////// JAZZ ////////////////*/
+/*//////////////////////////////////////*/
+
+/*
+Day selection
+*/
+.btn-day-selection-wrap {
+    width: 640px;
+    height: 170px;
+    margin: 10px 30px 0 30px;
+}
+
+.btn-day-selection {
+    width: 310px;
+    height: 60px;
+    padding: 0 90px;
+    margin: 10px 15px 10px 0;
+    border: 4px solid #800080;
+    border-radius: 10px;
+    color: #800080;
+    background-color: white;
+    font-size: 18px;
+    font-weight: bold;
+    white-space: normal;
+    cursor: pointer;
+}
+
+    .btn-day-selection:nth-of-type(even) {
+        margin-right: 0;
+    }
+
+    .btn-day-selection:hover {
+        background-color: #A000A0;
+        color: #FFFFFF;
+    }
+
+.btn-day-selection-clicked {
+    background-color: #800080;
+    color: #FFFFFF;
+}
+
+.passe-partout-wrap {
+    width: 640px;
+    height: 170px;
+    margin: 0 30px;
+}
+
+.passe-partout-header {
+    width: 640px;
+    height: 40px;
+    background-color: #888888;
+    margin-bottom: 10px;
+}
+
+.passe-partout-title {
+    padding: 0;
+    margin: 0 10px;
+    height: 40px;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 40px;
+    font-family: 'Century Gothic Bold', 'Century Gothic Regular', 'Century Gothic';
+}
+
+.checkbox-label-wrap {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.action-btn {
+    width: 330px;
+    height: 40px;
+    border: 4px solid #800080;
+    background-color: #FFFFFF;
+    font-size: 18px;
+    color: #800080;
+    cursor: pointer;
+}
+
+    .action-btn:hover {
+        background-color: #800080;
+        color: #FFFFFF;
+    }
+
+.btn-jtc {
+    width: 310px;
+    margin: -50px 0 0 330px;
+    position: absolute;
+}
+
+/*
+Artist blocks
+*/
+
+.artist-block {
+    margin: 0 20px 20px 0;
+    width: 700px;
+    height: 430px;
+    background-color: #F2F2F2;
+    display: block;
+    float: left;
+}
+
+    .artist-block:nth-of-type(even) {
+        margin-right: 0;
+    }
+
+.artist-block-text {
+    margin: 5px 30px 0 30px;
+    padding: 0;
+    width: 640px;
+    height: 90px;
+    font-size: 16px;
+    color: #333333;
+    line-height: 18px;
+    display: inline-block;
+}
+
+.artist-bottom-wrap {
+    width: 700px;
+    height: 274px;
+}
+
+.artist-image {
+    width: 330px;
+    height: 250px;
+    margin: 12px 15px;
+    padding: 0;
+    float: left;
+}
+
+.artist-practical-block {
+    width: 330px;
+    height: 250px;
+    margin-top: 12px;
+    padding: 0;
+    float: left;
+}
+
+.practical-info-header {
+    width: 330px;
+    height: 40px;
+    background-color: #888888;
+    margin-bottom: 10px;
+}
+
+.practical-info-title {
+    padding: 0;
+    margin: 0 10px;
+    height: 40px;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 40px;
+    font-family: 'Century Gothic Bold', 'Century Gothic Regular', 'Century Gothic';
+}
+
+.practical-info-table {
+    border-collapse: collapse;
+    background-color: white;
+    margin-bottom: 13px;
+}
+
+.practical-info-table-td {
+    height: 28px;
+    padding: 0;
+    border: 1px solid black;
+    font-size: 15px;
+}
+
+    .practical-info-table-td:nth-of-type(odd) {
+        width: 120px;
+        padding-right: 7px;
+        text-align: right;
+        font-weight: bold;
+    }
+
+    .practical-info-table-td:nth-of-type(even) {
+        width: 210px;
+        padding-left: 7px;
+    }
+
+.added-to-cart-modal {
+    width: 300px;
+    height: 170px;
+    text-align: center;
+    border: 2px solid #800080;
+    display: none;
+    position: fixed;
+    top: 250px;
+    left: 800px;
+    background-color: #FFF;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
+}
+
+.added-to-cart-title {
+    font-size: 16px;
+    color: #FFF;
+    line-height: 30px;
+    font-weight: bold;
+    height: 30px;
+    width: 258px;
+    padding-left: 15px;
+    display: inline-block;
+    background-color: #800080;
+    float: left;
+}
+
+.added-to-cart-close {
+    height: 30px;
+    width: 27px;
+    display: inline-block;
+    background-color: #800080;
+    float: right;
+}
+
+.added-to-cart-text {
+    font-size: 14px;
+    line-height: 16px;
+    padding: 15px;
+    height: 140px;
+    display: inline-block;
+}
+
+/*
+Miscellaneous
+*/
+.saxophone {
+    background: transparent url('img/jazz/jazz saxophone.png') no-repeat center right;
+    width: 407px;
+    height: 407px;
+    margin: -50px 0 0 285px;
+    position: absolute;
+}
+
+.patronaat {
+    background-image: url('img/jazz/patronaat.png');
+}
+
+.jazz-shopping-cart-glyph {
+    background: transparent url('img/cart glyph white.png') no-repeat center center;
+    margin-right: 20px;
+    float: right;
+    width: 50px;
+    height: 52px;
+}
+
+.under-construction {
+    width: 100%;
+    height: 100%;
+}
+
+.hidden {
+    display: none;
+}

@@ -177,15 +177,16 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DinnerController.cs" />
+    <Compile Include="Controllers\HistoricController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JazzController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManagementController.cs" />
-    <Compile Include="Controllers\SiteManagementController.cs" />
     <Compile Include="Controllers\TalkingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ActiveNavHelper.cs" />
     <Compile Include="Migrations\201711221305555_InitialCreate.cs" />
     <Compile Include="Migrations\201711221305555_InitialCreate.Designer.cs">
       <DependentUpon>201711221305555_InitialCreate.cs</DependentUpon>
@@ -214,7 +215,6 @@
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Volunteer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\HaarlemFestivalRepository.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\EventViewModel.cs" />
     <Compile Include="ViewModels\JazzViewModel.cs" />
@@ -223,12 +223,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\img\cart glyph white.png" />
-    <Content Include="Content\img\cart glyph.png" />
-    <Content Include="Content\img\home glyph white.png" />
-    <Content Include="Content\img\home glyph.png" />
-    <Content Include="Content\img\Logo2.png" />
-    <Content Include="Content\img\navigation-logo.png" />
+    <Content Include="Content\main.css" />
     <Content Include="Content\Management.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -236,8 +231,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Content\img\home glyph.psd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Jazz.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -261,7 +256,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Jazz\Details.cshtml" />
     <Content Include="Views\Jazz\Index.cshtml" />
     <Content Include="Views\Talking\Create.cshtml" />
     <Content Include="Views\Talking\Delete.cshtml" />
@@ -293,15 +287,11 @@
     <Content Include="Views\Management\ContentManagement.cshtml" />
     <Content Include="Views\Management\EditTalkingEvent.cshtml" />
     <Content Include="Views\Management\CreateTalkingEvent.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
-    <Content Include="Views\SiteManagement\Index.cshtml" />
+    <Content Include="Views\Historic\Index.cshtml" />
+    <Content Include="Views\Dinner\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\img\home\" />
-    <Folder Include="Content\img\jazz\" />
-    <Folder Include="Content\img\misc\" />
-    <Folder Include="Content\img\Talking\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
