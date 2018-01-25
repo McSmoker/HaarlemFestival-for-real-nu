@@ -395,6 +395,69 @@ Artist blocks
     display: inline-block;
 }
 
+.jazz-cart-wrap {
+    width: 670px;
+    margin-left: 10px;
+}
+
+.jazz-cart-row-box {
+    width: 670px;
+    height: 260px;
+    overflow-y: scroll;
+    margin-bottom:10px;
+}
+
+.jazz-cart-head, .jazz-cart-row {
+    height: 40px;
+    line-height: 40px;
+    padding-left:10px;
+    border-bottom: 1px solid black;
+}
+
+.jazz-cart-head {
+    margin-top:5px;
+    font-weight:bold;
+    background-color: rgba(215, 215, 215, 1);
+}
+
+.jazz-cart-row {
+    background-color: rgba(231, 231, 231, 1);
+}
+
+.jc-artist, .jc-date, .jc-time, .jc-location, .jc-amount, .jc-price{
+    display:inline-block;
+    font-size:14px;
+}
+
+.jc-artist {
+    width: 165px;
+}
+
+.jc-date{
+    width:80px;
+}
+
+.jc-time {
+    width:90px;
+}
+
+.jc-location{
+    width:160px;
+}
+
+.jc-amount{
+    width:60px;
+}
+
+.jc-amount-input{
+    width:30px;
+}
+
+.jc-price{
+    width:50px;
+}
+
+
 /*
 Miscellaneous
 */
@@ -425,4 +488,8 @@ Miscellaneous
 
 .hidden {
     display: none;
+}
+
+.float-right{
+    float: right;
 }

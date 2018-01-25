@@ -181,9 +181,7 @@
     <Compile Include="Controllers\HistoricController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JazzController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManagementController.cs" />
-    <Compile Include="Controllers\SiteManagementController.cs" />
     <Compile Include="Controllers\TalkingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -192,14 +190,6 @@
     <Compile Include="Migrations\201711221305555_InitialCreate.cs" />
     <Compile Include="Migrations\201711221305555_InitialCreate.Designer.cs">
       <DependentUpon>201711221305555_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711231208111_Migration20171123t1307.cs" />
-    <Compile Include="Migrations\201711231208111_Migration20171123t1307.Designer.cs">
-      <DependentUpon>201711231208111_Migration20171123t1307.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711231215092_Migration20171123t1315.cs" />
-    <Compile Include="Migrations\201711231215092_Migration20171123t1315.Designer.cs">
-      <DependentUpon>201711231215092_Migration20171123t1315.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -217,7 +207,7 @@
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Volunteer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositorys\HaarlemFestivalRepository.cs" />
+    <Compile Include="Repository\HaarlemFestivalRepository.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\EventViewModel.cs" />
     <Compile Include="ViewModels\JazzViewModel.cs" />
@@ -260,6 +250,7 @@
     <Content Include="Content\img\jazz\uncle sue.jpg" />
     <Content Include="Content\img\jazz\wicked jazz sounds.jpg" />
     <Content Include="Content\img\Logo2.png" />
+    <Content Include="Content\img\misc\close white.png" />
     <Content Include="Content\img\misc\underconstruction.png" />
     <Content Include="Content\img\navigation-logo.png" />
     <Content Include="Content\img\Talking\brigittekaandorp.png" />
@@ -278,6 +269,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\img\home glyph.psd" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Jazz.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -290,6 +282,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\ShoppingCart.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Management\Legend.png" />
     <Content Include="Views\Management\Logo.png" />
@@ -336,8 +329,6 @@
     <Content Include="Views\Management\CreateTalkingEvent.cshtml" />
     <Content Include="Views\Historic\Index.cshtml" />
     <Content Include="Views\Dinner\Index.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
-    <Content Include="Views\SiteManagement\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -352,12 +343,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711221305555_InitialCreate.resx">
       <DependentUpon>201711221305555_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711231208111_Migration20171123t1307.resx">
-      <DependentUpon>201711231208111_Migration20171123t1307.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711231215092_Migration20171123t1315.resx">
-      <DependentUpon>201711231215092_Migration20171123t1315.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

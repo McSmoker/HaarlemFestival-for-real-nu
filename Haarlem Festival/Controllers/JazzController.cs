@@ -146,5 +146,23 @@ namespace Haarlem_Festival.Controllers
             }
             base.Dispose(disposing);
         }
+
+        [HttpPost]
+        public ActionResult AJAXTest(int e)
+        {
+            try
+            {
+                var ticket = db.Jazz.Find(e);
+
+                return Json(new
+                {
+                    
+                });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

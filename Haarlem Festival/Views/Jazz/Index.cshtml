@@ -54,7 +54,7 @@
                     <label for="pp3sat">Passe-partout for Saturday @@ &euro;35,-</label>
                 </span>
 
-                <input type="button" onclick="location.href='#checkout'" class="action-btn btn-jtc" value="Jump to Checkout" />
+                <input type="button" onclick="location.href='#checkout'" class="action-btn btn-jtc" value="Jump to Shopping Cart" />
             </div>
         </div>
     </div>
@@ -112,10 +112,39 @@
         <p class="block-header-title">Jazz Shopping Cart</p>
         <span class="jazz-shopping-cart-glyph"></span>
     </div>
-    <div class="information-block">
-        <p class="information-block-text">
-
-        </p>
+    <div class="jazz-cart-wrap">
+        <div class="jazz-cart-head">
+            <span class="jc-artist">Artist</span>
+            <span class="jc-date">Date</span>
+            <span class="jc-time">Time</span>
+            <span class="jc-location">Location | Hall</span>
+            <span class="jc-amount">Amount</span>
+            <span class="jc-price">Price</span>
+        </div>
+        <div class="jazz-cart-row-box">
+            <div class="jazz-cart-row">
+                <span class="jc-artist">Tom Thomson Assemble</span>
+                <span class="jc-date">26/07/2018</span>
+                <span class="jc-time">19:30 - 20:30</span>
+                <span class="jc-location">Patronaat | Second Hall</span>
+                <span class="jc-amount"><input type="number" value="1" class="jc-amount-input"/></span>
+                <span class="jc-price">€10,00</span>
+            </div>
+            <div class="jazz-cart-row">
+                <span class="jc-artist">Tom Thomson Assemble</span>
+                <span class="jc-date">26/07/2018</span>
+                <span class="jc-time">19:30 - 20:30</span>
+                <span class="jc-location">Patronaat | Second Hall</span>
+                <span class="jc-amount"><input type="number" value="1" class="jc-amount-input" /></span>
+                <span class="jc-price">€10,00</span>
+            </div>
+            <div class="jazz-cart-row"></div>
+            <div class="jazz-cart-row"></div>
+            <div class="jazz-cart-row"></div>
+            <div class="jazz-cart-row"></div>
+            <div class="jazz-cart-row"></div>
+        </div>
+        <input type="button" id="goToCheckout" class="action-btn float-right" value="Proceed to Checkout" />
     </div>
 </div>
 

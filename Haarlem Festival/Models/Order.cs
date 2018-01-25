@@ -12,6 +12,6 @@ namespace Haarlem_Festival.Models
         public int OrderId { get; set; }
         public List<OrderItem> OrderItems { get; set; }
         public string RecipientEmail { get; set; }
-        public OrderStatus orderStatus { get; set; }
+        public OrderStatus OrderStatus { get; set; }
     }
 }
