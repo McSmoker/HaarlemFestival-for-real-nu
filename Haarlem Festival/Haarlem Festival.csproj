@@ -181,7 +181,9 @@
     <Compile Include="Controllers\HistoricController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JazzController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManagementController.cs" />
+    <Compile Include="Controllers\SiteManagementController.cs" />
     <Compile Include="Controllers\TalkingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -215,6 +217,7 @@
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Volunteer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorys\HaarlemFestivalRepository.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\EventViewModel.cs" />
     <Compile Include="ViewModels\JazzViewModel.cs" />
@@ -223,6 +226,49 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\cart glyph white.png" />
+    <Content Include="Content\img\cart glyph.png" />
+    <Content Include="Content\img\home glyph white.png" />
+    <Content Include="Content\img\home glyph.png" />
+    <Content Include="Content\img\home\home dinner.jpg" />
+    <Content Include="Content\img\home\home historic.jpg" />
+    <Content Include="Content\img\home\home jazz.jpg" />
+    <Content Include="Content\img\home\home talking.jpg" />
+    <Content Include="Content\img\home\title dinner.png" />
+    <Content Include="Content\img\home\title historic.png" />
+    <Content Include="Content\img\home\title jazz.png" />
+    <Content Include="Content\img\home\title talking.png" />
+    <Content Include="Content\img\jazz\chris alain.jpg" />
+    <Content Include="Content\img\jazz\evolve.jpg" />
+    <Content Include="Content\img\jazz\fox and the mayors.jpg" />
+    <Content Include="Content\img\jazz\gare du nord.jpg" />
+    <Content Include="Content\img\jazz\gumbo kings.jpg" />
+    <Content Include="Content\img\jazz\han bennink.jpg" />
+    <Content Include="Content\img\jazz\jazz saxophone.png" />
+    <Content Include="Content\img\jazz\jonna fraser.jpg" />
+    <Content Include="Content\img\jazz\lilith merlot.jpg" />
+    <Content Include="Content\img\jazz\myles sanko.jpg" />
+    <Content Include="Content\img\jazz\njtam rosie.jpg" />
+    <Content Include="Content\img\jazz\patronaat.png" />
+    <Content Include="Content\img\jazz\prison_school_68_4.jpg" />
+    <Content Include="Content\img\jazz\rilan and the bombardiers.jpg" />
+    <Content Include="Content\img\jazz\ruis soundsystem.jpg" />
+    <Content Include="Content\img\jazz\soul six.jpg" />
+    <Content Include="Content\img\jazz\the family xl.jpg" />
+    <Content Include="Content\img\jazz\the nordanians.jpg" />
+    <Content Include="Content\img\jazz\tom thomson assemble.jpg" />
+    <Content Include="Content\img\jazz\uncle sue.jpg" />
+    <Content Include="Content\img\jazz\wicked jazz sounds.jpg" />
+    <Content Include="Content\img\Logo2.png" />
+    <Content Include="Content\img\misc\underconstruction.png" />
+    <Content Include="Content\img\navigation-logo.png" />
+    <Content Include="Content\img\Talking\brigittekaandorp.png" />
+    <Content Include="Content\img\Talking\femkehalsema.png" />
+    <Content Include="Content\img\Talking\gielbeelen.png" />
+    <Content Include="Content\img\Talking\jobcohen.png" />
+    <Content Include="Content\img\Talking\paulwitteman.png" />
+    <Content Include="Content\img\Talking\robtrip.png" />
+    <Content Include="Content\img\Talking\toneelschuur.png" />
     <Content Include="Content\main.css" />
     <Content Include="Content\Management.css" />
     <Content Include="favicon.ico" />
@@ -231,6 +277,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\img\home glyph.psd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Jazz.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -289,6 +336,8 @@
     <Content Include="Views\Management\CreateTalkingEvent.cshtml" />
     <Content Include="Views\Historic\Index.cshtml" />
     <Content Include="Views\Dinner\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\SiteManagement\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

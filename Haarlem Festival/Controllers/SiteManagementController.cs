@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Haarlem_Festival.ViewModels;
-using Haarlem_Festival.Repository;
+using Haarlem_Festival.Repositorys;
 using Haarlem_Festival.Models;
 using System.IO;
 
@@ -49,7 +49,8 @@ namespace Haarlem_Festival.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult GetContent(FormCollection formCollection)
         {
-            //vieze viewbag
+            //vieze viewbag maar waarom is het zo vies
+            //kan net zo goed session ofzo gebruiken maar whats the point 
             HaarlemFestivalDB performerDB = new HaarlemFestivalDB();
             int EventId = Convert.ToInt32(formCollection["eventid"]);
             ViewBag.selected = repo.GetEventID(EventId);

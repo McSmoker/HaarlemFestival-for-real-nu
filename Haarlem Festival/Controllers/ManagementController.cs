@@ -15,7 +15,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Haarlem_Festival.Repository;
+using Haarlem_Festival.Repositorys;
 
 namespace Haarlem_Festival.Controllers
 {

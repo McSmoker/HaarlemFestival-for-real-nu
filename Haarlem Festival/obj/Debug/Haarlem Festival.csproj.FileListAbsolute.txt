@@ -533,7 +533,6 @@ C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin
 C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Spire.Pdf.dll
 C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Spire.XLS.dll
 C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival\bin\Microsoft.mshtml.dll
-C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\Debug\Haarlem Festival.csprojResolveAssemblyReference.cache
 L:\HF 20180119\Haarlem Festival\bin\Haarlem Festival.dll.config
 L:\HF 20180119\Haarlem Festival\bin\Haarlem Festival.dll
 L:\HF 20180119\Haarlem Festival\bin\Haarlem Festival.pdb
@@ -664,3 +663,4 @@ C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\D
 C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\Debug\Haarlem Festival.csproj.CoreCompileInputs.cache
 C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\Debug\Haarlem Festival.dll
 C:\Users\Neorath\source\repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\Debug\Haarlem Festival.pdb
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\Debug\Haarlem Festival.csprojResolveAssemblyReference.cache

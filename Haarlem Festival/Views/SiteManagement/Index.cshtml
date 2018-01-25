@@ -356,7 +356,7 @@
         <div id="textEdit">
             @{Html.BeginForm("TextEdit", "SiteManagement");}
             <textarea rows="20" cols="50" id="txtEdit" name="txtEdit">
-                @if (ViewBag.selected != null)
+            @if (ViewBag.selected != null)
             {
                 foreach (var eve in Model.jazz)
                 {
