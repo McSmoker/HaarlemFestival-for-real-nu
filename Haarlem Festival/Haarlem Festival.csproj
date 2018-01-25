@@ -182,6 +182,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JazzController.cs" />
     <Compile Include="Controllers\ManagementController.cs" />
+    <Compile Include="Controllers\SiteManagementController.cs" />
     <Compile Include="Controllers\TalkingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -228,6 +229,10 @@
     <Content Include="Content\img\home\title historic.png" />
     <Content Include="Content\img\home\title jazz.png" />
     <Content Include="Content\img\home\title talking.png" />
+    <Content Include="Content\img\JazzDetail1.png" />
+    <Content Include="Content\img\JazzDetail2.png" />
+    <Content Include="Content\img\JazzDetail3.png" />
+    <Content Include="Content\img\JazzDetail4.png" />
     <Content Include="Content\img\jazz\chris alain.jpg" />
     <Content Include="Content\img\jazz\evolve.jpg" />
     <Content Include="Content\img\jazz\fox and the mayors.jpg" />
@@ -253,6 +258,9 @@
     <Content Include="Content\img\misc\close white.png" />
     <Content Include="Content\img\misc\underconstruction.png" />
     <Content Include="Content\img\navigation-logo.png" />
+    <Content Include="Content\img\TalkingDetail1.png" />
+    <Content Include="Content\img\TalkingDetail2.png" />
+    <Content Include="Content\img\TalkingDetail3.png" />
     <Content Include="Content\img\Talking\brigittekaandorp.png" />
     <Content Include="Content\img\Talking\femkehalsema.png" />
     <Content Include="Content\img\Talking\gielbeelen.png" />
@@ -329,6 +337,7 @@
     <Content Include="Views\Management\CreateTalkingEvent.cshtml" />
     <Content Include="Views\Historic\Index.cshtml" />
     <Content Include="Views\Dinner\Index.cshtml" />
+    <Content Include="Views\SiteManagement\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

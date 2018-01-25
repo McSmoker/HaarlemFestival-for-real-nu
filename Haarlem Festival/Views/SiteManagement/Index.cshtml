@@ -23,14 +23,83 @@
             });
             $("#JazzButton").click(function () {
                 $("#HomeButtons").hide()
-                $("#JazzButtons").show()
                 $("#TalkingButtons").hide()
+                $("#JazzButtons").show()
+                var jazz267 = $('.jazzButton26-7');
+                var jazz277 = $('.jazzButton27-7');
+                var jazz287 = $('.jazzButton28-7');
+                var jazz297 = $('.jazzButton29-7');
+                var talk267 = $('.talkingButton26-7');
+                var talk277 = $('.talkingButton27-7');
+                var talk287 = $('.talkingButton28-7');
+                var talk297 = $('.talkingButton29-7');
+                var jazzpic267 = $('#JazzImage1');
+                var jazzpic277 = $('#JazzImage2');
+                var jazzpic287 = $('#JazzImage3');
+                var jazzpic297 = $('#JazzImage4');
+                var talkpic277 = $('#TalkingImage1');
+                var talkpic287 = $('#TalkingImage2');
+                var talkpic297 = $('#TalkingImage3');
+                jazz267.hide();
+                jazz277.hide();
+                jazz287.hide();
+                jazz297.hide();
+                talk267.hide();
+                talk277.hide();
+                talk287.hide();
+                talk297.hide();
+                jazzpic267.hide();
+                jazzpic277.hide();
+                jazzpic287.hide();
+                jazzpic297.hide();
+                talkpic277.hide();
+                talkpic287.hide();
+                talkpic297.hide();
+                var jazz267 = $('.jazzButton26-7');
+                jazz267.show();
+                var jazzpic267 = $('#JazzImage1');
+                jazzpic267.show();
+                
                 categoryfilter = "jazz";
             });
             $("#TalkingButton").click(function () {
                 $("#HomeButtons").hide()
                 $("#JazzButtons").hide()
                 $("#TalkingButtons").show()
+                var jazz267 = $('.jazzButton26-7');
+                var jazz277 = $('.jazzButton27-7');
+                var jazz287 = $('.jazzButton28-7');
+                var jazz297 = $('.jazzButton29-7');
+                var talk267 = $('.talkingButton26-7');
+                var talk277 = $('.talkingButton27-7');
+                var talk287 = $('.talkingButton28-7');
+                var talk297 = $('.talkingButton29-7');
+                var jazzpic267 = $('#JazzImage1');
+                var jazzpic277 = $('#JazzImage2');
+                var jazzpic287 = $('#JazzImage3');
+                var jazzpic297 = $('#JazzImage4');
+                var talkpic277 = $('#TalkingImage1');
+                var talkpic287 = $('#TalkingImage2');
+                var talkpic297 = $('#TalkingImage3');
+                jazz267.hide();
+                jazz277.hide();
+                jazz287.hide();
+                jazz297.hide();
+                talk267.hide();
+                talk277.hide();
+                talk287.hide();
+                talk297.hide();
+                jazzpic267.hide();
+                jazzpic277.hide();
+                jazzpic287.hide();
+                jazzpic297.hide();
+                talkpic277.hide();
+                talkpic287.hide();
+                talkpic297.hide();
+                var talk277 = $('.talkingButton27-7');
+                talk277.show();
+                var talkpic277 = $('#TalkingImage1');
+                talkpic277.show();
                 categoryfilter = "talking";
             });
             $(window).load(function () {
@@ -62,6 +131,13 @@
                 var talk277 = $('.talkingButton27-7');
                 var talk287 = $('.talkingButton28-7');
                 var talk297 = $('.talkingButton29-7');
+                var jazzpic267 = $('#JazzImage1');
+                var jazzpic277 = $('#JazzImage2');
+                var jazzpic287 = $('#JazzImage3');
+                var jazzpic297 = $('#JazzImage4');
+                var talkpic277 = $('#TalkingImage1');
+                var talkpic287 = $('#TalkingImage2');
+                var talkpic297 = $('#TalkingImage3');
                 jazz267.hide();
                 jazz277.hide();
                 jazz287.hide();
@@ -70,9 +146,17 @@
                 talk277.hide();
                 talk287.hide();
                 talk297.hide();
+                jazzpic267.hide();
+                jazzpic277.hide();
+                jazzpic287.hide();
+                jazzpic297.hide();
+                talkpic277.hide();
+                talkpic287.hide();
+                talkpic297.hide();
                 console.log(categoryfilter);
                 if (filterValue == '26-7' & categoryfilter == 'jazz') {
                     jazz267.show();
+                    jazzpic267.show();
                 }
                 else if (filterValue == '26-7' & categoryfilter == 'talking') {
                     talk267.show();
@@ -80,23 +164,29 @@
                 }
                 else if (filterValue == '27-7' & categoryfilter == 'jazz') {
                     jazz277.show();
+                    jazzpic277.show();
                 }
                 else if (filterValue == '27-7' & categoryfilter == 'talking') {
                     talk277.show();
+                    talkpic277.show();
                     console.log("t27-7");
                 }
                 else if (filterValue == '28-7' & categoryfilter == 'jazz') {
                     jazz287.show();
+                    jazzpic287.show();
                 }
                 else if (filterValue == '28-7' & categoryfilter == 'talking') {
                     talk287.show();
+                    talkpic287.show();
                     console.log("t28-7");
                 }
                 else if (filterValue == '29-7' & categoryfilter == 'jazz') {
                     jazz297.show();
+                    jazzpic297.show();
                 }
                 else if (filterValue == '29-7' & categoryfilter == 'talking') {
                     talk297.show();
+                    talkpic297.show();
                     console.log("t29-7");
                 }
             });
@@ -221,6 +311,7 @@
             <button type="button" style="width: 49%;">Click Me!</button>
         </div>
         <div id="JazzButtons">
+            <div id="pushdown" class="pushdown"></div>
             @foreach (var jazz in Model.jazz)
             {
                 if ((jazz.EventStart.Day) == 26)
@@ -232,7 +323,7 @@
                             <div class="jazzButton26-7">
                                 @{Html.BeginForm("GetContent", "SiteManagement");}
                                 <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@jazz.EventId" /></div>
-                                <input type="submit" value="Edit" />
+                                <input class="contentButton" type="submit" value="Edit" />
                                 @{ Html.EndForm(); }
                             </div>
                                             }
@@ -247,7 +338,7 @@
                                             <div class="jazzButton27-7">
                                                 @{Html.BeginForm("GetContent", "SiteManagement");}
                                                 <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@jazz.EventId" />@perf.PerformerName</div>
-                                                <input type="submit" value="Edit" />
+                                                <input class="contentButton" type="submit" value="Edit" />
                                                 @{ Html.EndForm(); }
                                             </div>
                                     }
@@ -262,7 +353,7 @@
                                                         <div class="jazzButton28-7">
                                                             @{Html.BeginForm("GetContent", "SiteManagement");}
                                                             <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@jazz.EventId" />@perf.PerformerName</div>
-                                                            <input type="submit" value="Edit" />
+                                                            <input class="contentButton" type="submit" value="Edit" />
                                                             @{ Html.EndForm(); }
                                                         </div>
                                                     }
@@ -277,7 +368,7 @@
                                                 <div class="jazzButton29-7">
                                                     @{Html.BeginForm("GetContent", "SiteManagement");}
                                                     <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@jazz.EventId" />@perf.PerformerName</div>
-                                                    <input type="submit" value="Edit" />
+                                                    <input class="contentButton" type="submit" value="Edit" />
                                                     @{ Html.EndForm(); }
                                         </div>
                                         }
@@ -286,6 +377,7 @@
                             }
         </div>
         <div id="TalkingButtons">
+            <div id="pushdown" class="pushdown"></div>
             @foreach (var talking in Model.talking)
             {
                 if ((talking.EventStart.Day) == 26)
@@ -296,60 +388,101 @@
                         {
                             <div class="talkingButton26-7">
                                 @{Html.BeginForm("GetContent", "SiteManagement");}
-                                <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@talking.EventId" /></div>
-                                <input type="submit" value="Edit" />
+                                <div class="hidethis" style="display: none;"><input type="text" name="perfid" value="@perf.PerformerId" /></div>
+                                <input class="contentButton" type="submit" value="Edit" />
                                 @{ Html.EndForm(); }
-                            </div>
-                                            }
-                                        }
-                                    }
-                                    if ((talking.EventStart.Day) == 27)
+                            </div>}
+                                    if (talking.SpeakerTwo.PerformerId == perf.PerformerId)
                                     {
-                                        foreach (var perf in Model.performer)
-                                        {
-                                            if (talking.SpeakerOne.PerformerId == perf.PerformerId)
-                                            {
+                                        <div class="talkingButton26-7">
+                                            @{Html.BeginForm("GetContent", "SiteManagement");}
+                                            <div class="hidethis" style="display: none;"><input type="text" name="perfid" value="@perf.PerformerId" /></div>
+                                            <input class="contentButton" type="submit" value="Edit" />
+                                            @{ Html.EndForm(); }
+                                        </div>
+                                                        }
+                                                    }
+                                                }
+                                                if ((talking.EventStart.Day) == 27)
+                                                {
+                                                    foreach (var perf in Model.performer)
+                                                    {
+                                                        if (talking.SpeakerOne.PerformerId == perf.PerformerId)
+                                                        {
                                                 <div class="talkingButton27-7">
                                                     @{Html.BeginForm("GetContent", "SiteManagement");}
-                                                    <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@talking.EventId" /></div>
-                                                    <input type="submit" value="Edit" />
+                                                    <div class="hidethis" style="display: none;"><input type="text" name="perfid" value="@perf.PerformerId" /></div>
+                                                    <input class="contentButton" type="submit" value="Edit" />
                                                     @{ Html.EndForm(); }
-                                                </div>
-                                                                }
-                                                            }
-                                                        }
-                                                        if ((talking.EventStart.Day) == 28)
+                                                </div>}
+                                                        if (talking.SpeakerTwo.PerformerId == perf.PerformerId)
                                                         {
-                                                            foreach (var perf in Model.performer)
-                                                            {
-                                                                if (talking.SpeakerOne.PerformerId == perf.PerformerId)
-                                                                {
+                                                            <div class="talkingButton27-7">
+                                                                @{Html.BeginForm("GetContent", "SiteManagement");}
+                                                                <div class="hidethis" style="display: none;"><input type="text" name="perfid" value="@perf.PerformerId" /></div>
+                                                                <input class="contentButton" type="submit" value="Edit" />
+                                                                @{ Html.EndForm(); }
+                                                            </div>
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                    if ((talking.EventStart.Day) == 28)
+                                                                    {
+                                                                        foreach (var perf in Model.performer)
+                                                                        {
+                                                                            if (talking.SpeakerOne.PerformerId == perf.PerformerId)
+                                                                            {
                                                                     <div class="talkingButton28-7">
                                                                         @{Html.BeginForm("GetContent", "SiteManagement");}
-                                                                        <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@talking.EventId" /></div>
-                                                                        <input type="submit" value="Edit" />
+                                                                        <div class="hidethis" style="display: none;"><input type="text" name="perfid" value="@perf.PerformerId" /></div>
+                                                                        <input class="contentButton" type="submit" value="Edit" />
                                                                         @{ Html.EndForm(); }
-                                                                    </div>
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                            if ((talking.EventStart.Day) == 29)
+                                                                    </div>}
+                                                                            if (talking.SpeakerTwo.PerformerId == perf.PerformerId)
                                                                             {
-                                                                                foreach (var perf in Model.performer)
-                                                                                {
-                                                                                    if (talking.SpeakerOne.PerformerId == perf.PerformerId)
-                                                                                    {
+                                                                                <div class="talkingButton28-7">
+                                                                                    @{Html.BeginForm("GetContent", "SiteManagement");}
+                                                                                    <div class="hidethis" style="display: none;"><input type="text" name="perfid" value="@perf.PerformerId" /></div>
+                                                                                    <input class="contentButton" type="submit" value="Edit" />
+                                                                                    @{ Html.EndForm(); }
+                                                                                </div>
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                        if ((talking.EventStart.Day) == 29)
+                                                                                        {
+                                                                                            foreach (var perf in Model.performer)
+                                                                                            {
+                                                                                                if (talking.SpeakerOne.PerformerId == perf.PerformerId)
+                                                                                                {
                                                                                         <div class="talkingButton29-7">
                                                                                             @{Html.BeginForm("GetContent", "SiteManagement");}
-                                                                                            <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@talking.EventId" /></div>
-                                                                                            <input type="submit" value="Edit" />
+                                                                                            <div class="hidethis" style="display: none;"><input type="text" name="perfid" value="@perf.PerformerId" /></div>
+                                                                                            <input class="contentButton" type="submit" value="Edit" />
                                                                                             @{ Html.EndForm(); }
-                                                                                        </div>
+                                                                                        </div>}
+                                                                                                if (talking.SpeakerTwo.PerformerId == perf.PerformerId)
+                                                                                                {
+                                                                                                    <div class="talkingButton29-7">
+                                                                                                        @{Html.BeginForm("GetContent", "SiteManagement");}
+                                                                                                        <div class="hidethis" style="display: none;"><input type="text" name="perfid" value="@perf.PerformerId" /></div>
+                                                                                                        <input class="contentButton" type="submit" value="Edit" />
+                                                                                                        @{ Html.EndForm(); }
+                                                                                                    </div>
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                }
                                                                                                             }
-                                                                                                        }
-                                                                                                    }
-                                                                                                }
 
+        </div>
+        <div class="imagewrapper">
+            <div id="JazzImage1" class="JazzImage" style="width: 19%;position: absolute;"><img src="~/Content/img/JazzDetail1.png" alt="Jazz Detail" style="width: 100%;"></div>
+            <div id="JazzImage2" class="JazzImage" style="width: 19%;position: absolute;"><img src="~/Content/img/JazzDetail2.png" alt="Jazz Detail" style="width: 100%;"></div>
+            <div id="JazzImage3" class="JazzImage" style="width: 19%;position: absolute;"><img src="~/Content/img/JazzDetail3.png" alt="Jazz Detail" style="width: 100%;"></div>
+            <div id="JazzImage4" class="JazzImage" style="width: 19%;position: absolute;"><img src="~/Content/img/JazzDetail4.png" alt="Jazz Detail" style="width: 100%;"></div>
+            <div id="TalkingImage1" class="TalkingImage" style="width: 19%;position: absolute;"><img src="~/Content/img/TalkingDetail1.png" alt="Jazz Detail" style="width: 100%;"></div>
+            <div id="TalkingImage2" class="TalkingImage" style="width: 19%;position: absolute;"><img src="~/Content/img/TalkingDetail2.png" alt="Jazz Detail" style="width: 100%;"></div>
+            <div id="TalkingImage3" class="TalkingImage" style="width: 19%;position: absolute;"><img src="~/Content/img/TalkingDetail3.png" alt="Jazz Detail" style="width: 100%;"></div>
         </div>
     </div>
     <div class="editing">
@@ -367,6 +500,19 @@
                             if (perf.PerformerId == eve.PerformerId)
                             {
                                     @perf.PerformerInfo;
+                            }
+                        }
+                    }
+                }
+                foreach(var eve in Model.talking)
+                {
+                    if (eve.EventId == ViewBag.selected)
+                    {
+                        foreach (var perf in Model.performer)
+                        {
+                            if(perf.PerformerId == ViewBag.selectedPerformer)
+                            {
+                                @perf.PerformerInfo
                             }
                         }
                     }
@@ -390,6 +536,22 @@
                 }
             }
         }
+            @if (ViewBag.selected != null)
+            {
+                foreach (var eve in Model.talking)
+                {
+                    if (eve.EventId == ViewBag.selected)
+                    {
+                        foreach (var perf in Model.performer)
+                        {
+                            if (perf.PerformerId == ViewBag.selectedPerformer)
+                            {
+                                <div class="hidethis" style="display: none;"><input type="text" name="perfid" value="@perf.PerformerId" />@perf.PerformerName</div>
+                            }
+                        }
+                    }
+                }
+            }
         <input type="submit" class="btn" value="Save Text Changes" />
         </div>
 
@@ -411,6 +573,25 @@
                                 {
                                     <img src="~/Content/img/jazz/@perf.PerformerImagePath" alt="Festival Logo">
                                     <div class="hidethis" style="visibility:hidden"><input type="text" name="oripath" id="oripath" value="@perf.PerformerImagePath" /></div>
+                                    <div class="hidethis" style="visibility:hidden"><input type="text" name="category" id="category" value="jazz" /></div>
+                                }
+                            }
+                        }
+                    }
+                }
+                if (ViewBag.selected != null)
+                {
+                    foreach (var eve in Model.talking)
+                    {
+                        if (eve.EventId == ViewBag.selected)
+                        {
+                            foreach (var perf in Model.performer)
+                            {
+                                if (perf.PerformerId == ViewBag.selectedPerformer)
+                                {
+                                    <img src="~/Content/img/Talking/@perf.PerformerImagePath" alt="Festival Logo">
+                                    <div class="hidethis" style="visibility:hidden"><input type="text" name="oripath" id="oripath" value="@perf.PerformerImagePath" /></div>
+                                    <div class="hidethis" style="visibility:hidden"><input type="text" name="category" id="category" value="talking" /></div>
                                 }
                             }
                         }

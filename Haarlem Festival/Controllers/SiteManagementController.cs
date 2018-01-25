@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Haarlem_Festival.ViewModels;
-using Haarlem_Festival.Repositorys;
+using Haarlem_Festival.Repository;
 using Haarlem_Festival.Models;
 using System.IO;
 
@@ -24,12 +24,17 @@ namespace Haarlem_Festival.Controllers
         {
             string textEdit = txtEdit[0];
             int EventId = Convert.ToInt32(formCollection["eventid"]);
-            int performerId = repo.GetPerformerID(EventId);
-            //mag niet Anne fix dit
-            using (var ctx = new HaarlemFestivalDB())
+            int perfId = Convert.ToInt32(formCollection["perfid"]);
+            if (perfId == 0)
             {
-                ctx.Database.ExecuteSqlCommand("Update Performer set PerformerInfo={0} where PerformerId={1}", textEdit, performerId);
+                perfId = repo.GetPerformerID(EventId);
             }
+            //mag niet Anne fix dit ok Anne ik heb het gefixt
+            //using (var ctx = new HaarlemFestivalDB())
+            //{
+            //    ctx.Database.ExecuteSqlCommand("Update Performer set PerformerInfo={0} where PerformerId={1}", textEdit, performerId);
+            //}
+            repo.SetPerformerInfo(txtEdit, perfId);
             Performer perfToUpdate = new Performer();
             //foreach (var eve in EventDB.Jazz)
             //{
@@ -53,17 +58,30 @@ namespace Haarlem_Festival.Controllers
             //kan net zo goed session ofzo gebruiken maar whats the point 
             HaarlemFestivalDB performerDB = new HaarlemFestivalDB();
             int EventId = Convert.ToInt32(formCollection["eventid"]);
+            int PerfId = Convert.ToInt32(formCollection["perfid"]);
+            ViewBag.selectedPerformer = PerfId;
             ViewBag.selected = repo.GetEventID(EventId);
             ManagementViewModel viewModel = repo.FillViewModel();
             return View("Index", viewModel);
         }
-        public ActionResult FileUpload(HttpPostedFileBase file, string oripath)
+        public ActionResult FileUpload(HttpPostedFileBase file, string oripath,FormCollection formCollection)
         {
+            string category = formCollection["category"];
+            //moet dit in db het doet wel iets met db in memorystream
             if (file != null)
             {
                 string pic = System.IO.Path.GetFileName(oripath);
-                string path = System.IO.Path.Combine(
-                                       Server.MapPath("~/Content/img/jazz"), pic);
+                string path =  "emptypath";
+                if (category == "jazz") {
+                    path = System.IO.Path.Combine(
+                    Server.MapPath("~/Content/img/jazz"), pic);
+                }
+                if (category == "talking")
+                {
+                    path = System.IO.Path.Combine(
+                    Server.MapPath("~/Content/img/Talking"), pic);
+                }
+
                 // file is uploaded
                 file.SaveAs(path);
 
