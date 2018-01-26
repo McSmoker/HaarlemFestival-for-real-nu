@@ -350,6 +350,60 @@ table, th, td {
     float:left;
     width:100%;
 }
+.jazzButton26-7{
+    float:left;
+    width:49%;
+}
+.jazzButton27-7{
+    float:left;
+    width:49%;
+}
+.jazzButton28-7{
+    float:left;
+    width:49%;
+}
+.jazzButton29-7{
+    float:left;
+    width:49%;
+}
+.talkingButton26-7{
+    float:left;
+    width:49%;
+}
+.talkingButton27-7{
+    float:left;
+    width:49%;
+}
+.talkingButton28-7{
+    float:left;
+    width:49%;
+}
+.talkingButton29-7{
+    float:left;
+    width:49%;
+}
+.pushdown{
+    float:left;
+    height:120px;
+    width:100%
+}
+.JazzImage{
+    width:19%;
+    position:absolute;
+    z-index:-1;
+}
+.TalkingImage{
+    width:19%;
+    position:absolute;
+    z-index:-1;
+}
+.contentButton{
+    width: 100%;
+    height: 95px;
+    color: transparent;
+    background: transparent;
+}
+
 /*
     preview voor contentmanagement
 */

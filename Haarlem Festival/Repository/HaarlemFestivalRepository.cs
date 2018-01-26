@@ -109,6 +109,28 @@ namespace Haarlem_Festival.Repository
             db.Performer.Add(p);
             db.SaveChanges();
         }
+        public void SetPerformerInfo(string[] txtEdit,int performerid)
+        {
+            HaarlemFestivalDB db = new HaarlemFestivalDB();
+            Performer perfToUpdate = db.Performer.Find(performerid);
+            perfToUpdate.PerformerInfo = txtEdit[0];
+            bool savefailed;
+            db.Entry(perfToUpdate).State = System.Data.Entity.EntityState.Modified;
+            do
+            {
+                savefailed = false;
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (System.Data.Entity.Infrastructure.DbUpdateConcurrencyException ex)
+                {
+                    savefailed = true;
+                    ex.Entries.Single().Reload();//(wssperformerid)id faalt
+                }
+            } while (savefailed);
+
+        }
 
         public ManagementViewModel FillViewModel()
         {

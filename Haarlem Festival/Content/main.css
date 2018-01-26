@@ -473,6 +473,10 @@ Miscellaneous
     background-image: url('img/jazz/patronaat.png');
 }
 
+.toneelschuur {
+    background-image: url('img/talking/toneelschuur.png');
+}
+
 .jazz-shopping-cart-glyph {
     background: transparent url('img/cart glyph white.png') no-repeat center center;
     margin-right: 20px;
@@ -492,4 +496,37 @@ Miscellaneous
 
 .float-right{
     float: right;
+}
+
+/*TALKING*/
+.speaker-block {
+    margin: 0 20px 20px 0;
+    width: 700px;
+    height: 430px;
+    background-color: #F2F2F2;
+    display: block;
+    float: left;
+}
+
+.speaker-block:nth-of-type(even) {
+    margin-right: 0;
+}
+
+.speaker-block-text {
+    padding: 0;
+    width: 320px;
+    height: 350px;
+    font-size: 16px;
+    color: #333333;
+    line-height: 18px;
+    display: inline-block;
+}
+
+.speaker-image {
+    width: 330px;
+    height: 350px;
+    margin: 12px 15px;
+    padding: 0;
+    display: inline-block;
+    float: left;
 }
