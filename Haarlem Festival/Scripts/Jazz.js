@@ -62,11 +62,11 @@ $(document).ready(function () {
     });
 
     $(".action-btn").click(function () {
-        if ($(this).val() == "Add ticket to cart")
+        if ($(this).val() === "Add ticket to cart")
             $(".added-to-cart-modal").slideDown();
     });
 
     $(".added-to-cart-modal").click(function () {
         $(this).hide();
-    })
+    });
 });

@@ -374,7 +374,6 @@ Artist blocks
     height: 30px;
     width: 258px;
     padding-left: 15px;
-    display: inline-block;
     background-color: #800080;
     float: left;
 }
@@ -382,7 +381,6 @@ Artist blocks
 .added-to-cart-close {
     height: 30px;
     width: 27px;
-    display: inline-block;
     background-color: #800080;
     float: right;
 }
@@ -417,11 +415,11 @@ Artist blocks
 .jazz-cart-head {
     margin-top:5px;
     font-weight:bold;
-    background-color: rgba(215, 215, 215, 1);
+    background-color: rgb(215, 215, 215);
 }
 
 .jazz-cart-row {
-    background-color: rgba(231, 231, 231, 1);
+    background-color: rgb(231, 231, 231);
 }
 
 .jc-artist, .jc-date, .jc-time, .jc-location, .jc-amount, .jc-price{
@@ -527,6 +525,5 @@ Miscellaneous
     height: 350px;
     margin: 12px 15px;
     padding: 0;
-    display: inline-block;
     float: left;
 }

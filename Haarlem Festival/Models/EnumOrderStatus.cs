@@ -7,6 +7,6 @@ namespace Haarlem_Festival.Models
 {
     public enum OrderStatus
     {
-        besteld, gereserveerd, betaald
+        Ordered, Reserved, Paid
     }
 }
