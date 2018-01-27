@@ -181,14 +181,15 @@
     <Compile Include="Controllers\HistoricController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JazzController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManagementController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\SiteManagementController.cs" />
     <Compile Include="Controllers\TalkingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ActiveNavHelper.cs" />
+    <Compile Include="Interfaces\ITalkingRepository.cs" />
     <Compile Include="Migrations\201711221305555_InitialCreate.cs" />
     <Compile Include="Migrations\201711221305555_InitialCreate.Designer.cs">
       <DependentUpon>201711221305555_InitialCreate.cs</DependentUpon>
@@ -210,6 +211,7 @@
     <Compile Include="Models\Volunteer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\HaarlemFestivalRepository.cs" />
+    <Compile Include="Repository\TalkingRepository.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\EventViewModel.cs" />
     <Compile Include="ViewModels\JazzViewModel.cs" />
@@ -222,7 +224,6 @@
     <Content Include="Content\img\cart glyph.png" />
     <Content Include="Content\img\home glyph white.png" />
     <Content Include="Content\img\home glyph.png" />
-    <Content Include="Content\img\HomePage.png" />
     <Content Include="Content\img\home\home dinner.jpg" />
     <Content Include="Content\img\home\home historic.jpg" />
     <Content Include="Content\img\home\home jazz.jpg" />
@@ -293,6 +294,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\ShoppingCart.js" />
+    <Content Include="Scripts\Talking.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Management\Legend.png" />
     <Content Include="Views\Management\Logo.png" />
@@ -307,10 +309,6 @@
     </Content>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Jazz\Index.cshtml" />
-    <Content Include="Views\Talking\Create.cshtml" />
-    <Content Include="Views\Talking\Delete.cshtml" />
-    <Content Include="Views\Talking\Details.cshtml" />
-    <Content Include="Views\Talking\Edit.cshtml" />
     <Content Include="Views\Talking\Index.cshtml" />
     <Content Include="Views\Management\CreateEvent.cshtml" />
     <Content Include="Views\Account\EditEvent.cshtml" />
@@ -340,7 +338,7 @@
     <Content Include="Views\Historic\Index.cshtml" />
     <Content Include="Views\Dinner\Index.cshtml" />
     <Content Include="Views\SiteManagement\Index.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Orders\AddOrderItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

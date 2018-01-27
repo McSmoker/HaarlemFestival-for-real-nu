@@ -8,7 +8,7 @@ namespace Haarlem_Festival.Models
 {
     public class Order
     {
-        [Key]
+        //[Key]
         public int OrderId { get; set; }
         public List<OrderItem> OrderItems { get; set; }
         public string RecipientEmail { get; set; }

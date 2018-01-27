@@ -18,5 +18,13 @@ namespace Haarlem_Festival.Models
 
         public int EventId { get; set; }
         public Event Event { get; set; }
+
+        public OrderItem(TicketType ticketType, int amount, int orderId, int eventId)
+        {
+            this.TicketType = ticketType;
+            this.Amount = amount;
+            this.OrderId = orderId;
+            this.EventId = eventId;
+        }
     }
 }
