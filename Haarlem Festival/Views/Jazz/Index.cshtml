@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Haarlem_Festival.ViewModels.JazzViewModel>
+﻿@using Haarlem_Festival.Models
+@model IEnumerable<Haarlem_Festival.ViewModels.JazzViewModel>
 
 <div class="block">
     <div class="block-header">
@@ -35,22 +36,22 @@
             </div>
             <div class="passe-partout-options">
                 <span class="checkbox-label-wrap">
-                    <input type="checkbox" id="pp3day" />
+                    <input type="checkbox" id="pp-3day" class="pp-checkbox" />
                     <label for="pp3day">Passe-partout for Thursday, Friday & Saturday @@ &euro;80,-</label>
                 </span>
 
                 <span class="checkbox-label-wrap">
-                    <input type="checkbox" id="pp3thu" />
+                    <input type="checkbox" id="pp-26/07/2018" class="pp-checkbox" />
                     <label for="pp3thu">Passe-partout for Thursday @@ &euro;35,-</label>
                 </span>
 
                 <span class="checkbox-label-wrap">
-                    <input type="checkbox" id="pp3fri" />
+                    <input type="checkbox" id="pp-27/07/2018" class="pp-checkbox" />
                     <label for="pp3fri">Passe-partout for Friday @@ &euro;35,-</label>
                 </span>
 
                 <span class="checkbox-label-wrap">
-                    <input type="checkbox" id="pp3sat" />
+                    <input type="checkbox" id="pp-28/07/2018" class="pp-checkbox" />
                     <label for="pp3sat">Passe-partout for Saturday @@ &euro;35,-</label>
                 </span>
 
@@ -114,41 +115,33 @@
     </div>
     <div class="jazz-cart-wrap">
         <div class="jazz-cart-head">
-            <span class="jc-artist">Artist</span>
+            <span class="jc-artist">Artist/Ticket</span>
             <span class="jc-date">Date</span>
             <span class="jc-time">Time</span>
             <span class="jc-location">Location | Hall</span>
             <span class="jc-amount">Amount</span>
             <span class="jc-price">Price</span>
         </div>
-        <div class="jazz-cart-row-box">
-            <div class="jazz-cart-row">
-                <span class="jc-artist">Tom Thomson Assemble</span>
-                <span class="jc-date">26/07/2018</span>
-                <span class="jc-time">19:30 - 20:30</span>
-                <span class="jc-location">Patronaat | Second Hall</span>
-                <span class="jc-amount"><input type="number" value="1" class="jc-amount-input"/></span>
-                <span class="jc-price">€10,00</span>
+        <div id="jazz-shopping-cart-rows" class="jazz-cart-row-box">
+            @foreach (CartItem item in (List<CartItem>)Session["CartTickets"])
+            {
+            <div id="event-@item.JazzEvent.EventId" class="jazz-cart-row">
+                <span class="jc-artist">@item.JazzEvent.Artist.PerformerName</span>
+                <span class="jc-date">@item.JazzEvent.EventStart.ToShortDateString()</span>
+                <span class="jc-time">@item.JazzEvent.EventStart.ToShortTimeString() - @item.JazzEvent.EventEnd.ToShortTimeString()</span>
+                <span class="jc-location">@item.JazzEvent.Location | @item.JazzEvent.Hall</span>
+                <span class="jc-amount">
+                    <input type="number" value="@item.Amount" min="0" oninput="validity.valid||(value='');" class="jc-amount-input" />
+                </span>
+                <span class="jc-price">@item.JazzEvent.Price.ToString("€0.00")</span>
             </div>
-            <div class="jazz-cart-row">
-                <span class="jc-artist">Tom Thomson Assemble</span>
-                <span class="jc-date">26/07/2018</span>
-                <span class="jc-time">19:30 - 20:30</span>
-                <span class="jc-location">Patronaat | Second Hall</span>
-                <span class="jc-amount"><input type="number" value="1" class="jc-amount-input" /></span>
-                <span class="jc-price">€10,00</span>
-            </div>
-            <div class="jazz-cart-row"></div>
-            <div class="jazz-cart-row"></div>
-            <div class="jazz-cart-row"></div>
-            <div class="jazz-cart-row"></div>
-            <div class="jazz-cart-row"></div>
+            }
         </div>
-        <input type="button" id="goToCheckout" class="action-btn float-right" value="Proceed to Checkout" />
-    </div>
+        <input type="button" class="action-btn float-right" value="Proceed to Checkout" />
+        </div>
 </div>
 
-<div class="added-to-cart-modal">
+<div id="success-ticket-add" class="added-to-cart-modal">
     <div class="added-to-cart-title">
         Success!
     </div>
@@ -159,5 +152,23 @@
         The ticket was successfully added to the cart!
         <br /><br />
         You can change the amount at the Shopping Cart section of this page.
+        <br /><br />
+        Setting the amount to 0 removes the ticket.
+    </p>
+</div>
+
+<div id="failed-ticket-add" class="added-to-cart-modal">
+    <div class="added-to-cart-title">
+        Oops!
+    </div>
+
+    <img class="added-to-cart-close" src="~/Content/img/misc/close white.png" />
+
+    <p class="added-to-cart-text">
+        The ticket is already added to the cart!
+        <br /><br />
+        You can change the amount at the Shopping Cart section of this page.
+        <br /><br />
+        Setting the amount to 0 removes the ticket.
     </p>
 </div>
