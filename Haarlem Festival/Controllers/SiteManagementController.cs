@@ -56,11 +56,18 @@ namespace Haarlem_Festival.Controllers
         {
             //vieze viewbag maar waarom is het zo vies
             //kan net zo goed session ofzo gebruiken maar whats the point 
-            HaarlemFestivalDB performerDB = new HaarlemFestivalDB();
             int EventId = Convert.ToInt32(formCollection["eventid"]);
             int PerfId = Convert.ToInt32(formCollection["perfid"]);
             ViewBag.selectedPerformer = PerfId;
             ViewBag.selected = repo.GetEventID(EventId);
+            ManagementViewModel viewModel = repo.FillViewModel();
+            return View("Index", viewModel);
+        }
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult GetHomeContent(FormCollection formCollection)
+        {
+            int EventId = Convert.ToInt32(formCollection["eventid"]);
+            ViewBag.selected = EventId;
             ManagementViewModel viewModel = repo.FillViewModel();
             return View("Index", viewModel);
         }
@@ -81,6 +88,11 @@ namespace Haarlem_Festival.Controllers
                     path = System.IO.Path.Combine(
                     Server.MapPath("~/Content/img/Talking"), pic);
                 }
+                if (category == "home")
+                {
+                    path = System.IO.Path.Combine(
+                    Server.MapPath("~/Content/img/home"), pic);
+                }
 
                 // file is uploaded
                 file.SaveAs(path);
@@ -88,10 +100,13 @@ namespace Haarlem_Festival.Controllers
                 // save the image path path to the database or you can send image 
                 // directly to database
                 // in-case if you want to store byte[] ie. for DB
-                using (MemoryStream ms = new MemoryStream())
+                if (category != "home")
                 {
-                    file.InputStream.CopyTo(ms);
-                    byte[] array = ms.GetBuffer();
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        file.InputStream.CopyTo(ms);
+                        byte[] array = ms.GetBuffer();
+                    }
                 }
 
             }

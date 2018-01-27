@@ -1,6 +1,10 @@
-﻿@Model Management
+﻿
 @{
     Layout = null;
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
 }
 
 <!DOCTYPE html>
@@ -18,8 +22,7 @@
                 @foreach (var eve in Model.jazz)
                 {
                     <tr>
-                        <td>eventID</td>
-                        <td><input type="text" id="TxtEventId" name="EventId" value="@eve.EventId" /></td>
+                        <td><input type="text" id="TxtEventId" name="EventId" value="@eve.EventId" style="visibility: hidden;"/></td>
                     </tr>
                     <tr>
                         <td>PerformerName</td>
@@ -27,10 +30,10 @@
                         {
                             if (eve.PerformerId == perf.PerformerId)
                             {
-                                <td><input type="text" id="TxtArtist" name="PerformerImagePath" value="@perf.PerformerImagePath" /></td>
-                                <td><input type="text" id="TxtArtist" name="PerformerInfo" value="@perf.PerformerInfo" /></td>
                                 <td><input type="text" id="TxtArtist" name="PerformerName" value="@perf.PerformerName" /></td>
-                                <td><input type="text" id="TxtArtist" name="PerformerId" value="@eve.PerformerId" /></td>
+                                <td><input type="text" id="TxtArtist" name="PerformerImagePath" value="@perf.PerformerImagePath" style="visibility: hidden;"/></td>
+                                <td><input type="text" id="TxtArtist" name="PerformerInfo" value="@perf.PerformerInfo" style="visibility: hidden;"/></td>
+                                <td><input type="text" id="TxtArtist" name="PerformerId" value="@eve.PerformerId" style="visibility: hidden;"/></td>
                             }
                         }
                     </tr>

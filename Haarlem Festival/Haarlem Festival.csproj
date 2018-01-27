@@ -181,6 +181,7 @@
     <Compile Include="Controllers\HistoricController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JazzController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManagementController.cs" />
     <Compile Include="Controllers\SiteManagementController.cs" />
     <Compile Include="Controllers\TalkingController.cs" />
@@ -221,6 +222,7 @@
     <Content Include="Content\img\cart glyph.png" />
     <Content Include="Content\img\home glyph white.png" />
     <Content Include="Content\img\home glyph.png" />
+    <Content Include="Content\img\HomePage.png" />
     <Content Include="Content\img\home\home dinner.jpg" />
     <Content Include="Content\img\home\home historic.jpg" />
     <Content Include="Content\img\home\home jazz.jpg" />
@@ -338,6 +340,7 @@
     <Content Include="Views\Historic\Index.cshtml" />
     <Content Include="Views\Dinner\Index.cshtml" />
     <Content Include="Views\SiteManagement\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

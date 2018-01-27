@@ -341,13 +341,17 @@ namespace Haarlem_Festival.Controllers
             ManagementViewModel viewModel = PopulateViewModel();
             return View("index", viewModel);
         }
-        public ActionResult SaveTalking([Bind(Include = "Location,Seats,Price,Comment")]Talking e, [Bind(Include = "PerformerName")]Performer p, DateTime Date, DateTime EventStart, DateTime EventEnd)
+        public ActionResult SaveTalking([Bind(Include = "Location,Seats,Price,Comment")]Talking e, [Bind(Include = "PerformerName")]Performer p, DateTime Date, DateTime EventStart, DateTime EventEnd, string PerformerName2)
         {
             DateTime jazzTimeStart = new DateTime(Date.Year, Date.Month, Date.Day, EventStart.Hour, EventStart.Minute, EventStart.Second);
             DateTime jazzTimeEnd = new DateTime(Date.Year, Date.Month, Date.Day, EventEnd.Hour, EventEnd.Minute, EventEnd.Second);
+            Performer p2 = new Performer();
+            p2.PerformerName = PerformerName2;
             e.EventStart = jazzTimeStart;
             e.EventEnd = jazzTimeEnd;
-            repo.NewTalking(e, p);
+            e.SpeakerOne = p;
+            e.SpeakerTwo = p2;
+            repo.NewTalking(e, p,p2);
             ManagementViewModel viewModel = PopulateViewModel();
             return View("index", viewModel);
         }

@@ -1,6 +1,10 @@
 ﻿
 @{
     Layout = null;
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
 }
 
 <!DOCTYPE html>
@@ -18,8 +22,7 @@
                 @foreach (var eve in Model.talking)
                 {
                     <tr>
-                        <td>eventID</td>
-                        <td><input type="text" id="TxtEventId" name="EventId" value="@eve.EventId" /></td>
+                        <td><input type="text" id="TxtEventId" name="EventId" value="@eve.EventId" style="visibility: hidden;"/></td>
                     </tr>
                     <tr>
                         
@@ -27,19 +30,23 @@
                         {
                             if (eve.SpeakerOne.PerformerId == perf.PerformerId)
                             {
+                                <tr>
                                 <td>PerformerName</td>
-                                <td><input type="text" id="TxtArtist" name="PerformerImagePath" value="@perf.PerformerImagePath" /></td>
-                                <td><input type="text" id="TxtArtist" name="PerformerInfo" value="@perf.PerformerInfo" /></td>
                                 <td><input type="text" id="TxtArtist" name="PerformerName" value="@perf.PerformerName" /></td>
-                                <td><input type="text" id="TxtArtist" name="PerformerId" value="@eve.SpeakerOne.PerformerId" /></td>
+                                <td><input type="text" id="TxtArtist" name="PerformerImagePath" value="@perf.PerformerImagePath" style="visibility: hidden;"/></td>
+                                <td><input type="text" id="TxtArtist" name="PerformerInfo" value="@perf.PerformerInfo" style="visibility: hidden;"/></td>
+                                <td><input type="text" id="TxtArtist" name="PerformerId" value="@eve.SpeakerOne.PerformerId" style="visibility: hidden;"/></td>
+                                </tr>
                             }
                             if (eve.SpeakerTwo.PerformerId == perf.PerformerId)
                             {
+                                <tr>
                                 <td>PerformerName2</td>
-                                <td><input type="text" id="TxtArtist" name="PerformerImagePath2" value="@perf.PerformerImagePath" /></td>
-                                <td><input type="text" id="TxtArtist" name="PerformerInfo2" value="@perf.PerformerInfo" /></td>
                                 <td><input type="text" id="TxtArtist" name="PerformerName2" value="@perf.PerformerName" /></td>
-                                <td><input type="text" id="TxtArtist" name="PerformerId2" value="@eve.SpeakerTwo.PerformerId" /></td>
+                                <td><input type="text" id="TxtArtist" name="PerformerImagePath2" value="@perf.PerformerImagePath" style="visibility: hidden;"/></td>
+                                <td><input type="text" id="TxtArtist" name="PerformerInfo2" value="@perf.PerformerInfo" style="visibility: hidden;"/></td>
+                                <td><input type="text" id="TxtArtist" name="PerformerId2" value="@eve.SpeakerTwo.PerformerId" style="visibility: hidden;"/></td>
+                                </tr>
                             }
                         }
                     </tr>

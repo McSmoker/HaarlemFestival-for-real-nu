@@ -1,6 +1,10 @@
 ﻿
 @{
     Layout = null;
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
 }
 <!DOCTYPE html>
 <html>
@@ -19,6 +23,38 @@
                 $("#HomeButtons").show()
                 $("#JazzButtons").hide()
                 $("#TalkingButtons").hide()
+                var jazz267 = $('.jazzButton26-7');
+                var jazz277 = $('.jazzButton27-7');
+                var jazz287 = $('.jazzButton28-7');
+                var jazz297 = $('.jazzButton29-7');
+                var talk267 = $('.talkingButton26-7');
+                var talk277 = $('.talkingButton27-7');
+                var talk287 = $('.talkingButton28-7');
+                var talk297 = $('.talkingButton29-7');
+                var jazzpic267 = $('#JazzImage1');
+                var jazzpic277 = $('#JazzImage2');
+                var jazzpic287 = $('#JazzImage3');
+                var jazzpic297 = $('#JazzImage4');
+                var talkpic277 = $('#TalkingImage1');
+                var talkpic287 = $('#TalkingImage2');
+                var talkpic297 = $('#TalkingImage3');
+                var homepic = $('.HomeImage');
+                jazz267.hide();
+                jazz277.hide();
+                jazz287.hide();
+                jazz297.hide();
+                talk267.hide();
+                talk277.hide();
+                talk287.hide();
+                talk297.hide();
+                jazzpic267.hide();
+                jazzpic277.hide();
+                jazzpic287.hide();
+                jazzpic297.hide();
+                talkpic277.hide();
+                talkpic287.hide();
+                talkpic297.hide();
+                homepic.show();
                 categoryfilter = "home";
             });
             $("#JazzButton").click(function () {
@@ -40,6 +76,8 @@
                 var talkpic277 = $('#TalkingImage1');
                 var talkpic287 = $('#TalkingImage2');
                 var talkpic297 = $('#TalkingImage3');
+                var homepic = $('.HomeImage');
+                homepic.hide();
                 jazz267.hide();
                 jazz277.hide();
                 jazz287.hide();
@@ -81,6 +119,8 @@
                 var talkpic277 = $('#TalkingImage1');
                 var talkpic287 = $('#TalkingImage2');
                 var talkpic297 = $('#TalkingImage3');
+                var homepic = $('.HomeImage');
+                homepic.hide();
                 jazz267.hide();
                 jazz277.hide();
                 jazz287.hide();
@@ -106,6 +146,38 @@
                 $("#HomeButtons").hide()
                 $("#JazzButtons").hide()
                 $('#TalkingButtons').hide();
+                var jazz267 = $('.jazzButton26-7');
+                var jazz277 = $('.jazzButton27-7');
+                var jazz287 = $('.jazzButton28-7');
+                var jazz297 = $('.jazzButton29-7');
+                var talk267 = $('.talkingButton26-7');
+                var talk277 = $('.talkingButton27-7');
+                var talk287 = $('.talkingButton28-7');
+                var talk297 = $('.talkingButton29-7');
+                var jazzpic267 = $('#JazzImage1');
+                var jazzpic277 = $('#JazzImage2');
+                var jazzpic287 = $('#JazzImage3');
+                var jazzpic297 = $('#JazzImage4');
+                var talkpic277 = $('#TalkingImage1');
+                var talkpic287 = $('#TalkingImage2');
+                var talkpic297 = $('#TalkingImage3');
+                var homepic = $('.HomeImage');
+                homepic.hide();
+                jazz267.hide();
+                jazz277.hide();
+                jazz287.hide();
+                jazz297.hide();
+                talk267.hide();
+                talk277.hide();
+                talk287.hide();
+                talk297.hide();
+                jazzpic267.hide();
+                jazzpic277.hide();
+                jazzpic287.hide();
+                jazzpic297.hide();
+                talkpic277.hide();
+                talkpic287.hide();
+                talkpic297.hide();
             });
             $(".button").click(function () {
                 $("textEdit").hide()
@@ -138,6 +210,8 @@
                 var talkpic277 = $('#TalkingImage1');
                 var talkpic287 = $('#TalkingImage2');
                 var talkpic297 = $('#TalkingImage3');
+                var homepic = $('.HomeImage');
+                homepic.hide();
                 jazz267.hide();
                 jazz277.hide();
                 jazz287.hide();
@@ -200,7 +274,6 @@
             //    console.log(performerInfo);
             //})
 
-
         })
     </script>
 </head>
@@ -228,16 +301,28 @@
                 <ul>
                     <a class="expand">
                         <li>
-                            <p> Box1</p>
+                            @{Html.BeginForm("GetHomeContent", "SiteManagement");}
+                            <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="9001" /></div>
+                            <input type="submit" value="Historic" />
+                            @{ Html.EndForm(); }
                         </li>
                         <li>
-                            <p> Box2</p>
+                            @{Html.BeginForm("GetHomeContent", "SiteManagement");}
+                            <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="9002" /></div>
+                            <input type="submit" value="Dinner" />
+                            @{ Html.EndForm(); }
                         </li>
                         <li>
-                            <p> Box3</p>
+                            @{Html.BeginForm("GetHomeContent", "SiteManagement");}
+                            <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="9003" /></div>
+                            <input type="submit" value="Jazz" />
+                            @{ Html.EndForm(); }
                         </li>
                         <li>
-                            <p> Box4</p>
+                            @{Html.BeginForm("GetHomeContent", "SiteManagement");}
+                            <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="9004" /></div>
+                            <input type="submit" value="Talking" />
+                            @{ Html.EndForm(); }
                         </li>
                     </a>
                 </ul>
@@ -246,30 +331,22 @@
                 <a class="expand">Jazz</a>
                 <ul>
                     <a class="expand">
-                        <li>
-                            <p> Box1</p>
-                        </li>
-                        <li>
-                            <p> Box2</p>
-                        </li>
-                        <li>
-                            <p> Box3</p>
-                        </li>
-                        <li>
-                            <p> Box4</p>
-                        </li>
-                        <li>
-                            <p> Box5</p>
-                        </li>
-                        <li>
-                            <p> Box6</p>
-                        </li>
-                        <li>
-                            <p> Box7</p>
-                        </li>
-                        <li>
-                            <p> Box8</p>
-                        </li>
+                        @foreach (var jazz in Model.jazz)
+                        {
+                                <a class="expand">
+                                    @foreach (var perf in Model.performer)
+                                    {
+                                        if (jazz.PerformerId == perf.PerformerId)
+                                        {
+                                            { Html.BeginForm("GetContent", "SiteManagement"); }
+                                            <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@jazz.EventId" /></div>
+                                            <input type="submit" value="@perf.PerformerName" />
+                                            { Html.EndForm(); }
+                                        }
+                                    }
+                                </a>
+                        }
+                       
                     </a>
                     </a>
                 </ul>
@@ -277,16 +354,29 @@
             <li>
                 <a class="expand">Talking</a>
                 <ul>
-                    <li>
                         <a class="expand">
-                    <li><p> Box1</p></li>
-                    <li><p> Box2</p></li>
-                    <li><p> Box3</p></li>
-                    <li><p> Box4</p></li>
-                    <li><p> Box5</p></li>
-                    <li><p> Box6</p></li>
-                    <li><p> Box7</p></li>
-                    <li><p> Box8</p></li>
+                    @foreach (var talk in Model.talking)
+                    {
+                        <a class="expand">
+                            @foreach (var perf in Model.performer)
+                            {
+                                if (talk.SpeakerOne.PerformerId == perf.PerformerId)
+                                {
+                                    { Html.BeginForm("GetContent", "SiteManagement"); }
+                                    <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@talk.EventId" /></div>
+                                            <input type="submit" value="@perf.PerformerName" />
+                                    { Html.EndForm(); }
+                                }
+                                if (talk.SpeakerTwo.PerformerId == perf.PerformerId)
+                                {
+                                    { Html.BeginForm("GetContent", "SiteManagement"); }
+                                    <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@talk.EventId" /></div>
+                                    <input type="submit" value="@perf.PerformerName" />
+                                    { Html.EndForm(); }
+                                }
+                            }
+                        </a>
+                    }
                     </a>
                     </a>
             </li>
@@ -305,10 +395,22 @@
             <option value="29-7">29-7</option>
         </select>
         <div id="HomeButtons">
-            <button type="button" style="width: 49%;">Click Me!</button>
-            <button type="button" style="width: 49%;">Click Me!</button>
-            <button type="button" style="width: 49%;">Click Me!</button>
-            <button type="button" style="width: 49%;">Click Me!</button>
+            @{Html.BeginForm("GetHomeContent", "SiteManagement");}
+            <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="9001" /></div>
+            <input class="homecontentButton" type="submit" value="Edit" />
+            @{ Html.EndForm(); }
+            @{Html.BeginForm("GetHomeContent", "SiteManagement");}
+            <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="9002" /></div>
+            <input class="homecontentButton" type="submit" value="Edit" />
+            @{ Html.EndForm(); }
+           @{Html.BeginForm("GetHomeContent", "SiteManagement");}
+             <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="9003" /></div>
+             <input class="homecontentButton" type="submit" value="Edit" />
+             @{ Html.EndForm(); }
+            @{Html.BeginForm("GetHomeContent", "SiteManagement");}
+            <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="9004" /></div>
+            <input class="homecontentButton" type="submit" value="Edit" />
+            @{ Html.EndForm(); }
         </div>
         <div id="JazzButtons">
             <div id="pushdown" class="pushdown"></div>
@@ -483,6 +585,8 @@
             <div id="TalkingImage1" class="TalkingImage" style="width: 19%;position: absolute;"><img src="~/Content/img/TalkingDetail1.png" alt="Jazz Detail" style="width: 100%;"></div>
             <div id="TalkingImage2" class="TalkingImage" style="width: 19%;position: absolute;"><img src="~/Content/img/TalkingDetail2.png" alt="Jazz Detail" style="width: 100%;"></div>
             <div id="TalkingImage3" class="TalkingImage" style="width: 19%;position: absolute;"><img src="~/Content/img/TalkingDetail3.png" alt="Jazz Detail" style="width: 100%;"></div>
+            <div id="HomeImage" class="HomeImage" style="width: 19%;position: absolute;"><img src="~/Content/img/HomePage.png" alt="Jazz Detail" style="width: 100%;"></div>
+            
         </div>
     </div>
     <div class="editing">
@@ -597,6 +701,30 @@
                         }
                     }
                 }
+                if (ViewBag.selected == 9001)
+                {
+                    <img src="~/Content/img/home/home historic.jpg" alt="Festival Logo" style="width: 500px;">
+                    <div class="hidethis" style="visibility:hidden"><input type="text" name="oripath" id="oripath" value="home historic.jpg" /></div>
+                    <div class="hidethis" style="visibility:hidden"><input type="text" name="category" id="category" value="home" /></div>
+                }
+                if (ViewBag.selected == 9002)
+                {
+                    <img src="~/Content/img/home/home dinner.jpg" alt="Festival Logo" style="width: 500px;">
+                    <div class="hidethis" style="visibility:hidden"><input type="text" name="oripath" id="oripath" value="home dinner.jpg" /></div>
+                    <div class="hidethis" style="visibility:hidden"><input type="text" name="category" id="category" value="home" /></div>
+                }
+                if (ViewBag.selected == 9003)
+                {
+                    <img src="~/Content/img/home/home jazz.jpg" alt="Festival Logo" style="width: 500px;">
+                    <div class="hidethis" style="visibility:hidden"><input type="text" name="oripath" id="oripath" value="home jazz.jpg" /></div>
+                    <div class="hidethis" style="visibility:hidden"><input type="text" name="category" id="category" value="home" /></div>
+                }
+                if (ViewBag.selected == 9004)
+                {
+                    <img src="~/Content/img/home/home talking.jpg" alt="Festival Logo" style="width: 500px;">
+                    <div class="hidethis" style="visibility:hidden"><input type="text" name="oripath" id="oripath" value="home talking.jpg" /></div>
+                    <div class="hidethis" style="visibility:hidden"><input type="text" name="category" id="category" value="home" /></div>
+                }
                 <label for="file">Upload Image:</label>
                 <input type="file" name="file" id="file" style="width: 100%;" />
                 <input type="submit" value="Upload" class="submit" />
@@ -655,6 +783,39 @@
                                         <input type="button" onclick="addTicketToCart(this)" id="@eve.EventId" class="action-btn" value="Add ticket to cart" />
                                     </div>
                                 </div>
+                            </div>
+                        }
+                    }
+                }
+            }
+            foreach (var eve in Model.talking)
+            {
+                if (eve.EventId == ViewBag.selected)
+                {
+                    foreach (var perf in Model.performer)
+                    {
+                        if (perf.PerformerId == eve.SpeakerOne.PerformerId)
+                        {
+                            <div class="block">
+                                <div class="block-header">
+                                    <p class="block-header-title">@eve.SpeakerOne.PerformerName @eve.EventStart.ToString("dd/MM/yyyy")</p>
+                                </div>
+                                <img src="~/Content/img/talking/@eve.SpeakerOne.PerformerImagePath" class="speaker-image" />
+                                <p class="speaker-block-text">
+                                    @eve.SpeakerOne.PerformerInfo
+                                </p>
+                            </div>
+                        }
+                        if (perf.PerformerId == eve.SpeakerTwo.PerformerId)
+                        {
+                            <div class="block">
+                                <div class="block-header">
+                                    <p class="block-header-title">@eve.SpeakerOne.PerformerName @eve.EventStart.ToString("dd/MM/yyyy")</p>
+                                </div>
+                                <img src="~/Content/img/talking/@eve.SpeakerOne.PerformerImagePath" class="speaker-image" />
+                                <p class="speaker-block-text">
+                                    @eve.SpeakerOne.PerformerInfo
+                                </p>
                             </div>
                         }
                     }

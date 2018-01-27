@@ -97,10 +97,12 @@
                  var bigCard = $('.bigCard');
                  var TalkingTable = $('.TalkingTable');
                  var JazzTable = $('.JazzTable');
+                 var Heading = $('.heading')
                  smallCard.hide()
                  bigCard.hide()
                  TalkingTable.hide()
                  JazzTable.hide()
+                 Heading.hide();
                  $('.TalkingTable').hide()
                  $('.JazzTable').hide()
                  $('#TalkingTable').hide()
@@ -108,9 +110,11 @@
                  //weet niet meer welke hide hide precies maar het werkt na vele uren eindelijk correct dus mij hoor je niet klagen (het was else if ipv if)
                  if (filterValue == 'smallcard') {
                      smallCard.show();
+                     Heading.show();
                  }
                  else if (filterValue == 'bigcard') {
                      bigCard.show();
+                     Heading.show();
                  }
                  else if (filterValue = 'tableview') {
                      TalkingTable.show();
@@ -157,7 +161,7 @@
     <div id="header">
         <!-- first box -->
         <div id="logo">
-            <img src="Logo2.png" alt="Festival Logo">
+            <img src="~/Content/img/Logo2.png" alt="Festival Logo">
         </div>
         <!-- second Box -->
         <div id="eventFilter">
@@ -172,18 +176,13 @@
                 </select>
             </p>
             <div id="categorieFilter">
-                <label> Event</label>>
+                <label> Event</label>
                 <select class="EventFilter" id="EventSelection">
                     <option value="Jazz">Jazz</option>
                     <option value="Talking">Talking</option>
                     <option value="All">All</option>
                 </select>
             </div>
-        </div>
-        <!-- legend box -->
-        <div id="legend">
-            <h2> Legend</h2>
-            <img src="Legend.png" alt="Legend">
         </div>
         <!-- Detail level -->
         <div id="detail">
@@ -241,6 +240,24 @@
                                 </a>
                             }
                         }
+                        @foreach (var talk in Model.talking)
+                        {
+                            if ((talk.EventStart.Day) == 26)
+                            {
+                                <a class="expand">
+                                    @foreach (var perf in Model.performer)
+                                    {
+                                        if (talk.SpeakerOne.PerformerId == perf.PerformerId)
+                                        {
+                                            { Html.BeginForm("GetSelectedTalkingEvent", "Management"); }
+                                            <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@talk.EventId" /></div>
+                                            <input type="submit" value="@perf.PerformerName" />
+                                            { Html.EndForm(); }
+                                        }
+                                    }
+                                </a>
+                            }
+                        }
                     </a>
                 </ul>
             </li>
@@ -259,6 +276,24 @@
                                         {
                                             { Html.BeginForm("GetSelectedEvent", "Management"); }
                                             <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@jazz.EventId" /></div>
+                                            <input type="submit" value="@perf.PerformerName" />
+                                            { Html.EndForm(); }
+                                        }
+                                    }
+                                </a>
+                            }
+                        }
+                        @foreach (var talk in Model.talking)
+                        {
+                            if ((talk.EventStart.Day) == 27)
+                            {
+                                <a class="expand">
+                                    @foreach (var perf in Model.performer)
+                                    {
+                                        if (talk.SpeakerOne.PerformerId == perf.PerformerId)
+                                        {
+                                            { Html.BeginForm("GetSelectedTalkingEvent", "Management"); }
+                                            <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@talk.EventId" /></div>
                                             <input type="submit" value="@perf.PerformerName" />
                                             { Html.EndForm(); }
                                         }
@@ -292,6 +327,24 @@
                             }
                         }
                     </a>
+                    @foreach (var talk in Model.talking)
+                    {
+                        if ((talk.EventStart.Day) == 28)
+                        {
+                            <a class="expand">
+                                @foreach (var perf in Model.performer)
+                                {
+                                    if (talk.SpeakerOne.PerformerId == perf.PerformerId)
+                                    {
+                                        { Html.BeginForm("GetSelectedTalkingEvent", "Management"); }
+                                        <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@talk.EventId" /></div>
+                                            <input type="submit" value="@perf.PerformerName" />
+                                        { Html.EndForm(); }
+                                    }
+                                }
+                            </a>
+                        }
+                    }
                 </ul>
             </li>
             <li>
@@ -316,6 +369,24 @@
                                 </a>
                             }
                         }
+                        @foreach (var talk in Model.talking)
+                        {
+                            if ((talk.EventStart.Day) == 29)
+                            {
+                                <a class="expand">
+                                    @foreach (var perf in Model.performer)
+                                    {
+                                        if (talk.SpeakerOne.PerformerId == perf.PerformerId)
+                                        {
+                                            { Html.BeginForm("GetSelectedTalkingEvent", "Management"); }
+                                            <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@talk.EventId" /></div>
+                                            <input type="submit" value="@perf.PerformerName" />
+                                            { Html.EndForm(); }
+                                        }
+                                    }
+                                </a>
+                            }
+                        }
                     </a>
                 </ul>
             </li>
@@ -324,7 +395,7 @@
                             @*om het geselecteerde event te pakken ga ik terug naar de controller en het eventid meesturen*@
                             <div id="Events">
                                 <div class="EventDaySection" id="EventDaySection" data-id="26-7">
-                                    <h2> Thursday 26-7</h2>
+                                    <div class="heading"><h2> Thursday 26-7</h2></div>
                                     <div class="JazzCard">
                                         @foreach (var fun in Model.jazz)
                                         {
@@ -337,7 +408,7 @@
                                                         </div>
                                                         @{Html.BeginForm("GetSelectedEvent", "Management");}
                                                         <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@fun.EventId" /></div>
-                                                        <input type="submit" value="Edit" />
+                                                        <input class="editbutton" type="submit" value="Edit" />
                                                         @{Html.EndForm();}
                                                         <div class="clearboth"></div>
                                                     </div>
@@ -362,7 +433,7 @@
                                                         </div>
                                                         @{Html.BeginForm("GetSelectedEvent", "Management");}
                                                         <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@fun.EventId" /></div>
-                                                        <input type="submit" value="Edit" />
+                                                        <input class="editbutton"type="submit" value="Edit" />
                                                         @{Html.EndForm();}
                                                         <div class="clearboth"></div>
                                                     </div>
@@ -392,17 +463,17 @@
                                             if ((fun.EventStart.Day) == 26)
                                             {
                                                 <div id="smallCard">
-                                                    <div id="smallTop">
+                                                    <div id="smallTop"style="background: lightcoral;">
                                                         <div id="topleft">
                                                             Talking
                                                         </div>
                                                         @{Html.BeginForm("GetSelectedTalkingEvent", "Management");}
                                                         <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@fun.EventId" /></div>
-                                                        <input type="submit" value="Edit" />
+                                                        <input class="editbutton" type="submit" value="Edit" />
                                                         @{Html.EndForm();}
                                                         <div class="clearboth"></div>
                                                     </div>
-                                                    <div id=smallBottom>
+                                                    <div id="smallBottom"style="background: lightcoral;">
                                                         @foreach (var perf in Model.performer)
                                                         {
                                                             if (fun.SpeakerOne.PerformerId == perf.PerformerId)
@@ -423,7 +494,7 @@
                                                         </div>
                                                         @{Html.BeginForm("GetSelectedTalkingEvent", "Management");}
                                                         <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@fun.EventId" /></div>
-                                                        <input type="submit" value="Edit" />
+                                                        <input class="editbutton" type="submit" value="Edit" />
                                                         @{Html.EndForm();}
                                                         <div class="clearboth"></div>
                                                     </div>
@@ -452,7 +523,7 @@
                                     </div>
                                 </div>
                                 <div class="EventDaySection" id="EventDaySection" data-id="27-7">
-                                    <h2> Friday 27-7</h2>
+                                    <div class="heading"><h2> Friday 27-7</h2></div>
                                     <div class="JazzCard">
                                         @foreach (var fun in Model.jazz)
                                         {
@@ -465,7 +536,7 @@
                                                         </div>
                                                         @{Html.BeginForm("GetSelectedEvent", "Management");}
                                                         <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@fun.EventId" /></div>
-                                                        <input type="submit" value="Edit" />
+                                                        <input class="editbutton" type="submit" value="Edit" />
                                                         @{Html.EndForm();}
                                                         <div class="clearboth"></div>
                                                     </div>
@@ -490,7 +561,7 @@
                                                         </div>
                                                         @{Html.BeginForm("GetSelectedEvent", "Management");}
                                                         <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@fun.EventId" /></div>
-                                                        <input type="submit" value="Edit" />
+                                                        <input class="editbutton" type="submit" value="Edit" />
                                                         @{Html.EndForm();}
                                                         <div class="clearboth"></div>
                                                     </div>
@@ -520,17 +591,17 @@
                                             if ((fun.EventStart.Day) == 27)
                                             {
                                                 <div id="smallCard" class="smallCard">
-                                                    <div id="smallTop">
+                                                    <div id="smallTop"style="background: lightcoral;">
                                                         <div id="topleft">
                                                             Talking
                                                         </div>
                                                         @{Html.BeginForm("GetSelectedTalkingEvent", "Management");}
                                                         <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@fun.EventId" /></div>
-                                                        <input type="submit" value="Edit" />
+                                                        <input class="editbutton" type="submit" value="Edit" />
                                                         @{Html.EndForm();}
                                                         <div class="clearboth"></div>
                                                     </div>
-                                                    <div id=smallBottom>
+                                                    <div id="smallBottom"style="background: lightcoral;">
                                                         @foreach (var perf in Model.performer)
                                                         {
                                                             if (fun.SpeakerOne.PerformerId == perf.PerformerId)
@@ -551,7 +622,7 @@
                                                         </div>
                                                         @{Html.BeginForm("GetSelectedTalkingEvent", "Management");}
                                                         <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@fun.EventId" /></div>
-                                                        <input type="submit" value="Edit" />
+                                                        <input class="editbutton" type="submit" value="Edit" />
                                                         @{Html.EndForm();}
                                                         <div class="clearboth"></div>
                                                     </div>
@@ -580,7 +651,7 @@
                                     </div>
                                 </div>
                                 <div class="EventDaySection" id="EventDaySection" data-id="28-7">
-                                    <h2> Saturday 28-7</h2>
+                                    <div class="heading"><h2> Saturday 28-7</h2></div>
                                     <div class="JazzCard">
                                         @foreach (var fun in Model.jazz)
                                         {
@@ -593,7 +664,7 @@
                                                         </div>
                                                         @{Html.BeginForm("GetSelectedEvent", "Management");}
                                                         <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@fun.EventId" /></div>
-                                                        <input type="submit" value="Edit" />
+                                                        <input class="editbutton" type="submit" value="Edit" />
                                                         @{Html.EndForm();}
                                                         <div class="clearboth"></div>
                                                     </div>
@@ -618,7 +689,7 @@
                                                         </div>
                                                         @{Html.BeginForm("GetSelectedEvent", "Management");}
                                                         <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@fun.EventId" /></div>
-                                                        <input type="submit" value="Edit" />
+                                                        <input class="editbutton" type="submit" value="Edit" />
                                                         @{Html.EndForm();}
                                                         <div class="clearboth"></div>
                                                     </div>
@@ -643,22 +714,22 @@
                                                             }
                                     </div>
                                     <div class="TalkingCard">
-                                        }@foreach (var fun in Model.talking)
+                                        @foreach (var fun in Model.talking)
                                         {
                                             if ((fun.EventStart.Day) == 28)
                                             {
                                                 <div id="smallCard" class="smallCard">
-                                                    <div id="smallTop">
+                                                    <div id="smallTop"style="background: lightcoral;">
                                                         <div id="topleft">
                                                             Talking
                                                         </div>
                                                         @{Html.BeginForm("GetSelectedTalkingEvent", "Management");}
                                                         <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@fun.EventId" /></div>
-                                                        <input type="submit" value="Edit" />
+                                                        <input class="editbutton" type="submit" value="Edit" />
                                                         @{Html.EndForm();}
                                                         <div class="clearboth"></div>
                                                     </div>
-                                                    <div id=smallBottom>
+                                                    <div id="smallBottom"style="background: lightcoral;">
                                                         @foreach (var perf in Model.performer)
                                                         {
                                                             if (fun.SpeakerOne.PerformerId == perf.PerformerId)
@@ -679,7 +750,7 @@
                                                         </div>
                                                         @{Html.BeginForm("GetSelectedTalkingEvent", "Management");}
                                                         <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@fun.EventId" /></div>
-                                                        <input type="submit" value="Edit" />
+                                                        <input class="editbutton" type="submit" value="Edit" />
                                                         @{Html.EndForm();}
                                                         <div class="clearboth"></div>
                                                     </div>
@@ -708,7 +779,7 @@
                                     </div>
                                 </div>
                                 <div class="EventDaySection" id="EventDaySection" data-id="29-7">
-                                    <h1> Sunday 29-7</h1>
+                                    <div class="heading"><h2> Saturday 29-7</h2></div>
                                     <div class="JazzCard">
                                         @foreach (var fun in Model.jazz)
                                         {
@@ -721,7 +792,7 @@
                                                         </div>
                                                         @{Html.BeginForm("GetSelectedEvent", "Management");}
                                                         <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@fun.EventId" /></div>
-                                                        <input type="submit" value="Edit" />
+                                                        <input class="editbutton" type="submit" value="Edit" />
                                                         @{Html.EndForm();}
                                                         <div class="clearboth"></div>
                                                     </div>
@@ -746,7 +817,7 @@
                                                         </div>
                                                         @{Html.BeginForm("GetSelectedEvent", "Management");}
                                                         <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@fun.EventId" /></div>
-                                                        <input type="submit" value="Edit" />
+                                                        <input class="editbutton" type="submit" value="Edit" />
                                                         @{Html.EndForm();}
                                                         <div class="clearboth"></div>
                                                     </div>
@@ -776,17 +847,17 @@
                                             if ((fun.EventStart.Day) == 29)
                                             {
                                                 <div id="smallCard" class="smallCard">
-                                                    <div id="smallTop">
+                                                    <div id="smallTop" style="background: lightcoral;">
                                                         <div id="topleft">
                                                             Talking
                                                         </div>
                                                         @{Html.BeginForm("GetSelectedTalkingEvent", "Management");}
                                                         <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@fun.EventId" /></div>
-                                                        <input type="submit" value="Edit" />
+                                                        <input class="editbutton" type="submit" value="Edit" />
                                                         @{Html.EndForm();}
                                                         <div class="clearboth"></div>
                                                     </div>
-                                                    <div id=smallBottom>
+                                                    <div id=smallBottom style="background: lightcoral;">
                                                         @foreach (var perf in Model.performer)
                                                         {
                                                             if (fun.SpeakerOne.PerformerId == perf.PerformerId)
@@ -807,7 +878,7 @@
                                                         </div>
                                                         @{Html.BeginForm("GetSelectedTalkingEvent", "Management");}
                                                         <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@fun.EventId" /></div>
-                                                        <input type="submit" value="Edit" />
+                                                        <input class="editbutton" type="submit" value="Edit" />
                                                         @{Html.EndForm();}
                                                         <div class="clearboth"></div>
                                                     </div>
@@ -864,7 +935,7 @@
                                                     }
                                                 }
                                                 <td class="tg-yw4l">@eve.Seats</td>
-                                                <td class="tg-yw4l">price</td>
+                                                <td class="tg-yw4l">@eve.Price</td>
                                                 <td class="tg-yw4l">
                                                     @{Html.BeginForm("GetSelectedEvent", "Management");}
                                                     <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@eve.EventId" /></div>
@@ -907,7 +978,7 @@
                                                     }
                                                 }
                                                 <td class="tg-031e">@eve.Seats</td>
-                                                <td class="tg-031e">price</td>
+                                                <td class="tg-031e">@eve.Price</td>
                                                 <td class="tg-031e">
                                                     @{Html.BeginForm("GetSelectedTalkingEvent", "Management");}
                                                     <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@eve.EventId" /></div>

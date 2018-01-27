@@ -95,11 +95,12 @@ namespace Haarlem_Festival.Repository
                 }
             } while (savefailed);
         }
-        public void NewTalking(Talking e, Performer p)
+        public void NewTalking(Talking e, Performer p,Performer p2)
         {
             HaarlemFestivalDB db = new HaarlemFestivalDB();
             db.Talking.Add(e);
             db.Performer.Add(p);
+            db.Performer.Add(p2);
             db.SaveChanges();
         }
         public void NewJazz(Jazz e, Performer p)
