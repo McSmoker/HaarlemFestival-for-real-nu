@@ -3,6 +3,10 @@
     @{
         ViewBag.Title = "SalesData";
         Layout = null;
+        if (Session["userID"] == null)
+        {
+            Response.Redirect("~/Login/Index");
+        }
     }
 
     @using (Html.BeginForm("ExportToExcel", "Management", FormMethod.Post))

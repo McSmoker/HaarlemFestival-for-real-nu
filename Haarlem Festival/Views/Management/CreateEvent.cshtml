@@ -3,6 +3,10 @@
 
 @{
     Layout = null;
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
 }
 <!DOCTYPE html>
 <html>
@@ -45,11 +49,11 @@
                 </tr>
                 <tr>
                     <td>Price</td>
-                    <td><input type="text" name="company" form="my_form" /></td>
+                    <td><input type="text" id="TxtPrice"name="Price" value=""/></td>
                 </tr>
                 <tr>
                     <td>Comments</td>
-                    <td><input type="text" name="company" form="my_form" /></td>
+                    <td><input type="text" id="TxtComment"name="Comment" value="" /></td>
                 </tr>
             </table>
             <input type="submit" name="BtnSave" value="Create Event" />
