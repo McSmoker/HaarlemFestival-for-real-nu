@@ -181,6 +181,7 @@
     <Compile Include="Controllers\HistoricController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JazzController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManagementController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\SiteManagementController.cs" />
@@ -211,9 +212,10 @@
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Volunteer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\HaarlemFestivalRepository.cs" />
     <Compile Include="Repositories\IJazzRepository.cs" />
     <Compile Include="Repositories\JazzRepository.cs" />
+    <Compile Include="Repositories\TalkingRepository.cs" />
+    <Compile Include="Repositories\ManagementRepository.cs" />
     <Compile Include="Repositories\TalkingRepository.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\EventViewModel.cs" />
@@ -251,7 +253,6 @@
     <Content Include="Content\img\jazz\myles sanko.jpg" />
     <Content Include="Content\img\jazz\njtam rosie.jpg" />
     <Content Include="Content\img\jazz\patronaat.png" />
-    <Content Include="Content\img\jazz\prison_school_68_4.jpg" />
     <Content Include="Content\img\jazz\rilan and the bombardiers.jpg" />
     <Content Include="Content\img\jazz\ruis soundsystem.jpg" />
     <Content Include="Content\img\jazz\soul six.jpg" />
@@ -342,6 +343,7 @@
     <Content Include="Views\Dinner\Index.cshtml" />
     <Content Include="Views\SiteManagement\Index.cshtml" />
     <Content Include="Views\Orders\AddOrderItem.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Agenda\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

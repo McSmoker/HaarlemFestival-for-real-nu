@@ -26,8 +26,16 @@
             <table>
                 <tr>
                     <td></td>
-                    <td style="text-decoration:underline">App Name</td>
+                    <td style="text-decoration:underline">Haarlem Festival Management</td>
                 </tr>
+                @if (ViewBag.ErrorMessage != null)
+                {
+                <tr>
+                    <td>
+                    @ViewBag.ErrorMessage
+                    </td>
+                </tr>
+                }
                 <tr>
                     <td>
                         @Html.LabelFor(model=>model.Name)

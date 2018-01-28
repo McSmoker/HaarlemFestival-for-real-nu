@@ -364,6 +364,7 @@
                                 {
                                     { Html.BeginForm("GetContent", "SiteManagement"); }
                                     <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@talk.EventId" /></div>
+                                    <div class="hidethis" style="display: none;"><input type="text" name="perfid" value="@perf.PerformerId" /></div>
                                             <input type="submit" value="@perf.PerformerName" />
                                     { Html.EndForm(); }
                                 }
@@ -371,6 +372,7 @@
                                 {
                                     { Html.BeginForm("GetContent", "SiteManagement"); }
                                     <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@talk.EventId" /></div>
+                                    <div class="hidethis" style="display: none;"><input type="text" name="perfid" value="@perf.PerformerId" /></div>
                                     <input type="submit" value="@perf.PerformerName" />
                                     { Html.EndForm(); }
                                 }
@@ -490,6 +492,7 @@
                         {
                             <div class="talkingButton26-7">
                                 @{Html.BeginForm("GetContent", "SiteManagement");}
+                                <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@talking.EventId" /></div>
                                 <div class="hidethis" style="display: none;"><input type="text" name="perfid" value="@perf.PerformerId" /></div>
                                 <input class="contentButton" type="submit" value="Edit" />
                                 @{ Html.EndForm(); }
@@ -498,6 +501,7 @@
                                     {
                                         <div class="talkingButton26-7">
                                             @{Html.BeginForm("GetContent", "SiteManagement");}
+                                            <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@talking.EventId" /></div>
                                             <div class="hidethis" style="display: none;"><input type="text" name="perfid" value="@perf.PerformerId" /></div>
                                             <input class="contentButton" type="submit" value="Edit" />
                                             @{ Html.EndForm(); }
@@ -513,6 +517,7 @@
                                                         {
                                                 <div class="talkingButton27-7">
                                                     @{Html.BeginForm("GetContent", "SiteManagement");}
+                                                    <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@talking.EventId" /></div>
                                                     <div class="hidethis" style="display: none;"><input type="text" name="perfid" value="@perf.PerformerId" /></div>
                                                     <input class="contentButton" type="submit" value="Edit" />
                                                     @{ Html.EndForm(); }
@@ -521,6 +526,7 @@
                                                         {
                                                             <div class="talkingButton27-7">
                                                                 @{Html.BeginForm("GetContent", "SiteManagement");}
+                                                                <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@talking.EventId" /></div>
                                                                 <div class="hidethis" style="display: none;"><input type="text" name="perfid" value="@perf.PerformerId" /></div>
                                                                 <input class="contentButton" type="submit" value="Edit" />
                                                                 @{ Html.EndForm(); }
@@ -536,6 +542,7 @@
                                                                             {
                                                                     <div class="talkingButton28-7">
                                                                         @{Html.BeginForm("GetContent", "SiteManagement");}
+                                                                        <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@talking.EventId" /></div>
                                                                         <div class="hidethis" style="display: none;"><input type="text" name="perfid" value="@perf.PerformerId" /></div>
                                                                         <input class="contentButton" type="submit" value="Edit" />
                                                                         @{ Html.EndForm(); }
@@ -544,6 +551,7 @@
                                                                             {
                                                                                 <div class="talkingButton28-7">
                                                                                     @{Html.BeginForm("GetContent", "SiteManagement");}
+                                                                                    <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@talking.EventId" /></div>
                                                                                     <div class="hidethis" style="display: none;"><input type="text" name="perfid" value="@perf.PerformerId" /></div>
                                                                                     <input class="contentButton" type="submit" value="Edit" />
                                                                                     @{ Html.EndForm(); }
@@ -559,6 +567,7 @@
                                                                                                 {
                                                                                         <div class="talkingButton29-7">
                                                                                             @{Html.BeginForm("GetContent", "SiteManagement");}
+                                                                                            <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@talking.EventId" /></div>
                                                                                             <div class="hidethis" style="display: none;"><input type="text" name="perfid" value="@perf.PerformerId" /></div>
                                                                                             <input class="contentButton" type="submit" value="Edit" />
                                                                                             @{ Html.EndForm(); }
@@ -567,6 +576,7 @@
                                                                                                 {
                                                                                                     <div class="talkingButton29-7">
                                                                                                         @{Html.BeginForm("GetContent", "SiteManagement");}
+                                                                                                        <div class="hidethis" style="display: none;"><input type="text" name="eventid" value="@talking.EventId" /></div>
                                                                                                         <div class="hidethis" style="display: none;"><input type="text" name="perfid" value="@perf.PerformerId" /></div>
                                                                                                         <input class="contentButton" type="submit" value="Edit" />
                                                                                                         @{ Html.EndForm(); }
@@ -593,11 +603,11 @@
         <div id="textEdit">
             @{Html.BeginForm("TextEdit", "SiteManagement");}
             <textarea rows="20" cols="50" id="txtEdit" name="txtEdit">
-            @if (ViewBag.selected != null)
+            @if (Model.selected != null)
             {
                 foreach (var eve in Model.jazz)
                 {
-                    if (eve.EventId == ViewBag.selected)
+                    if (eve.EventId == Model.selected)
                     {
                         foreach (var perf in Model.performer)
                         {
@@ -610,11 +620,11 @@
                 }
                 foreach(var eve in Model.talking)
                 {
-                    if (eve.EventId == ViewBag.selected)
+                    if (eve.EventId == Model.selected)
                     {
                         foreach (var perf in Model.performer)
                         {
-                            if(perf.PerformerId == ViewBag.selectedPerformer)
+                            if(perf.PerformerId == Model.selectedPerformer)
                             {
                                 @perf.PerformerInfo
                             }
@@ -624,11 +634,11 @@
             }
             </textarea>
         
-        @if (ViewBag.selected != null)
+        @if (Model.selected != null)
         {
             foreach (var eve in Model.jazz)
             {
-                if (eve.EventId == ViewBag.selected)
+                if (eve.EventId == Model.selected)
                 {
                     foreach (var perf in Model.performer)
                     {
@@ -640,15 +650,15 @@
                 }
             }
         }
-            @if (ViewBag.selected != null)
+            @if (Model.selected != null)
             {
                 foreach (var eve in Model.talking)
                 {
-                    if (eve.EventId == ViewBag.selected)
+                    if (eve.EventId == Model.selected)
                     {
                         foreach (var perf in Model.performer)
                         {
-                            if (perf.PerformerId == ViewBag.selectedPerformer)
+                            if (perf.PerformerId == Model.selectedPerformer)
                             {
                                 <div class="hidethis" style="display: none;"><input type="text" name="perfid" value="@perf.PerformerId" />@perf.PerformerName</div>
                             }
@@ -665,11 +675,11 @@
             @using (Html.BeginForm("FileUpload", "SiteManagement", FormMethod.Post,
                      new { enctype = "multipart/form-data" }))
             {
-                if (ViewBag.selected != null)
+                if (Model.selected != null)
                 {
                     foreach (var eve in Model.jazz)
                     {
-                        if (eve.EventId == ViewBag.selected)
+                        if (eve.EventId == Model.selected)
                         {
                             foreach (var perf in Model.performer)
                             {
@@ -683,15 +693,15 @@
                         }
                     }
                 }
-                if (ViewBag.selected != null)
+                if (Model.selected != null)
                 {
                     foreach (var eve in Model.talking)
                     {
-                        if (eve.EventId == ViewBag.selected)
+                        if (eve.EventId == Model.selected)
                         {
                             foreach (var perf in Model.performer)
                             {
-                                if (perf.PerformerId == ViewBag.selectedPerformer)
+                                if (perf.PerformerId == Model.selectedPerformer)
                                 {
                                     <img src="~/Content/img/Talking/@perf.PerformerImagePath" alt="Festival Logo">
                                     <div class="hidethis" style="visibility:hidden"><input type="text" name="oripath" id="oripath" value="@perf.PerformerImagePath" /></div>
@@ -701,25 +711,25 @@
                         }
                     }
                 }
-                if (ViewBag.selected == 9001)
+                if (Model.selected == 9001)
                 {
                     <img src="~/Content/img/home/home historic.jpg" alt="Festival Logo" style="width: 500px;">
                     <div class="hidethis" style="visibility:hidden"><input type="text" name="oripath" id="oripath" value="home historic.jpg" /></div>
                     <div class="hidethis" style="visibility:hidden"><input type="text" name="category" id="category" value="home" /></div>
                 }
-                if (ViewBag.selected == 9002)
+                if (Model.selected == 9002)
                 {
                     <img src="~/Content/img/home/home dinner.jpg" alt="Festival Logo" style="width: 500px;">
                     <div class="hidethis" style="visibility:hidden"><input type="text" name="oripath" id="oripath" value="home dinner.jpg" /></div>
                     <div class="hidethis" style="visibility:hidden"><input type="text" name="category" id="category" value="home" /></div>
                 }
-                if (ViewBag.selected == 9003)
+                if (Model.selected == 9003)
                 {
                     <img src="~/Content/img/home/home jazz.jpg" alt="Festival Logo" style="width: 500px;">
                     <div class="hidethis" style="visibility:hidden"><input type="text" name="oripath" id="oripath" value="home jazz.jpg" /></div>
                     <div class="hidethis" style="visibility:hidden"><input type="text" name="category" id="category" value="home" /></div>
                 }
-                if (ViewBag.selected == 9004)
+                if (Model.selected == 9004)
                 {
                     <img src="~/Content/img/home/home talking.jpg" alt="Festival Logo" style="width: 500px;">
                     <div class="hidethis" style="visibility:hidden"><input type="text" name="oripath" id="oripath" value="home talking.jpg" /></div>
@@ -733,11 +743,11 @@
     </div>
     <div id="pagePreview">
         <h1>Page Preview</h1>
-        @if (ViewBag.selected != null)
+        @if (Model.selected != null)
         {
             foreach (var eve in Model.jazz)
             {
-                if (eve.EventId == ViewBag.selected)
+                if (eve.EventId == Model.selected)
                 {
                     foreach (var perf in Model.performer)
                     {
@@ -773,7 +783,7 @@
                                             </tr>
                                             <tr>
                                                 <td class="practical-info-table-td">Price</td>
-                                                <td class="practical-info-table-td">&euro; 15,00</td>
+                                                <td class="practical-info-table-td">@eve.Price</td>
                                             </tr>
                                             <tr>
                                                 <td class="practical-info-table-td">Seats left</td>
@@ -790,7 +800,7 @@
             }
             foreach (var eve in Model.talking)
             {
-                if (eve.EventId == ViewBag.selected)
+                if (eve.EventId == Model.selected)
                 {
                     foreach (var perf in Model.performer)
                     {
@@ -810,11 +820,11 @@
                         {
                             <div class="block">
                                 <div class="block-header">
-                                    <p class="block-header-title">@eve.SpeakerOne.PerformerName @eve.EventStart.ToString("dd/MM/yyyy")</p>
+                                    <p class="block-header-title">@eve.SpeakerTwo.PerformerName @eve.EventStart.ToString("dd/MM/yyyy")</p>
                                 </div>
-                                <img src="~/Content/img/talking/@eve.SpeakerOne.PerformerImagePath" class="speaker-image" />
+                                <img src="~/Content/img/talking/@eve.SpeakerTwo.PerformerImagePath" class="speaker-image" />
                                 <p class="speaker-block-text">
-                                    @eve.SpeakerOne.PerformerInfo
+                                    @eve.SpeakerTwo.PerformerInfo
                                 </p>
                             </div>
                         }

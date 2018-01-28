@@ -13,7 +13,7 @@ namespace Haarlem_Festival.Controllers
     public class SiteManagementController : Controller
     {
         // GET: SiteManagement
-        HaarlemFestivalRepository repo = new HaarlemFestivalRepository();
+        ManagementRepository repo = new ManagementRepository();
         public ActionResult Index()
         {
             ManagementViewModel viewModel = repo.FillViewModel();
@@ -56,19 +56,18 @@ namespace Haarlem_Festival.Controllers
         {
             //vieze viewbag maar waarom is het zo vies
             //kan net zo goed session ofzo gebruiken maar whats the point 
-            int EventId = Convert.ToInt32(formCollection["eventid"]);
-            int PerfId = Convert.ToInt32(formCollection["perfid"]);
-            ViewBag.selectedPerformer = PerfId;
-            ViewBag.selected = repo.GetEventID(EventId);
             ManagementViewModel viewModel = repo.FillViewModel();
+            viewModel.selected = Convert.ToInt32(formCollection["eventid"]);
+            viewModel.selectedPerformer = Convert.ToInt32(formCollection["perfid"]);
+            //ff snel voor een test
             return View("Index", viewModel);
         }
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult GetHomeContent(FormCollection formCollection)
         {
             int EventId = Convert.ToInt32(formCollection["eventid"]);
-            ViewBag.selected = EventId;
             ManagementViewModel viewModel = repo.FillViewModel();
+            viewModel.selected= Convert.ToInt32(formCollection["eventid"]);
             return View("Index", viewModel);
         }
         public ActionResult FileUpload(HttpPostedFileBase file, string oripath,FormCollection formCollection)
