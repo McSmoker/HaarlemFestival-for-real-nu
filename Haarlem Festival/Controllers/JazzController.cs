@@ -8,20 +8,33 @@ using System.Web;
 using System.Web.Mvc;
 using Haarlem_Festival.Models;
 using Haarlem_Festival.ViewModels;
+using Haarlem_Festival.Repositories;
 
 namespace Haarlem_Festival.Controllers
 {
     public class JazzController : Controller
     {
-        private HaarlemFestivalDB db = new HaarlemFestivalDB();
+        private IJazzRepository jazzRepository = new JazzRepository();
         
         // GET: /Jazz/
         public ActionResult Index()
         {
             InitCart();
-            var events = db.Jazz.Include(j => j.Artist);
+            var jazzEvents = jazzRepository.GetAllJazzEvents();
+            List<JazzViewModel> jvmList = GenerateJazzViewModels(jazzEvents);
+            return View(jvmList);
+        }
+
+        private void InitCart()
+        {
+            if(Session["CartTickets"] == null)
+                Session["CartTickets"] = new List<CartItem>();
+        }
+
+        private List<JazzViewModel> GenerateJazzViewModels(List<Jazz> events)
+        {
             List<JazzViewModel> jvmList = new List<JazzViewModel>();
-            foreach(var e in events)
+            foreach (var e in events)
             {
                 JazzViewModel jvm = new JazzViewModel
                 {
@@ -37,139 +50,7 @@ namespace Haarlem_Festival.Controllers
                 };
                 jvmList.Add(jvm);
             }
-            return View(jvmList);
-        }
-
-        // GET: /Jazz/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Jazz jazz = db.Jazz.Find(id);
-            if (jazz == null)
-            {
-                return HttpNotFound();
-            }
-            return View(jazz);
-        }
-
-        // GET: /Jazz/Create
-        public ActionResult Create()
-        {
-            ViewBag.PerformerId = new SelectList(db.Performer, "PerformerId", "PerformerName");
-            return View();
-        }
-
-        // POST: /Jazz/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="EventId,EventStart,EventEnd,Location,Seats,TicketsSold,Hall,PerformerId")] Jazz jazz)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Events.Add(jazz);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            ViewBag.PerformerId = new SelectList(db.Performer, "PerformerId", "PerformerName", jazz.PerformerId);
-            return View(jazz);
-        }
-
-        // GET: /Jazz/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Jazz jazz = db.Jazz.Find(id);
-            if (jazz == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.PerformerId = new SelectList(db.Performer, "PerformerId", "PerformerName", jazz.PerformerId);
-            return View(jazz);
-        }
-
-        // POST: /Jazz/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="EventId,EventStart,EventEnd,Location,Seats,TicketsSold,Hall,PerformerId")] Jazz jazz)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(jazz).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.PerformerId = new SelectList(db.Performer, "PerformerId", "PerformerName", jazz.PerformerId);
-            return View(jazz);
-        }
-
-        // GET: /Jazz/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Jazz jazz = db.Jazz.Find(id);
-            if (jazz == null)
-            {
-                return HttpNotFound();
-            }
-            return View(jazz);
-        }
-
-        // POST: /Jazz/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Jazz jazz = db.Jazz.Find(id);
-            db.Events.Remove(jazz);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        [HttpPost]
-        public ActionResult AJAXTest(int e)
-        {
-            try
-            {
-                var ticket = db.Jazz.Find(e);
-
-                return Json(new
-                {
-                    
-                });
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public void InitCart()
-        {
-            if(Session["CartTickets"] == null)
-                Session["CartTickets"] = new List<CartItem>();
+            return jvmList;
         }
     }
 }

@@ -1,6 +1,6 @@
-﻿
-$(document).ready(function () {
+﻿$(document).ready(function () {
 
+    // voeg een verborgen input veld toe aan ieder element met artist-block als class
     var i = 1;
     $(".artist-block").each(function () {
         var hiddenValue = "<input type=\"hidden\" value=" + i + " />";
@@ -8,6 +8,7 @@ $(document).ready(function () {
         i++;
     });
 
+    // toon alleen de eerste 6 artiesten bij het laden van de pagina
     $(".artist-block").each(function () {
         if ($(this).find("input[type=hidden]").val() >= 7)
             $(this).hide();
@@ -15,12 +16,15 @@ $(document).ready(function () {
             $(this).show();
     });
 
+    // voeg een click event handler aan de dag-selectie knoppen toe die de weergave van de juiste artiesten regelt
     $(".btn-day-selection").click(function () {
         $(".btn-day-selection").removeClass("btn-day-selection-clicked");
         $(this).addClass("btn-day-selection-clicked");
 
-        switch ($(this).val()) {
-            case "Thursday (26/07/2018)":
+        // kijk aan de hand van het ID attribuut op welke knop er geklikt is en toon de bijbehorende artiesten en verberg de rest
+        // er wordt gecontroleerd op de waarde van het op regel 7 toegevoegde verborgen input element
+        switch ($(this).attr("id")) {
+            case "btn-day-thursday":
                 $(".artist-block").each(function () {
                     if ($(this).find("input[type=hidden]").val() >= 7)
                         $(this).hide();
@@ -28,7 +32,7 @@ $(document).ready(function () {
                         $(this).show();
                 });
                 break;
-            case "Friday (27/07/2018)":
+            case "btn-day-friday":
                 $(".artist-block").each(function () {
                     var value = $(this).find("input[type=hidden]").val();
 
@@ -38,7 +42,7 @@ $(document).ready(function () {
                         $(this).show();
                 });
                 break;
-            case "Saturday (28/07/2018)":
+            case "btn-day-saturday":
                 $(".artist-block").each(function () {
                     var value = $(this).find("input[type=hidden]").val();
 
@@ -48,7 +52,7 @@ $(document).ready(function () {
                         $(this).show();
                 });
                 break;
-            case "Sunday (29/07/2018)":
+            case "btn-day-sunday":
                 $(".artist-block").each(function () {
                     var value = $(this).find("input[type=hidden]").val();
 
@@ -60,11 +64,6 @@ $(document).ready(function () {
                 break;
         }
     });
-
-    //$(".action-btn").click(function () {
-    //    if ($(this).val() === "Add ticket to cart")
-    //        $(".added-to-cart-modal").slideDown();
-    //});
 
     $(".added-to-cart-modal").click(function () {
         $(this).hide();

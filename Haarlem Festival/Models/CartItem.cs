@@ -11,8 +11,5 @@ namespace Haarlem_Festival.Models
         public Talking TalkingEvent { get; set; }
         public int Amount { get; set; }
         public TicketType TicketType { get; set; }
-        public string PassePartoutDate { get; set; }
-        public string PassePartoutTime { get; set; }
-        public float PassePartoutPrice { get; set; }
     }
 }

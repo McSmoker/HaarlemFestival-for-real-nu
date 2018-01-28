@@ -12,7 +12,7 @@
                 dataType: "json",  
                 contentType: 'application/json; charset=utf-8',
                 success: function (data) {
-                    if (!data.fail) {
+                    if (!data.alreadyAdded && !data.eventDoesNotExist) {
                         $("#success-ticket-add").slideDown();
                         var jazzCartRow = "<div id=\"event-" + data.EventId + "\" class=\"jazz-cart-row\">";
                         jazzCartRow += "<span class=\"jc-artist\">" + data.PerformerName + "</span>";
@@ -24,9 +24,10 @@
                         jazzCartRow += "</div>";
                         $("#jazz-shopping-cart-rows").append(jazzCartRow);
                     }
-                    else {
+                    else if (data.eventDoesNotExist)
+                        alert("Event ID not found. This is not possible without editing the HTML, so stop messing around!");
+                    else
                         $("#failed-ticket-add").slideDown();
-                    }
                 },
                 error: function () {
                     alert("Error occured!!");
@@ -35,6 +36,7 @@
         }
     });
 
+    // Functionaliteit voor Passe Partout tickets, werkt wel maar passe partout kan niet goed aan sessie worden toegevoegd
     //$(".pp-checkbox").click(function (e) {
     //    if ($(this.checked)){
     //        var checkedPP = {
@@ -86,12 +88,10 @@
             dataType: "json",
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
-                if (data.fail) {
+                if (data.fail)
                     console.log("Ticket amount change failed.");
-                }
-                if (data.removed) {
+                if (data.removed)
                     $("#" + data.removedId).remove();
-                }
             },
             error: function () {
                 alert("Error occured!!");
