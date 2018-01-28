@@ -197,7 +197,7 @@ line-height: 0px;
 }
 .editing{
     float:left;
-    height:900px;
+    height:2000px;
     border-style:solid;
     border-top-color:transparent;
     border-bottom-color:transparent;
@@ -322,7 +322,7 @@ border-width: 0px;
 #contentSelect {
     width:20%;  
     float: left;
-    height:900px;
+    height:2000px;
     border-style:solid;
     border-top-color:transparent;
     border-bottom-color:transparent;

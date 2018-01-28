@@ -25,48 +25,48 @@
              var dialog, form;
 
 
-             dialogUpdate = $( "#dialog-form-update" ).dialog({
-                 autoOpen: false,
-                 height: 400,
-                 width: 350,
-                 modal: true,
-                 buttons: {
-                     Cancel: function() {
-                         dialog.dialog( "close" );
-                     }
-                 }
-             }
-                 )
-             dialog2 = $("#dialog-form2").dialog({
-                 autoOpen: false,
-                 height: 400,
-                 width: 350,
-                 modal: true,
-                 buttons: {
-                     Cancel: function () {
-                         dialog2.dialog("close");
-                     }
-                 },
-                 close: function () {
-                     form[0].reset();
-                     allFields.removeClass("ui-state-error");
-                 }
-             });
-             dialog = $( "#dialog-form" ).dialog({
-                 autoOpen: false,
-                 height: 400,
-                 width: 350,
-                 modal: true,
-                 buttons: {
-                     Cancel: function() {
-                         dialog.dialog( "close" );
-                     }
-                 },
-                 close: function() {
-                     form[ 0 ].reset();
-                     allFields.removeClass( "ui-state-error" );
-                 }
-             });
+             //dialogUpdate = $( "#dialog-form-update" ).dialog({
+             //    autoOpen: false,
+             //    height: 400,
+             //    width: 350,
+             //    modal: true,
+             //    buttons: {
+             //        Cancel: function() {
+             //            dialog.dialog( "close" );
+             //        }
+             //    }
+             //}
+             //    )
+             //dialog2 = $("#dialog-form2").dialog({
+             //    autoOpen: false,
+             //    height: 400,
+             //    width: 350,
+             //    modal: true,
+             //    buttons: {
+             //        Cancel: function () {
+             //            dialog2.dialog("close");
+             //        }
+             //    },
+             //    close: function () {
+             //        form[0].reset();
+             //        allFields.removeClass("ui-state-error");
+             //    }
+             //});
+             //dialog = $( "#dialog-form" ).dialog({
+             //    autoOpen: false,
+             //    height: 400,
+             //    width: 350,
+             //    modal: true,
+             //    buttons: {
+             //        Cancel: function() {
+             //            dialog.dialog( "close" );
+             //        }
+             //    },
+             //    close: function() {
+             //        form[ 0 ].reset();
+             //        allFields.removeClass( "ui-state-error" );
+             //    }
+             //});
 
              $( "#create-user" ).button().on( "click", function() {
                  dialog.dialog( "open" );
@@ -463,7 +463,7 @@
                                             if ((fun.EventStart.Day) == 26)
                                             {
                                                 <div id="smallCard">
-                                                    <div id="smallTop"style="background: lightcoral;">
+                                                    <div id="smallTop"style="background: #e6ef5b;">
                                                         <div id="topleft">
                                                             Talking
                                                         </div>
@@ -473,7 +473,7 @@
                                                         @{Html.EndForm();}
                                                         <div class="clearboth"></div>
                                                     </div>
-                                                    <div id="smallBottom"style="background: lightcoral;">
+                                                    <div id="smallBottom"style="background: #e6ef5b;">
                                                         @foreach (var perf in Model.performer)
                                                         {
                                                             if (fun.SpeakerOne.PerformerId == perf.PerformerId)
@@ -488,7 +488,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="bigCard" id="bigCard">
-                                                    <div id="bigTop">
+                                                    <div id="bigTop"style="background: #e6ef5b;">
                                                         <div id="topleft">
                                                             Talking
                                                         </div>
@@ -498,7 +498,7 @@
                                                         @{Html.EndForm();}
                                                         <div class="clearboth"></div>
                                                     </div>
-                                                    <div id=bigBottom>
+                                                    <div id=bigBottom style="background: #e6ef5b;">
                                                         @foreach (var perf in Model.performer)
                                                         {
                                                             if (fun.SpeakerOne.PerformerId == perf.PerformerId)
@@ -565,7 +565,7 @@
                                                         @{Html.EndForm();}
                                                         <div class="clearboth"></div>
                                                     </div>
-                                                    <div id=bigBottom>
+                                                    <div id=bigBottom >
                                                         @foreach (var perf in Model.performer)
                                                         {
                                                             if (fun.PerformerId == perf.PerformerId)
@@ -591,7 +591,7 @@
                                             if ((fun.EventStart.Day) == 27)
                                             {
                                                 <div id="smallCard" class="smallCard">
-                                                    <div id="smallTop"style="background: lightcoral;">
+                                                    <div id="smallTop"style="background: #e6ef5b;">
                                                         <div id="topleft">
                                                             Talking
                                                         </div>
@@ -601,7 +601,7 @@
                                                         @{Html.EndForm();}
                                                         <div class="clearboth"></div>
                                                     </div>
-                                                    <div id="smallBottom"style="background: lightcoral;">
+                                                    <div id="smallBottom"style="background: #e6ef5b;">
                                                         @foreach (var perf in Model.performer)
                                                         {
                                                             if (fun.SpeakerOne.PerformerId == perf.PerformerId)
@@ -616,7 +616,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="bigCard" id="bigCard">
-                                                    <div id="bigTop">
+                                                    <div id="bigTop"style="background: #e6ef5b;">
                                                         <div id="topleft">
                                                             Talking
                                                         </div>
@@ -626,7 +626,7 @@
                                                         @{Html.EndForm();}
                                                         <div class="clearboth"></div>
                                                     </div>
-                                                    <div id=bigBottom>
+                                                    <div id=bigBottom style="background: #e6ef5b;">
                                                         @foreach (var perf in Model.performer)
                                                         {
                                                             if (fun.SpeakerOne.PerformerId == perf.PerformerId)
@@ -719,7 +719,7 @@
                                             if ((fun.EventStart.Day) == 28)
                                             {
                                                 <div id="smallCard" class="smallCard">
-                                                    <div id="smallTop"style="background: lightcoral;">
+                                                    <div id="smallTop"style="background: #e6ef5b;">
                                                         <div id="topleft">
                                                             Talking
                                                         </div>
@@ -729,7 +729,7 @@
                                                         @{Html.EndForm();}
                                                         <div class="clearboth"></div>
                                                     </div>
-                                                    <div id="smallBottom"style="background: lightcoral;">
+                                                    <div id="smallBottom"style="background: #e6ef5b;">
                                                         @foreach (var perf in Model.performer)
                                                         {
                                                             if (fun.SpeakerOne.PerformerId == perf.PerformerId)
@@ -744,7 +744,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="bigCard" id="bigCard">
-                                                    <div id="bigTop">
+                                                    <div id="bigTop"style="background: #e6ef5b;">
                                                         <div id="topleft">
                                                             Talking
                                                         </div>
@@ -754,7 +754,7 @@
                                                         @{Html.EndForm();}
                                                         <div class="clearboth"></div>
                                                     </div>
-                                                    <div id=bigBottom>
+                                                    <div id=bigBottom style="background: #e6ef5b;">
                                                         @foreach (var perf in Model.performer)
                                                         {
                                                             if (fun.SpeakerOne.PerformerId == perf.PerformerId)
@@ -847,7 +847,7 @@
                                             if ((fun.EventStart.Day) == 29)
                                             {
                                                 <div id="smallCard" class="smallCard">
-                                                    <div id="smallTop" style="background: lightcoral;">
+                                                    <div id="smallTop" style="background: #e6ef5b;">
                                                         <div id="topleft">
                                                             Talking
                                                         </div>
@@ -857,7 +857,7 @@
                                                         @{Html.EndForm();}
                                                         <div class="clearboth"></div>
                                                     </div>
-                                                    <div id=smallBottom style="background: lightcoral;">
+                                                    <div id=smallBottom style="background: #e6ef5b;">
                                                         @foreach (var perf in Model.performer)
                                                         {
                                                             if (fun.SpeakerOne.PerformerId == perf.PerformerId)
@@ -872,7 +872,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="bigCard" id="bigCard">
-                                                    <div id="bigTop">
+                                                    <div id="bigTop"style="background: #e6ef5b;">
                                                         <div id="topleft">
                                                             Talking
                                                         </div>
@@ -882,7 +882,7 @@
                                                         @{Html.EndForm();}
                                                         <div class="clearboth"></div>
                                                     </div>
-                                                    <div id=bigBottom>
+                                                    <div id=bigBottom style="background: #e6ef5b;">
                                                         @foreach (var perf in Model.performer)
                                                         {
                                                             if (fun.SpeakerOne.PerformerId == perf.PerformerId)

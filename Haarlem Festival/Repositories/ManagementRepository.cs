@@ -8,13 +8,16 @@ using System.Web.Mvc;
 
 namespace Haarlem_Festival.Repository
 {
-    public class HaarlemFestivalRepository
+    public class ManagementRepository
     {
         
         public void UpdateTalking(Talking e, Performer p, Performer p2)
         {
             HaarlemFestivalDB db = new HaarlemFestivalDB();
+            //zegt tegen db dat we deze event gaan aanpassen
             db.Entry(e).State = System.Data.Entity.EntityState.Modified;
+            //kan een error geven waarom we gebruik maken van deze loop
+            //het zou niet meer moeten hitten maar vond het wel een leuk stukje code 
             bool savefailed;
             do
             {
@@ -27,6 +30,7 @@ namespace Haarlem_Festival.Repository
                 {
                     savefailed = true;
                     ex.Entries.Single().Reload();//eventid faalt
+                    //de entry die faalt wordt gereload waardoor de volgende poging niet faalt
                 }
             } while (savefailed);
 
@@ -59,6 +63,7 @@ namespace Haarlem_Festival.Repository
                     ex.Entries.Single().Reload();//(wssperformerid)id faalt
                 }
             } while (savefailed);
+            //het is precies 30 amazing
         }
         public void UpdateJazz(Jazz e, Performer p)
         {
@@ -148,10 +153,57 @@ namespace Haarlem_Festival.Repository
 
             return managementViewModel;
         }
-        //public ManagementViewModel FillViewModelSingleEvent()
-        //{
+        public ManagementViewModel FillViewModelSingleEvent(int eventid)
+        {
+            HaarlemFestivalDB EventDB = new HaarlemFestivalDB();
+            List<Event> events = EventDB.Events.ToList();
+            //gets the selected event (same for all list)
+            var selectedEvent = events.Find(e => e.EventId == eventid);
 
-        //}
+            List<Jazz> jazzs = EventDB.Jazz.ToList();
+            var selectedEventJazz = jazzs.Find(e => e.EventId == eventid);
+
+            List<Talking> talkings = EventDB.Talking.ToList();
+            var selectedEventTalking = talkings.Find(e => e.EventId == eventid);
+            //because the difference in Jazz and Talking Performer amounts this split is necessary
+            List<Performer> performers = EventDB.Performer.ToList();
+            var selectedPerformerJazz = new Performer();
+            var selectedPerformerTalkingOne = new Performer();
+            var selectedPerformerTalkingTwo = new Performer();
+            if (selectedEventJazz == null)
+            {
+                selectedPerformerTalkingOne = performers.Find(e => e.PerformerId == selectedEventTalking.SpeakerOne.PerformerId);
+                selectedPerformerTalkingTwo = performers.Find(e => e.PerformerId == selectedEventTalking.SpeakerTwo.PerformerId);
+                performers.Clear();
+                performers.Add(selectedPerformerTalkingOne);
+                performers.Add(selectedPerformerTalkingTwo);
+            }
+            if (selectedEventTalking == null)
+            {
+                selectedPerformerJazz = performers.Find(e => e.PerformerId == selectedEventJazz.PerformerId);
+                performers.Clear();
+                performers.Add(selectedPerformerJazz);
+            }
+            //clears the list that have been searched and adds ONLY the selected event
+            events.Clear();
+            events.Add(selectedEvent);
+            jazzs.Clear();
+            jazzs.Add(selectedEventJazz);
+            talkings.Clear();
+            talkings.Add(selectedEventTalking);
+            //To reduce this giant method another method was created
+            ManagementViewModel viewmodel = SingleEventViewModelFill(events,jazzs,talkings,performers);
+            return viewmodel;
+        }
+        public ManagementViewModel SingleEventViewModelFill(List<Event> events, List<Jazz> jazzs, List<Talking> talkings, List<Performer> performers)
+        {
+            ManagementViewModel viewmodel = new ManagementViewModel();
+            viewmodel.events = events;
+            viewmodel.jazz = jazzs;
+            viewmodel.talking = talkings;
+            viewmodel.performer = performers;
+            return viewmodel;
+        }
         public int GetPerformerID(int EventId)
         {
             HaarlemFestivalDB db = new HaarlemFestivalDB();
@@ -191,6 +243,11 @@ namespace Haarlem_Festival.Repository
             HaarlemFestivalDB db = new HaarlemFestivalDB();
             userdata = db.Volunteers.Where(x => x.Name == volModel.Name && x.Password == volModel.Password).FirstOrDefault();
             return userdata;
+        }
+        public IList<Event> GetSalesList()
+        {
+            HaarlemFestivalDB db = new HaarlemFestivalDB();
+            return db.Events.ToList();
         }
     }
 }

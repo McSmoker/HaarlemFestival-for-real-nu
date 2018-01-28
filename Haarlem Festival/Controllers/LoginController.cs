@@ -4,13 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Haarlem_Festival.Models;
-using Haarlem_Festival.Repositorys;
+using Haarlem_Festival.Repository;
 
 namespace Haarlem_Festival.Controllers
 {
     public class LoginController : Controller
     {
-        HaarlemFestivalRepository repo = new HaarlemFestivalRepository();
+        ManagementRepository repo = new ManagementRepository();
         // GET: Login
         public ActionResult Index()
         {
@@ -25,7 +25,8 @@ namespace Haarlem_Festival.Controllers
             {
                 if (userDetails == null)
                 {
-                    //errormessage meesturen
+                    //pls dont kill me maar ik ga een viewbag voor de errormessage gebruiken lijkt me beter dan geen errormessage hebben
+                    ViewBag.ErrorMessage = "User Not Found";
                     return View("Index");
                 }
                 else
@@ -38,7 +39,7 @@ namespace Haarlem_Festival.Controllers
             {
                 if (userDetails == null)
                 {
-                    //errormessage meesturen
+                    ViewBag.ErrorMessage = "User Not Found";
                     return View("Index");
                 }
                 else
