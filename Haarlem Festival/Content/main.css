@@ -355,7 +355,7 @@ Artist blocks
 
 .added-to-cart-modal {
     width: 300px;
-    height: 170px;
+    height: 190px;
     text-align: center;
     border: 2px solid #800080;
     display: none;
@@ -385,6 +385,10 @@ Artist blocks
     float: right;
 }
 
+#failed-ticket-add > .added-to-cart-title, #failed-ticket-add > .added-to-cart-close {
+    background-color: #FF0000;
+}
+
 .added-to-cart-text {
     font-size: 14px;
     line-height: 16px;
@@ -395,7 +399,7 @@ Artist blocks
 
 .jazz-cart-wrap {
     width: 670px;
-    margin-left: 10px;
+    margin-left: 15px;
 }
 
 .jazz-cart-row-box {
@@ -423,8 +427,9 @@ Artist blocks
 }
 
 .jc-artist, .jc-date, .jc-time, .jc-location, .jc-amount, .jc-price{
-    display:inline-block;
+    display:block;
     font-size:14px;
+    float:left;
 }
 
 .jc-artist {
@@ -432,23 +437,23 @@ Artist blocks
 }
 
 .jc-date{
-    width:80px;
-}
-
-.jc-time {
     width:90px;
 }
 
+.jc-time {
+    width:100px;
+}
+
 .jc-location{
-    width:160px;
+    width:165px;
 }
 
 .jc-amount{
-    width:60px;
+    width:70px;
 }
 
 .jc-amount-input{
-    width:30px;
+    width:35px;
 }
 
 .jc-price{

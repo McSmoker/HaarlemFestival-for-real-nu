@@ -14,10 +14,11 @@ namespace Haarlem_Festival.Controllers
     public class JazzController : Controller
     {
         private HaarlemFestivalDB db = new HaarlemFestivalDB();
-
+        
         // GET: /Jazz/
         public ActionResult Index()
         {
+            InitCart();
             var events = db.Jazz.Include(j => j.Artist);
             List<JazzViewModel> jvmList = new List<JazzViewModel>();
             foreach(var e in events)
@@ -163,6 +164,12 @@ namespace Haarlem_Festival.Controllers
             {
                 throw ex;
             }
+        }
+
+        public void InitCart()
+        {
+            if(Session["CartTickets"] == null)
+                Session["CartTickets"] = new List<CartItem>();
         }
     }
 }

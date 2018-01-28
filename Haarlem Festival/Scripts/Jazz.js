@@ -52,7 +52,7 @@ $(document).ready(function () {
                 $(".artist-block").each(function () {
                     var value = $(this).find("input[type=hidden]").val();
 
-                    if (value <= 18)
+                    if (value <= 18 || value >= 25)
                         $(this).hide();
                     else
                         $(this).show();
@@ -61,10 +61,10 @@ $(document).ready(function () {
         }
     });
 
-    $(".action-btn").click(function () {
-        if ($(this).val() === "Add ticket to cart")
-            $(".added-to-cart-modal").slideDown();
-    });
+    //$(".action-btn").click(function () {
+    //    if ($(this).val() === "Add ticket to cart")
+    //        $(".added-to-cart-modal").slideDown();
+    //});
 
     $(".added-to-cart-modal").click(function () {
         $(this).hide();
