@@ -37,12 +37,10 @@ namespace Haarlem_Festival.Controllers
                     if (ci.JazzEvent != null)
                     {
                         orderItem.EventId = ci.JazzEvent.EventId;
-                        orderItem.Event = ci.JazzEvent;
                     }
                     else if(ci.TalkingEvent != null)
                     {
                         orderItem.EventId = ci.TalkingEvent.EventId;
-                        orderItem.Event = ci.TalkingEvent;
                     }
                     orderItem.Amount = ci.Amount;
                     orderItem.TicketType = ci.TicketType;

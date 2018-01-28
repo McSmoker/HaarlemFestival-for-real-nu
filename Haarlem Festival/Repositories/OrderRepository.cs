@@ -19,15 +19,26 @@ namespace Haarlem_Festival.Repositories
             try
             {
                 Order newOrder = new Order();
-                OrderItem newOrderItem = new OrderItem();
+                //newOrder.OrderItems = new List<OrderItem>();
+                //OrderItem newOrderItem = new OrderItem();
                 foreach (var orderItem in orderItems)
                 {
-                    newOrder.OrderItems.Add(orderItem);
-                    newOrderItem = orderItem;
+                    OrderItem newOrderItem = new OrderItem
+                    {
+                        //newOrder.OrderItems.Add(orderItem);
+                        Amount = orderItem.Amount,
+                        EventId = orderItem.EventId,
+                        TicketType = orderItem.TicketType,
+                        Order = newOrder
+                    };
+
+                    db.OrderItems.Add(newOrderItem);
                 }
 
                 newOrder.RecipientEmail = paymentData.EmailAddress;
                 newOrder.OrderStatus = OrderStatus.Ordered;
+
+                db.Orders.Add(newOrder);
                 db.SaveChanges();
 
                 return true;

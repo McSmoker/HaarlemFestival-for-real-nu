@@ -208,7 +208,7 @@
     <Compile Include="Models\ManagementBusinessLayer.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\PaymentData.cs" />
-    <Compile Include="Models\PaymentMethod.cs" />
+    <Compile Include="Models\EnumPaymentMethod.cs" />
     <Compile Include="Models\Performer.cs" />
     <Compile Include="Models\SiteContent.cs" />
     <Compile Include="Models\Talking.cs" />

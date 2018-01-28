@@ -1,4 +1,4 @@
 ﻿public enum PaymentMethod
 {
-    IDeal, PayPal
+    IDeal = 1, PayPal
 }

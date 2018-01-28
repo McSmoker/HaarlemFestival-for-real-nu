@@ -164,9 +164,10 @@ footer {
         transition: background-color 0.5s ease;
     }
 
-    .home-block > img:hover {
-        background-color: rgba(255,255,255,0.5);
-    }
+        .home-block > img:hover {
+            background-color: rgb(255,255,255);
+            background-color: rgba(255,255,255,0.5);
+        }
 
 .home-title-image {
     display:block;
@@ -183,6 +184,7 @@ footer {
 }
 
     .home-block > a:hover {
+        background-color: rgb(255,255,255);
         background-color: rgba(255,255,255,0.3);
     }
 
@@ -592,6 +594,78 @@ Miscellaneous
     width: 1420px;
 }
 
+.agenda-table-wrap {
+    width: 1400px;
+    margin: 0 auto;
+}
+
+.agenda-table-row {
+    height: 95px;
+    margin: 10px 0;
+    background-color: rgb(215, 215, 215);
+}
+
+.agenda-table-day {
+    width: 175px;
+    line-height:95px;
+    font-size: 18px;
+    display:block;
+    text-align:center;
+    float:left;
+}
+
+.agenda-table-row-half {
+    height: 45px;
+    width: 1225px;
+    align-items: center;
+    float: left;
+    margin-bottom: 5px;
+}
+
+.agenda-table-event-entry, .agenda-table-event-halfhour {
+    width: 270px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 14px;
+    text-align: center;
+    display: block;
+    float: left;
+}
+
+.agenda-table-event-halfhour{
+    width:130px;
+    margin-left:5px;
+}
+
+.agenda-table-jazz-entry{
+    background-color:rgba(255,0,0,0.3);
+}
+
+.agenda-table-talking-entry {
+    background-color: rgba(255,255,0,0.3);
+}
+
+.agenda-table-timeline {
+    width: 1400px;
+    height: 35px;
+    line-height: 35px;
+    background-color: rgb(215, 215, 215);
+    display: block;
+}
+
+.agenda-table-timeline-unit {
+    width: 135px;
+    height: 35px;
+    line-height: 35px;
+    display: block;
+    float: left;
+    font-weight: bold;
+}
+
+.agenda-table-timeline-unit:first-of-type{
+    width:175px;
+}
+
 .agenda-sc-block {
     width: 845px;
     margin-right:20px;
@@ -635,11 +709,6 @@ Miscellaneous
 
 .agenda-margin-right{
     margin-right:20px;
-}
-
-.agenda-table-wrap{
-    width:1400px;
-    margin:0 auto;
 }
 
 .agenda-cart-wrap {
