@@ -6,7 +6,7 @@ using Haarlem_Festival.ViewModels;
 using Haarlem_Festival.Models;
 using System.Web.Mvc;
 
-namespace Haarlem_Festival.Repository
+namespace Haarlem_Festival.Repositories
 {
     public class ManagementRepository
     {

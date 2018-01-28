@@ -73,29 +73,54 @@
     //    }
     //});
 
-    $(document).on("change", ".jc-amount-input", function (e) {
-        var changedTicket = {
-            Amount: $(this).val(),
-            JazzEvent: {
-                EventId: $(this).closest(".jazz-cart-row").attr("id").substring(6)
-            }
-        };
+    $(document).on("change", ".jc-amount-input, .ac-amount-input", function (e) {
+        var changedTicket;
+        if ($(this).attr("class") == "jc-amount-input") {
+            changedTicket = {
+                Amount: $(this).val(),
+                JazzEvent: {
+                    EventId: $(this).closest(".jazz-cart-row").attr("id").substring(6)
+                }
+            };
+        } else {
+            changedTicket = {
+                Amount: $(this).val(),
+                JazzEvent: {
+                    EventId: $(this).closest(".agenda-cart-row").attr("id").substring(6)
+                }
+            };
+        }
 
-        $.ajax({
-            type: "POST",
-            url: "/Orders/ChangeTicketAmount",
-            data: JSON.stringify(changedTicket),
-            dataType: "json",
-            contentType: 'application/json; charset=utf-8',
-            success: function (data) {
-                if (data.fail)
-                    console.log("Ticket amount change failed.");
-                if (data.removed)
-                    $("#" + data.removedId).remove();
-            },
-            error: function () {
-                alert("Error occured!!");
-            }
-        });
+        if (changedTicket.JazzEvent != null) {
+            $.ajax({
+                type: "POST",
+                url: "/Orders/ChangeTicketAmount",
+                data: JSON.stringify(changedTicket),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data.fail)
+                        console.log("Ticket amount change failed.");
+                    if (data.removed)
+                        $("#" + data.removedId).remove();
+                    CalculatePriceTotal();
+                },
+                error: function () {
+                    alert("Error occured!!");
+                }
+            });
+        }
     });
+
+    function CalculatePriceTotal() {
+        var priceTotal = 0;
+        $(".ac-price").each(function () {
+            var price = $(this).html().substring(1).replace(",",".");
+            var amount = $(this).parent().children(".ac-amount").children(".ac-amount-input").val();
+            priceTotal += price * amount;
+        });
+        $("#price-total").html("€" + priceTotal + ",00");
+    }
+
+    CalculatePriceTotal();
 });
