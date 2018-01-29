@@ -49,15 +49,24 @@ namespace Haarlem_Festival.Controllers
                 }
 
                 if (orderRepository.ProcessOrder(orderItems, paymentData))
+                {
                     Session["CartTickets"] = new List<CartItem>();
+                    return Redirect(Url.Action("OrderSuccess", "Agenda", paymentData));
+                }
                 else
                     throw new Exception("whyyyyyyyyyyyy?");
             }
 
-            InitCart();
-            cartItems = (List<CartItem>)Session["CartTickets"];
-            List<CartItemViewModel> civmList = GenerateCartItemViewModels(cartItems);
-            return View(civmList);
+            return View();
+        }
+
+
+        public ActionResult OrderSuccess(PaymentData paymentData)
+        {
+            if (paymentData != null)
+                return View(paymentData);
+            else
+                return View();
         }
 
         private void InitCart()

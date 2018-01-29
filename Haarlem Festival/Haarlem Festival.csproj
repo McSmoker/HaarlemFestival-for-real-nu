@@ -353,6 +353,7 @@
     <Content Include="Views\Orders\AddOrderItem.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Agenda\Index.cshtml" />
+    <Content Include="Views\Agenda\OrderSuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
