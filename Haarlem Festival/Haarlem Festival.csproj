@@ -233,6 +233,7 @@
     <Content Include="Content\img\agenda\btn-ideal.jpg" />
     <Content Include="Content\img\agenda\btn-ideal.png" />
     <Content Include="Content\img\agenda\btn-paypal.png" />
+    <Content Include="Content\img\agenda\btn-paypal2.png" />
     <Content Include="Content\img\cart glyph white.png" />
     <Content Include="Content\img\cart glyph.png" />
     <Content Include="Content\img\home glyph white.png" />
