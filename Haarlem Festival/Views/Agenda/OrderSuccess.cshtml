@@ -1,0 +1,18 @@
+﻿@model Haarlem_Festival.Models.PaymentData
+@{
+    ViewBag.Title = "OrderSuccess";
+}
+<div class="agenda-big-block">
+    <div class="agenda-block-header">
+        <p class="block-header-title">Order success!</p>
+    </div>
+    <div class="agenda-table-wrap">
+        <p>
+            Thank you for ordering tickets.
+            <br />
+            The tickets you ordered have been sent to you e-mail at @Model.EmailAddress.
+            <br />
+            We hope you have a great time at the festival!
+        </p>
+    </div>
+</div>

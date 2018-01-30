@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Haarlem_Festival.ViewModels;
-using Haarlem_Festival.Repository;
+using Haarlem_Festival.Repositories;
 using Haarlem_Festival.Models;
 using System.IO;
 

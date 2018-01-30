@@ -1,0 +1,134 @@
+﻿@using Haarlem_Festival.ViewModels
+@model IEnumerable<Haarlem_Festival.ViewModels.CartItemViewModel>
+
+<div class="agenda-big-block">
+    <div class="agenda-block-header">
+        <p class="block-header-title">Haarlem Festival Agenda</p>
+    </div>
+    <div class="agenda-table-wrap">
+        <div class="agenda-table-row">
+            <span class="agenda-table-span-wrap">
+                <span class="agenda-table-day">Thursday July 26th</span>
+            </span>
+            <div class="agenda-table-row-half">
+                <span class="agenda-table-event-entry agenda-table-jazz-entry">Gumbo Kings</span>
+                <span class="agenda-table-event-halfhour"></span>
+                <span class="agenda-table-event-entry agenda-table-jazz-entry">Evolve</span>
+                <span class="agenda-table-event-halfhour"></span>
+                <span class="agenda-table-event-entry agenda-table-jazz-entry">Ntjam Rosie</span>
+            </div>
+            <div class="agenda-table-row-half">
+                <span class="agenda-table-event-halfhour"></span>
+                <span class="agenda-table-event-entry agenda-table-talking-entry">Giel Beelen meets Rob Tripp</span>
+            </div>
+        </div>
+        <div class="agenda-table-row">
+            <span class="agenda-table-span-wrap">
+                <span class="agenda-table-day">Friday July 27th</span>
+            </span>
+            <div class="agenda-table-row-half">
+                <span class="agenda-table-event-entry agenda-table-jazz-entry">Fox & The Mayors</span>
+                <span class="agenda-table-event-halfhour"></span>
+                <span class="agenda-table-event-entry agenda-table-jazz-entry">Ruis Soundsystem</span>
+                <span class="agenda-table-event-halfhour"></span>
+                <span class="agenda-table-event-entry agenda-table-jazz-entry">Chris Alain</span>
+            </div>
+            <div class="agenda-table-row-half">
+                <span class="agenda-table-event-halfhour"></span>
+                <span class="agenda-table-event-entry agenda-table-talking-entry">Femke Halsema meets Job Cohen</span>
+            </div>
+        </div>
+        <div class="agenda-table-row">
+            <span class="agenda-table-span-wrap">
+                <span class="agenda-table-day">Saturday July 28th</span>
+            </span>
+            <div class="agenda-table-row-half">
+                <span class="agenda-table-event-entry agenda-table-jazz-entry">Gare du Nord</span>
+                <span class="agenda-table-event-halfhour"></span>
+                <span class="agenda-table-event-entry agenda-table-jazz-entry">Rilan & the Bombardiers</span>
+                <span class="agenda-table-event-halfhour"></span>
+                <span class="agenda-table-event-entry agenda-table-jazz-entry">Lillith Merlot</span>
+            </div>
+            <div class="agenda-table-row-half">
+                <span class="agenda-table-event-halfhour"></span>
+                <span class="agenda-table-event-entry agenda-table-talking-entry">Paul Witteman meets Brigitte Kaandorp</span>
+            </div>
+        </div>
+        <div class="agenda-table-timeline">
+            <span class="agenda-table-timeline-unit"></span>
+            <span class="agenda-table-timeline-unit">18:00</span>
+            <span class="agenda-table-timeline-unit">18:30</span>
+            <span class="agenda-table-timeline-unit">19:00</span>
+            <span class="agenda-table-timeline-unit">19:30</span>
+            <span class="agenda-table-timeline-unit">20:00</span>
+            <span class="agenda-table-timeline-unit">20:30</span>
+            <span class="agenda-table-timeline-unit">21:00</span>
+            <span class="agenda-table-timeline-unit">21:30</span>
+            <span class="agenda-table-timeline-unit">22:00</span>
+        </div>
+    </div>
+</div>
+
+<div class="agenda-sc-block" id="checkout">
+    <div class="agenda-sc-block-header">
+        <p class="block-header-title">Shopping Cart</p>
+    </div>
+    <div class="agenda-cart-wrap">
+        <div class="agenda-cart-head">
+            <span class="ac-event">Event</span>
+            <span class="ac-date">Date</span>
+            <span class="ac-time">Time</span>
+            <span class="ac-location">Location</span>
+            <span class="ac-amount">Amount</span>
+            <span class="ac-price-head">Price per ticket</span>
+        </div>
+        <div id="agenda-shopping-cart-rows" class="agenda-cart-row-box">
+            @foreach (CartItemViewModel item in Model)
+            {
+                <div id="event-@item.EventId" class="agenda-cart-row">
+                    <span class="ac-event">@item.Performers()</span>
+                    <span class="ac-date">@item.EventDate</span>
+                    <span class="ac-time">@item.EventTime</span>
+                    <span class="ac-location">@item.LocationHall()</span>
+                    <span class="ac-amount">
+                        <input type="number" value="@item.Amount" min="0" oninput="validity.valid||(value='');" class="ac-amount-input" />
+                    </span>
+                    <span class="ac-price">@item.Price.ToString("€0.00")</span>
+                </div>
+            }
+        </div>
+        <div class="agenda-cart-head no-margin-top">
+            <span class="ac-event">Total:</span>
+            <span class="ac-date">&nbsp;</span>
+            <span class="ac-time">&nbsp;</span>
+            <span class="ac-location">&nbsp;</span>
+            <span class="ac-amount">&nbsp;</span>
+            <span id="price-total" class="ac-price-head">€0,00</span>
+        </div>
+    </div>
+</div>
+
+<div class="agenda-payment-block" id="checkout">
+    <div class="agenda-payment-block-header">
+        <p class="block-header-title">Shopping Cart</p>
+    </div>
+    <div class="agenda-payment-wrap">
+        <form action="/Agenda/Index" method="post">
+            <p class="agenda-payment-p">Please enter your e-mail address. The tickets will be sent to the entered e-mail address after completing the payment.</p>
+            <label for="agenda-email">E-mail address:</label>
+            <input type="email" class="agenda-payment-email" placeholder="email@domain.com" name="EmailAddress" />
+            <br />
+            <p>Please select a payment option:</p>
+            <div class="margin-bot-10">
+                <input type="radio" class="agenda-payment-radio" id="ideal" name="PaymentMethod" value="IDeal" />
+                <label for="ideal"><img src="~/Content/img/agenda/btn-ideal.png" class="payment-button" /></label>
+            </div>
+            <div>
+                <input type="radio" class="agenda-payment-radio" id="paypal" name="PaymentMethod" value="PayPal" />
+                <label for="paypal"><img src="~/Content/img/agenda/btn-paypal2.png" class="payment-button" /></label>
+            </div>
+
+            <input type="submit" class="action-btn payment-action-btn" value="Continue to payment" />
+        </form>
+    </div>
+</div>

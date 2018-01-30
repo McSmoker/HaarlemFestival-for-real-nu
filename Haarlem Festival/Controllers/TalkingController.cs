@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Haarlem_Festival.Models;
 using Haarlem_Festival.Interfaces;
-using Haarlem_Festival.Repository;
+using Haarlem_Festival.Repositories;
 
 namespace Haarlem_Festival.Controllers
 {

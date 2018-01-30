@@ -40,7 +40,7 @@
     </ul>
     @RenderBody()
     <footer>
-        <p>&copy; @DateTime.Now.Year | Obi-Wan Pagers inc.</p>
+        <p>&copy; @DateTime.Now.Year | Obi-Wan Pagers inc. | @Html.ActionLink("Management Login", "Index", "Login")</p>
     </footer>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

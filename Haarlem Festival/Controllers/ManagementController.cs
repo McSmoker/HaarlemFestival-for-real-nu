@@ -10,7 +10,7 @@ using System.Web.Mvc.Html;
 using System.IO;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Haarlem_Festival.Repository;
+using Haarlem_Festival.Repositories;
 
 namespace Haarlem_Festival.Controllers
 {

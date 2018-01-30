@@ -5,57 +5,69 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using Haarlem_Festival.Models;
+using Haarlem_Festival.Repositories;
 
 namespace Haarlem_Festival.Controllers
 {
     public class OrdersController : Controller
     {
-        private HaarlemFestivalDB db = new HaarlemFestivalDB();
+        private IJazzRepository jazzRepository = new JazzRepository();
         private List<CartItem> cartTickets;
-        // GET: AddOrder
+
+        // Deze action wordt alleen benaderd dmv een Ajax call vanuit ShoppingCart.js
         [HttpPost]
         public ActionResult AddJazzTicketToCart(Jazz clickedTicket)
         {
-            Jazz clickedEvent = db.Jazz.Include(j => j.Artist).SingleOrDefault(c => c.EventId == clickedTicket.EventId);
+            // Gegevens van het aangeklikte jazz event ophalen
+            Jazz clickedEvent = jazzRepository.GetSingleEvent(clickedTicket.EventId);
 
-            if (Session["CartTickets"] != null)
-                cartTickets = (List<CartItem>)Session["CartTickets"];
-            else
-                cartTickets = new List<CartItem>();
-
-            var ticketAlreadyInCart = cartTickets.Where(t => t.JazzEvent.EventId == clickedEvent.EventId);
-
-            if (ticketAlreadyInCart.ToList().Count == 0)
+            if (clickedEvent != null)
             {
-                CartItem ticket = new CartItem
+                // Haal de tickets op uit de sessie (indien aanwezig)
+                cartTickets = GetCart();
+
+                var isTicketAlreadyInCart = cartTickets.Where(t => t.JazzEvent.EventId == clickedEvent.EventId);
+
+                if (isTicketAlreadyInCart.ToList().Count == 0)
                 {
-                    JazzEvent = clickedEvent,
-                    Amount = 1,
-                    TicketType = TicketType.Single
-                };
+                    CartItem ticket = new CartItem
+                    {
+                        JazzEvent = clickedEvent,
+                        Amount = 1,
+                        TicketType = TicketType.Single
+                    };
 
-                cartTickets.Add(ticket);
+                    cartTickets.Add(ticket);
 
-                Session["CartTickets"] = cartTickets;
+                    // Sla de huidige lijst cartTickets op in sessie variabele
+                    Session["CartTickets"] = cartTickets;
 
-                return Json(new
-                {
-                    clickedEvent.EventId,
-                    clickedEvent.Artist.PerformerName,
-                    LocationHall = FormatEventLocationHall(clickedEvent.Location, clickedEvent.Hall),
-                    EventDate = clickedEvent.EventStart.ToShortDateString(),
-                    EventTime = FormatEventTime(clickedEvent.EventStart, clickedEvent.EventEnd),
-                    ticket.Amount,
-                    clickedEvent.Price
-                });
+                    // Stuur de voor View benodigde CartItem details terug als JSON object zodat jquery dit naar html kan vertalen en tonen
+                    return Json(new
+                    {
+                        clickedEvent.EventId,
+                        clickedEvent.Artist.PerformerName,
+                        LocationHall = FormatEventLocationHall(clickedEvent.Location, clickedEvent.Hall),
+                        EventDate = clickedEvent.EventStart.ToShortDateString(),
+                        EventTime = FormatEventTime(clickedEvent.EventStart, clickedEvent.EventEnd),
+                        ticket.Amount,
+                        clickedEvent.Price
+                    });
+                }
+                else
+                    return Json(new
+                    {
+                        alreadyAdded = true
+                    });
             }
             else
                 return Json(new
                 {
-                    fail = true
+                    eventDoesNotExist = true
                 });
         }
 
+        // Deze action wordt alleen benaderd dmv een Ajax call vanuit ShoppingCart.js
         [HttpPost]
         public ActionResult ChangeTicketAmount(CartItem changedTicket)
         {
@@ -94,6 +106,8 @@ namespace Haarlem_Festival.Controllers
                 });
         }
 
+        // Deze functionaliteit werkt half. We hebben niet goed genoeg nagedacht over hoe een passepartout ticket zou moeten worden opgeslagen.
+        // Kunnen namelijk geen passe partout ticket opslaan in een CartItem zonder aan CartItem talloze 'dubbele' properties mee te moeten geven.
         //[HttpPost]
         //public ActionResult AddPassePartoutTicketToCart(string passePartoutType)
         //{
@@ -153,5 +167,16 @@ namespace Haarlem_Festival.Controllers
         {
             return eventStart.ToShortTimeString() + " - " + eventEnd.ToShortTimeString();
         }
+        
+        private List<CartItem> GetCart()
+        {
+            if (Session["CartTickets"] != null)
+                cartTickets = (List<CartItem>)Session["CartTickets"];
+            else
+                cartTickets = new List<CartItem>();
+
+            return cartTickets;
+        }
+
     }
 }

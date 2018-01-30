@@ -154,19 +154,63 @@ footer {
 .home-block {
     float: left;
     position: relative;
-    /*width: 700px;
-    height: 430px;*/
-}
-
-.home-event-image {
+    
+    background-size: 700px 430px;
     width: 700px;
     height: 430px;
 }
 
+    .home-block > img {
+        transition: background-color 0.5s ease;
+    }
+
+        .home-block > img:hover {
+            background-color: rgb(255,255,255);
+            background-color: rgba(255,255,255,0.5);
+        }
+
 .home-title-image {
-    position: absolute;
-    top: 40px;
-    left: 0;
+    display:block;
+    margin:20px auto 0 auto;
+}
+
+.home-block > a {
+    display: inline-block;
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255,0,0,0.07);
+    transition: background-color 0.5s ease;
+}
+
+    .home-block > a:hover {
+        background-color: rgb(255,255,255);
+        background-color: rgba(255,255,255,0.3);
+    }
+
+.home-more-info {
+    display: block;
+    margin: 245px auto 0 auto;
+}
+/*#home-historic, #home-dinner, #home-jazz, #home-talking {
+    width: 700px;
+    height: 430px;
+}*/
+
+#home-historic {
+    background-image: url('img/home/home historic.jpg');
+}
+
+#home-dinner {
+    background-image: url('img/home/home dinner.jpg');
+}
+
+#home-jazz {
+    background-image: url('img/home/home jazz.jpg');
+}
+
+#home-talking {
+    background-image: url('img/home/home talking.jpg');
 }
 
 /*//////////////////////////////////////*/
@@ -501,6 +545,10 @@ Miscellaneous
     float: right;
 }
 
+.no-margin-top{
+    margin-top:0 !important;
+}
+
 /*TALKING*/
 .speaker-block {
     margin: 0 20px 20px 0;
@@ -531,4 +579,225 @@ Miscellaneous
     margin: 12px 15px;
     padding: 0;
     float: left;
+}
+
+/*AGENDA*/
+.agenda-big-block, .agenda-sc-block, .agenda-payment-block {
+    margin: 0 0 20px 0;
+    height: 430px;
+    background-color: #F2F2F2;
+    display: block;
+    float: left;
+}
+
+.agenda-big-block {
+    width: 1420px;
+}
+
+.agenda-table-wrap {
+    width: 1400px;
+    margin: 0 auto;
+}
+
+.agenda-table-row {
+    height: 95px;
+    margin: 10px 0;
+    background-color: rgb(215, 215, 215);
+}
+
+.agenda-table-day {
+    width: 175px;
+    line-height:95px;
+    font-size: 18px;
+    display:block;
+    text-align:center;
+    float:left;
+}
+
+.agenda-table-row-half {
+    height: 45px;
+    width: 1225px;
+    align-items: center;
+    float: left;
+    margin-bottom: 5px;
+}
+
+.agenda-table-event-entry, .agenda-table-event-halfhour {
+    width: 270px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 14px;
+    text-align: center;
+    display: block;
+    float: left;
+}
+
+.agenda-table-event-halfhour{
+    width:130px;
+    margin-left:5px;
+}
+
+.agenda-table-jazz-entry{
+    background-color:rgba(255,0,0,0.3);
+}
+
+.agenda-table-talking-entry {
+    background-color: rgba(255,255,0,0.3);
+}
+
+.agenda-table-timeline {
+    width: 1400px;
+    height: 35px;
+    line-height: 35px;
+    background-color: rgb(215, 215, 215);
+    display: block;
+}
+
+.agenda-table-timeline-unit {
+    width: 135px;
+    height: 35px;
+    line-height: 35px;
+    display: block;
+    float: left;
+    font-weight: bold;
+}
+
+.agenda-table-timeline-unit:first-of-type{
+    width:175px;
+}
+
+.agenda-sc-block {
+    width: 845px;
+    margin-right:20px;
+}
+
+.agenda-payment-block{
+    width:555px;
+}
+
+.agenda-block-header, .agenda-sc-block-header, .agenda-payment-block-header {
+    height: 52px;
+    background-color: #666666;
+    margin: 8px 0 0 8px;
+    display: block;
+}
+
+.agenda-block-header {
+    width: 1404px;
+}
+
+.agenda-sc-block-header {
+    width: 829px;
+}
+
+.agenda-payment-block-header {
+    width:539px;
+}
+
+.agenda-payment-wrap {
+    margin: 0 30px;
+}
+
+.agenda-block {
+    margin: 0 0 20px 0;
+    width: 700px;
+    height: 430px;
+    background-color: #F2F2F2;
+    display: block;
+    float: left;
+}
+
+.agenda-margin-right{
+    margin-right:20px;
+}
+
+.agenda-cart-wrap {
+    width: 815px;
+    margin: 0 15px;
+    float:left;
+    display:block;
+}
+
+.agenda-cart-row-box {
+    width: 815px;
+    height: 274px;
+    overflow-y: scroll;
+}
+
+.agenda-cart-head, .agenda-cart-row {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 10px;
+    border-bottom: 1px solid black;
+}
+
+.agenda-cart-head {
+    margin-top: 5px;
+    font-weight: bold;
+    background-color: rgb(215, 215, 215);
+}
+
+.agenda-cart-row {
+    background-color: rgb(231, 231, 231);
+}
+
+.ac-event, .ac-date, .ac-time, .ac-location, .ac-amount, .ac-price, .ac-price-head {
+    display: block;
+    font-size: 14px;
+    float: left;
+}
+
+.ac-event {
+    width: 270px;
+}
+
+.ac-date {
+    width: 90px;
+}
+
+.ac-time {
+    width: 100px;
+}
+
+.ac-location {
+    width: 165px;
+}
+
+.ac-amount {
+    width: 70px;
+}
+
+.ac-amount-input {
+    width: 35px;
+}
+
+.ac-price{
+    width: 50px;
+}
+
+.ac-price-head {
+    width:110px;
+}
+
+.agenda-payment-p{
+    width:inherit;
+}
+
+.payment-button{
+    width:210px;
+    height:70px;
+}
+
+.payment-action-btn{
+    margin-top:22px;
+    width:495px !important;
+}
+
+.agenda-payment-radio {
+    margin-top: -65px;
+    vertical-align: middle;
+}
+
+.margin-bot-10{
+    margin-bottom:10px;
 }
