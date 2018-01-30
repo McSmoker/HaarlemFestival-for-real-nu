@@ -722,3 +722,4 @@ E:\Project HF\Haarlem Festival\obj\Debug\Haarlem Festival.csproj.GenerateResourc
 E:\Project HF\Haarlem Festival\obj\Debug\Haarlem Festival.csproj.CoreCompileInputs.cache
 E:\Project HF\Haarlem Festival\obj\Debug\Haarlem Festival.dll
 E:\Project HF\Haarlem Festival\obj\Debug\Haarlem Festival.pdb
+C:\Users\Gebruiker\Source\Repos\HaarlemFestival-for-real-nu\Haarlem Festival\obj\Debug\Haarlem Festival.csprojResolveAssemblyReference.cache
